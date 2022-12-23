@@ -88,7 +88,7 @@ Example of the minimum requirements of the configuration file:
 }
 ```
 
-Below is a *mostly* comprehensive list of all items that can be added to **config.json**. Remember that all items in the file must be in JSON format, which includes making sure that quotes and other characters get escaped properly. **An extensive example of config.json is provided at the very bottom of this page** if you wish to see how all these items will be structured.
+Below is a list of all items that can be added to **config.json**. **An extensive example of config.json is provided at the very bottom of this page** if you wish to see how all these items will be structured.
 
 * Module **name**
 * Module  **description**
