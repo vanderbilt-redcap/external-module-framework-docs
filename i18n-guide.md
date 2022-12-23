@@ -34,7 +34,7 @@ my_awsome_module_v1.0
 +- README.md
 ```
 
-`English.ini` is a standard configuration file that must be parsable by PHP's `parse_ini_file()` function (see documentation and example configuration files [here](https://www.php.net/manual/en/function.parse-ini-file.php)). Keep in mind that `parse_ini_file()` does not work when certain reserved words are used as keys (ex: yes, no, true, false, on, off).  Basically, it looks like this:
+`English.ini` is a standard configuration file that must be parsable by PHP's `parse_ini_file()` function (see documentation and example configuration files [here](https://www.php.net/manual/en/function.parse-ini-file.php)). Keep in mind that `parse_ini_file()` does not work when certain reserved words are used as keys (e.g. yes, no, true, false, on, off).  Basically, it looks like this:
 
 ```ini
 ; This is a comment.

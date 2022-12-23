@@ -11,7 +11,7 @@ If you have created a module and wish to share it with the REDCap community, you
 Modules must follow a specific naming scheme for the module directory that will sit on the REDCap web server. Each version of a module will have its own directory (like REDCap) and will be located in the `/redcap/modules/` directory on the server. A module directory name consists of three parts: 
 1. A **unique name** (so that it will not duplicate any one else's module in the consortium) in [snake case](https://en.wikipedia.org/wiki/Snake_case) format
 1. "_v" (an underscore followed by the letter "v")
-1. A **module version number**.  [Semantic Versioning](https://semver.org/) is recommended (ex: `1.2.3`), although simpler `#.#` versioning is also supported (ex: `1.2`).
+1. A **module version number**.  [Semantic Versioning](https://semver.org/) is recommended (e.g. `1.2.3`), although simpler `#.#` versioning is also supported (e.g. `1.2`).
 
 The diagram below shows the general directory structure of some hypothetical  modules to illustrate how modules will sit on the REDCap web server alongside other REDCap files and directories.
 
@@ -32,7 +32,7 @@ redcap
 
 The display name for a module can be safely renamed at any time by updating the `name` in `config.json` (as documented later).  The module directory name on the system may also be changed at any time.  Module specific URLs changing is typically the only side effect, but directory renames should still be tested in a non-production environment first to make sure all module features still work as expected.  To rename a module directory, follow these steps:
 1. Deploy the module (to all web nodes if there are multiple) under the new directory name (prefix) with a version suffix that matches the version currently enabled on the system.
-    - This new deployment can contain code changes as well (ex: renaming the module in `config.json`, renaming the module's main class, etc.)
+    - This new deployment can contain code changes as well (e.g. renaming the module in `config.json`, renaming the module's main class, etc.)
 1. Run the following query:
     ```
     update redcap_external_modules
@@ -100,8 +100,8 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 	* A **name** to be displayed on the site
    * A **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.
 	* An **icon**
-		* For framework version 3 and later, the **icon** must either be the [Font Awesome](https://fontawesome.com/icons?d=gallery) classes (ex: `fas fa-user-friends`) or a path to an icon file within the module itself (ex: `images/my-icon.png`).
-		* For framework versions prior to 3, the filename of a REDCap icon in the `Resources/images` folder must be specified without the extension (ex: `user_list`).  This is deprecated because those icons are no longer used by REDCap itself, and may be modified or removed at any time.
+		* For framework version 3 and later, the **icon** must either be the [Font Awesome](https://fontawesome.com/icons?d=gallery) classes (e.g. `fas fa-user-friends`) or a path to an icon file within the module itself (e.g. `images/my-icon.png`).
+		* For framework versions prior to 3, the filename of a REDCap icon in the `Resources/images` folder must be specified without the extension (e.g. `user_list`).  This is deprecated because those icons are no longer used by REDCap itself, and may be modified or removed at any time.
 	* A **url** either in the local directory or external to REDCap. External links need to start with either 'http://' or 'https://'. Javascript links are also supported; these need to start with 'javascript:' and may only use single quotes.
    * A **target** that will be used for the 'target' attribute of the rendered a tag.
 * **system-settings** specify settings configurable at the system-wide level (this Control Center).  Settings do NOT have to be defined in config.json to be used programmatically.  
