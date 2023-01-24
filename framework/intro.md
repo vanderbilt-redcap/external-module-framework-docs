@@ -27,8 +27,8 @@ Modules will only work on REDCap versions that support their `framework-version`
 
 |Framework Version |First Standard Release|First LTS Release|
 |---------------------|-------|-------|
-|[Version 12](v12.md) |TBD    |TBD    |
-|[Version 11](v11.md) |12.5.9 |TBD    |
+|[Version 12](v12.md) |13.1.0 |13.1.5 |
+|[Version 11](v11.md) |12.5.9 |13.1.5 |
 |[Version 10](v10.md) |12.4.1 |12.4.6 |
 |[Version 9](v9.md)   |12.0.4 |12.0.8 |
 |[Version 8](v8.md)   |11.1.1 |11.1.5 |
