@@ -46,7 +46,7 @@ The display name for a module can be safely renamed at any time by updating the 
 
 ### Module requirements
 
-**Every module must have two files at the minimum:** 1) the module's PHP class file, in which the file name will be different for every module (e.g., `MyModuleClass.php`), and 2) a configuration file (`config.json`). The config file must be in JSON format, and must always be explictly named "*config.json*". The config file will contain all the module's basic configuration, such as its title, author information, module permissions, and many other module settings. The module class file houses the basic business logic of the module, and it can be named whatever you like so long as the file name matches the class name (e.g., Votecap.php contains the class Votecap).
+To function, a module requires both a `config.json` file, and a PHP module class file (e.g., `MyAwesomeModule.php`).  For submission to [The Repo](https://redcap.vanderbilt.edu/consortium/modules/), `LICENSE` and `README` files are also required.  The `README` is most often in Markdown (`.md`) file format.  The `config.json` file will contain all the module's basic configuration (display name, author information, configuration dialog settings, etc.). The PHP module class file generally houses most of the business logic for the module.  It can be named whatever you like so long as its file name, PHP class name, and the last portion of the namespace in `config.json` all match.
 
 #### 1) Module class
 
