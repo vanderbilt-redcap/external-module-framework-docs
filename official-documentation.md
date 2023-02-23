@@ -404,16 +404,15 @@ For example, let's say we have a cron that runs once a minute (a `cron_frequency
 Using methods like `$module->getProjectId()` will not work by default inside a cron because crons do not run in a project context.  Here is one common way of simulating a project context in a cron method:
 ```
 function cron($cronInfo){
-	$originalPid = $_GET['pid'];
-
 	foreach($this->getProjectsWithModuleEnabled() as $localProjectId){
+		$this->setProjectId($localProjectId);
+
+		// If setProjectId() is not available in your REDCap version, the following will have the same effect:
 		$_GET['pid'] = $localProjectId;
 
 		// Project specific method calls go here.
+		$someValue = $this->getProjectSetting('some_key');
 	}
-
-	// Put the pid back the way it was before this cron job (likely doesn't matter, but is good housekeeping practice)
-	$_GET['pid'] = $originalPid;
 
 	return "The \"{$cronInfo['cron_description']}\" cron job completed successfully.";
 }
@@ -554,7 +553,9 @@ If you would like to create a library to share between multiple modules, [compos
 
 ### Unit Testing
 
-Standard PHPUnit unit testing is supported within modules.  If anyone is interested in collaborating to add support for javascript unit testing as well, please let us know.  PHP test classes can be added under the `tests` directory in your module as follows.
+Standard PHPUnit unit testing is supported within modules.  While testing, project & system settings will automatically be stored in and retrieved from memory instead of the database, and values will be cleared between tests.  To bypass this behavior, see the `disableTestSettings()` method documented below.
+
+If anyone is interested in collaborating to add support for javascript unit testing as well, please let us know.  PHP test classes can be added under the `tests` directory in your module as follows.
 
 ```php
 <?php namespace YourNamespace\YourExternalModule;
@@ -577,17 +578,11 @@ class YourExternalModuleTest extends \ExternalModules\ModuleBaseTest
 }
 ```
 
-### Taint Analysis
-
-Running <a href="https://psalm.dev/docs/security_analysis/">Security Analysis in Psalm</a> helps to identify potential vulnerabilities. For running Psalm locally it is necessary to take an additional step. Otherwise Taint Analysis will not be accurate (<a href="https://github.com/vimeo/psalm/issues/6156">Github Issue</a>).
-
-To ensure Psalm Taint Analysis is accurate below configuration can be added in a psalm.xml file.
-
-```xml
-<extraFiles>
- <directory name="../../redcap_*/ExternalModules/classes" />
-</extraFiles>
-```
+The `ModuleBaseTest` provides following methods:
+Method | Description
+-- | --
+assertThrowsException() | A convenience method that allows for asserting multiple actions causing exceptions within a single test method.
+disableTestSettings() | While not recommended, this method may be used to bypass in-memory settings during the current test, and read/write to/from the database instead.
 
 ### Example config.json file
 
