@@ -80,7 +80,6 @@ resetSurveyAndGetCodes(<br>&emsp;$projectId, $recordId<br>&emsp;[, $surveyFormNa
 sanitizeAPIToken($token) | 12.2.5 | Removes any characters that are not numbers or uppercase letters A-F, and returns the resulting string.
 saveMetadata($pid, $metadata[, $preventLogging=false]) | 10.3.1 | Given a project id and a metadata array, expected format returned by dataDictionaryCSVToMetadataArray(), saves the metadata. The `$preventLogging` argument prevents logging the metadata changes, and by default is false.
 setDAG($record, $groupId) | 8.0.0 | Sets the DAG for the given record ID to given Group ID number.
-setData($record, $fieldName, $values) | 8.0.0 | Sets the data for the given record and field name to the specified value or array of values.
 setProjectId($projectId) | 13.4.2 | Sets the current project ID to be used for all module framework functionality.  REDCap core classes are NOT guaranteed to respect this call.
 setProjectSetting($key,&nbsp;$value&nbsp;[,&nbsp;$pid]) | 8.0.0 | Sets the setting specified by the key to the specified value for this project.  In most cases the project id can be detected automatically, but it can optionally be specified as a parameter instead.  This method is NOT restricted to settings that exist in `config.json`.
 setProjectSettings($settings[, $pid]) | 9.10.0 | Saves all project settings (to be used with getProjectSettings).  Useful for cases when you may create a custom config page or need to overwrite all project settings for an external module. Note: Due to a bug, this method was broken (did nothing) in framework versions <5.
@@ -101,39 +100,34 @@ Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | ---
 ~~hasPermission($permissionName)~~ | 8.0.0 | Checks whether the current External Module has permission for $permissionName.  This method was deprecated because it is not helpful to module authors (only the framework internally).
 ~~saveFile($filePath[, $pid])~~ | 8.0.0 | Saves a file and returns the new edoc ID.  This method was deprecated because:<br> - It deletes the file passed into it.<br> - It does not check the existence of the file passed into it, but instead returns an edoc ID of zero when a file doesn't exist (an exception would likely be more appropriate).<br> - It does not provide a way to save the new edoc ID to a field.<br><br>[Issue #356](https://github.com/vanderbilt/redcap-external-modules/issues/356) was created to track ideas for more complete solutions.
+~~setData($record, $fieldName, $values)~~ | 8.0.0 | Sets the data for the given record and field name to the specified value or array of values.  This method was deprecated because there are many cases it does not handle. It was a first draft of an idea that never matured.
 
 <h4 id='em-hooks'>Hooks provided by External Modules</h4>
 There are a few extra hooks dedicated for modules use:
 
-Method<br><br>&nbsp; | Description<br><br>&nbsp;
---- | ---
-redcap_module_ajax($action, $payload, $project_id, $record, $instrument, $event_id, $repeat_instance, $survey_hash, $response_id, $survey_queue_hash, $page, $page_full, $user_id, $group_id) | Triggered by calling the `ajax()` method of the _Javascript Module Object_. `$action` (must be a string) and `$payload` are the parameters submitted to `module.ajax()`; the other parameters give context information that, when set, can be trusted to be correct (as with REDCap hooks). Allowed actions (in authenticated and non-authenticated contexts) must be explicitly declared in `config.json` through the _auth-ajax-actions_ and _no-auth-ajax-actions_ settings (arrays of strings), respectively.
-redcap_module_configuration_settings($project_id, $settings) | Triggered when the system or project configuration dialog is displayed for a given module.  This hook allows modules to dynamically modify and return the settings that will be displayed.
-redcap_module_system_enable($version) | Triggered when a module gets enabled on Control Center.
-redcap_module_system_disable($version) | Triggered when a module gets disabled on Control Center.
-redcap_module_system_change_version($version, $old_version) | Triggered when a module version is changed.
-redcap_module_project_enable($version, $project_id) | Triggered when a module gets enabled on a specific project.
-redcap_module_project_disable($version, $project_id) | Triggered when a module gets disabled on a specific project.
-redcap_module_configure_button_display() | Triggered when each enabled module defined is rendered.  Return `null` if you don't want to display the Configure button and `true` to display.
-redcap_module_link_check_display($project_id, $link) | Triggered when each link defined in `config.json` is rendered, allowing link visibility to be controlled dynamically.  This method also controls whether pages will load if their URL is accessed directly.  Override this method and return `null` to prevent a given link from displaying, or modify and return the `$link` parameter as desired. The `$link` parameter is an array matching the link definition in `config.json` with an additional `url` value added.
-redcap_module_save_configuration($project_id) | Triggered after a module configuration is saved.
-redcap_module_import_page_top($project_id) | Triggered at the top of the Data Import Tool page.
+Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
+--- | --- | ---
+redcap_module_ajax($action, $payload, $project_id, $record, $instrument, $event_id, $repeat_instance, $survey_hash, $response_id, $survey_queue_hash, $page, $page_full, $user_id, $group_id) | 12.5.9 | Triggered by calling the `ajax()` method of the _Javascript Module Object_. `$action` (must be a string) and `$payload` are the parameters submitted to `module.ajax()`; the other parameters give context information that, when set, can be trusted to be correct (as with REDCap hooks). Allowed actions (in authenticated and non-authenticated contexts) must be explicitly declared in `config.json` through the _auth-ajax-actions_ and _no-auth-ajax-actions_ settings (arrays of strings), respectively.
+redcap_module_configuration_settings($project_id, $settings) | 11.0.0 | Triggered when the system or project configuration dialog is displayed for a given module.  This hook allows modules to dynamically modify and return the settings that will be displayed.
+redcap_module_system_enable($version) | 9.0.0 | Triggered when a module is enabled or changed to a different version in Control Center.  It is not recommended to use this hook as a primary means of determining when to transition modified module settings, as there are many edge cases that could conflict with such logic (e.g. temporarily downgrading a module).  It is instead recommended to transition settings based solely on the state of the values currently stored.
+redcap_module_system_disable($version) | 9.0.0 | Triggered when a module gets disabled on Control Center.
+~~redcap_module_system_change_version($version, $old_version)~~ | 9.0.0 | This hook is no longer used.  Since REDCap 12.0.4 the `redcap_module_system_enable()` hook has been called in its place. See [this community post](https://redcap.vanderbilt.edu/community/post.php?id=142034) for details.
+redcap_module_project_enable($version, $project_id) | 9.0.0 | Triggered when a module gets enabled on a specific project.
+redcap_module_project_disable($version, $project_id) | 9.0.0 | Triggered when a module gets disabled on a specific project.
+redcap_module_configure_button_display() | 9.0.0 | Triggered when each enabled module defined is rendered.  Return `null` if you don't want to display the Configure button and `true` to display.
+redcap_module_link_check_display($project_id, $link) | 9.0.0 | Triggered when each link defined in `config.json` is rendered, allowing link visibility to be controlled dynamically.  This method also controls whether pages will load if their URL is accessed directly.  Override this method and return `null` to prevent a given link from displaying, or modify and return the `$link` parameter as desired. The `$link` parameter is an array matching the link definition in `config.json` with an additional `url` value added.
+redcap_module_save_configuration($project_id) | 9.0.0 | Triggered after a module configuration is saved.
+redcap_module_import_page_top($project_id) | 9.0.0 | Triggered at the top of the Data Import Tool page.
 Examples: 
 ``` php
 <?php
 
 function redcap_module_system_enable($version) {
-    // Do stuff, e.g. create DB table.
-}
-
-function redcap_module_system_change_version($version, $old_version) {
-    if ($version == 'v2.0') {
-        // Do stuff, e.g. update DB table.
-    }
+    // Do stuff
 }
 
 function redcap_module_system_disable($version) {
-    // Do stuff, e.g. delete DB table.
+    // Do stuff
 }
 ```
 
