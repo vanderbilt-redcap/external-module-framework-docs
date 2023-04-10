@@ -67,17 +67,20 @@ A module's class name can be named whatever you wish. The module class file must
 
 #### 2) Configuration file
 
-The file `config.json` provides all the basic configuration information for the module in JSON format. At the minimum, the config file must have the following defined: **name, namespace, description, and authors**. `name` is the module title, and `description` is the longer description of the module (typically between one sentence and a whole paragraph in length), both of which are displayed in the module list on the module manager page. Regarding `authors`, if there are several contributors to the module, you can provide multiple authors whose names get displayed below the module description on the Control Center's module manager page.
+The file `config.json` provides all the basic configuration information for the module in JSON format. This file must define the following: **name, namespace, description, framework-version, and authors**. The `name` is the module title.  The `description` summarizes what the module does (typically a sentance or short paragraph).  The `authors` section documents the primary contact for the module, followed by anyone else who aided in its creation.  All of this information is displayed in the [Repo](https://redcap.vanderbilt.edu/consortium/modules/) and on the module management page in Control Center.
 
-The PHP `namespace` of your module class must also be specified in the config file, and it must have a sub-namespace. Thus the overall namespace consists of two parts. The first part is the main namespace, and the second part is the sub-namespace. **It is required that the sub-namespace matches the module's class name (e.g., MyModuleClass).** The first part of the namespace can be any name you want, but you might want to use the name of your institution as a way of grouping the modules that you and your team create (e.g., `namespace Vanderbilt\VoteCap;`). That's only a suggestion though. Using namespacing with sub-namespacing in this particular way helps prevent against collisions in PHP class naming when multiple modules are being used in REDCap at the same time. 
+The `namespace` is the PHP namespace used in your module class, and helps prevent collisions between classes, functions, and constants defined by different modules. Module namespaces consist of at least two parts separated by backslashes. The first part is typically the name of the organization that created the module, while the second is typically the module's name.  **It is required that the last part of the namespace match the module's class name, as is common in [composer](https://getcomposer.org/) libraries.**
 
-Example of the minimum requirements of the configuration file:
+The `framework-version` exists solely for backward compatibility when breaking changes to the module framework are made.  For new modules, it is recommended to set this to the latest framework version supported by the current REDCap LTS version as documented at the bottom of [this page](framework/intro.md).  That page also contains more details on framework versioning in general.
+
+Here's an example of the minimum requirements for `config.json`:
 
 ``` json
 {
    "name": "Example Module",
    "namespace": "MyModuleNamespace\\MyModuleClass", 
    "description": "This is a description of the module, and will be displayed below the module name in the user interface.",
+   "framework-version": 10,
    "authors": [
        {
             "name": "Jon Snow",
