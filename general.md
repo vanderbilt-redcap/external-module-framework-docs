@@ -1,7 +1,5 @@
 ## External Module Framework - Official Documentation
 
-**[Click here](methods.md) for method documentation.**
-
 "External Modules" is a class-based framework for plugins and hooks in REDCap. Modules can utilize any of the "REDCap" class methods (e.g., \REDCap::getData), and they also come with many other helpful built-in methods to store and manage settings for a given module, as well as provide support for internationalization (translation of displayed strings) of modules. The documentation provided on this page will be useful for anyone creating an external module.
 
 If you have created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
@@ -99,7 +97,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * Grant **permissions** for all of the operations, including hooks (e.g., **redcap_save_record**).
 * The **framework-version** version used by the module ([click here](framework/intro.md) for details).
-* **links** specify any links to show up on the left-hand toolbar. These include stand-alone webpages (substitutes for plugins) or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods.md#em-hooks) for details).  A **link** consists of:
+* **links** specify any links to show up on the left-hand toolbar. These include stand-alone webpages (substitutes for plugins) or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
 	* A **name** to be displayed on the site
    * A **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.
 	* An **icon**
@@ -246,7 +244,7 @@ By default, every page hooks will only execute on project specific pages (and on
 `"enable-every-page-hooks-on-system-pages": true`
 
 ##### Extra hooks provided by External Modules
-[Click here](methods.md#em-hooks) for a few extra hooks dedicated for modules use.
+[Click here](methods/README.md#em-hooks) for a few extra hooks dedicated for modules use.
 
 <br/>
 ### How to create plugin pages for your module
@@ -343,20 +341,20 @@ $value = $module->getProjectSetting('my-project-setting');
 
 The External Modules framework provides objects representing a module, both in **PHP** and **JavaScript**.
 
-The publicly supported methods that module creators may utilize depend on the framework version they opt into via the configuration file and are documented [here](methods.md).
+The publicly supported methods that module creators may utilize depend on the framework version they opt into via the configuration file and are documented [here](methods/README.md).
 
 **Attention!** Modules should _not_ reference any other methods or files that exist in the External Modules framework (like the *ExternalModules* class) as they could change at any time. If a method you believe should be supported by these module objects is missing, please feel free add it via a pull request.  Email mark.mcever@vumc.org in order to gain access to the [External Module Framework GitHub Repo](https://github.com/vanderbilt/redcap-external-modules).
 
 ### Logging from module code
 
-The External Modules framework provides mechanism to log to the `redcap_external_modules_log` and `redcap_external_modules_log_parameters` tables. See the PHP and JavaScript versions of the `log()` method [here](methods.md).
+The External Modules framework provides mechanism to log to the `redcap_external_modules_log` and `redcap_external_modules_log_parameters` tables. See the PHP and JavaScript versions of the `log()` method [here](methods/README.md).
 
 
 
 
 ### Making requests from JavaScript to modules
 
-The External Module framework provides the `ajax()` method on the _Javascript Module Object_ (see [documentation](methods.md#em-jsmo)), which can be used to make server requests to the module. The module must process the request in the `redcap_module_ajax` hook and (optionally) return a response (see [documentation](methods.md#em-hooks)).
+The External Module framework provides the `ajax()` method on the _Javascript Module Object_ (see [documentation](methods/README.md#em-jsmo)), which can be used to make server requests to the module. The module must process the request in the `redcap_module_ajax` hook and (optionally) return a response (see [documentation](methods/README.md#em-hooks)).
 
 ```js
 module.ajax('action', payload).then(function(response) {

@@ -156,7 +156,7 @@ Argument | Description
 
 ### 5. Using strings from language files in JavaScript
 
-To facilitate translatability of strings used in JavaScript files, the EM framework provides utility functions to shuttle language strings from PHP to JavaScript. These strings can then be accessed in JavaScript code through a `tt()` function exposed in the module's _**JavaScript Module Object**_. This function behaves exactly the same as it's PHP counterpart. Please see the [method documentation](methods.md) for more details on how to create and use the _JavaScript Module Object_.
+To facilitate translatability of strings used in JavaScript files, the EM framework provides utility functions to shuttle language strings from PHP to JavaScript. These strings can then be accessed in JavaScript code through a `tt()` function exposed in the module's _**JavaScript Module Object**_. This function behaves exactly the same as it's PHP counterpart. Please see the [method documentation](methods/README.md) for more details on how to create and use the _JavaScript Module Object_.
 
 To transfer (optionally interpolated) strings to JavaScript, module authors first need to initialize the _JavaScript Module Object_. Two methods assist in the transfer of language strings to JavaScript:
 
