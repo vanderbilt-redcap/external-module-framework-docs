@@ -60,7 +60,7 @@ getUser([$username]) | 8.11.9 | Returns a `User` object for the given username, 
 getUserSetting($key) | 8.3.0 | Returns the value stored for the specified key for the current user and project.  Null is always returned on surveys and NOAUTH pages.
 importDataDictionary($projectId,$path) | 9.7.6 | Given a project id and a path, imports a data dictionary CSV file.
 initializeJavascriptModuleObject() | 8.7.2 | Returns a JavaScript block that initializes the JavaScript version of the module object (documented below).
-isAuthenticated() | TBD | Returns `true` in authenticated contexts and `false` in NOAUTH contexts.
+isAuthenticated() | 13.4.11 | Returns `true` in authenticated contexts and `false` in NOAUTH contexts.
 isModuleEnabled($prefix [, $pid]) | 9.9.1 | Returns true if the module with the given prefix is enabled on the system (when no project id is supplied) or the given project; or false otherwise.
 isPage($path) | 9.7.6 | Returns true if the current page matches the supplied file/dir path.  The path can be any file/dir under the versioned REDCap directory (e.g. `Design/online_designer.php`).
 isRoute($routeName) | 8.11.10 | Returns true if the 'route' GET/URL parameter matches the specified string.
