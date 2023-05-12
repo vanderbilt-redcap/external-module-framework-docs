@@ -6,7 +6,7 @@ The versioning feature of the **External Module Framework** allows for backward 
 
 New REDCap versions support all previous framework versions indefinitely, giving module authors the flexibility to update to newer framework versions at a time of their choosing (addressing breaking changes at that time).  While there are no current plans to drop support for older framework versions, that is expected to change down the road.
 
-All new features (e.g. new [methods](../methods.md)) are available to framework versions `2` and above. In Framework versions `2-4`, the now deprecated `$module->framework->whateverMethod()` syntax is required to access newer methods.
+All new features (e.g. new [methods](../methods/README.md)) are available to framework versions `2` and above. In Framework versions `2-4`, the now deprecated `$module->framework->whateverMethod()` syntax is required to access newer methods.
 
 Modules should specify the `framework-version` in `config.json` as follows:
  
