@@ -69,7 +69,7 @@ The file `config.json` provides all the basic configuration information for the 
 
 The `namespace` is the PHP namespace used in your module class, and helps prevent collisions between classes, functions, and constants defined by different modules. Module namespaces consist of at least two parts separated by backslashes. The first part is typically the name of the organization that created the module, while the second is typically the module's name.  **It is required that the last part of the namespace match the module's class name, as is common in [composer](https://getcomposer.org/) libraries.**
 
-The `framework-version` exists solely for backward compatibility when breaking changes to the module framework are made.  For new modules, it is recommended to set this to the latest framework version supported by the current REDCap LTS version as documented at the bottom of [this page](framework/intro.md).  That page also contains more details on framework versioning in general.
+The `framework-version` exists solely for backward compatibility when breaking changes to the module framework are made.  For new modules, it is recommended to set this to the latest framework version supported by the current REDCap LTS version as documented at the bottom of [this page](framework/README.md).  That page also contains more details on framework versioning in general.
 
 Here's an example of the minimum requirements for `config.json`:
 
@@ -96,7 +96,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 * **documentation** can be used to provide a filename or URL for the "View Documentation" link in the module list.  If this setting is omitted, the first filename that starts with "README" will be used if it exists.  If a markdown file is used, it will be automatically rendered as HTML.
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * Grant **permissions** for all of the operations, including hooks (e.g., **redcap_save_record**).
-* The **framework-version** version used by the module ([click here](framework/intro.md) for details).
+* The **framework-version** version used by the module ([click here](framework/README.md) for details).
 * **links** specify any links to show up on the left-hand toolbar. These include stand-alone webpages (substitutes for plugins) or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
 	* A **name** to be displayed on the site
    * A **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.

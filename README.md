@@ -7,5 +7,5 @@ Development Resources | &nbsp;
 -|-
 [General Documentation](general.md) | Technical details relating to many aspects of module development
 [Method & Hook Documentation](methods/README.md) | The list of all methods & hooks available to use within module code
-[Framework Versioning](framework/intro.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
+[Framework Versioning](framework/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module

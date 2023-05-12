@@ -1,6 +1,6 @@
 ## Methods Provided by the External Module Framework
 
-**Some method behavior differs between framework versions.  [Click here](framework/intro.md) for more information on framework versioning in general.**
+**Some method behavior differs between framework versions.  [Click here](../framework/README.md) for more information on framework versioning in general.**
 
 The following methods are provided by the framework.  Modules that have been updated to framework version `5` or greater can access methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
 
