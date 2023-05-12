@@ -3,7 +3,7 @@ You've reached the official documenation for REDCap's External Module Framework.
 
 These docs and the External Module Framework itself are both very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request`.
 
-Development Resources | &nbsp;
+Development Resources | Descriptions
 -|-
 [General Documentation](general.md) | Technical details relating to many aspects of module development
 [Method & Hook Documentation](methods/README.md) | The list of all methods & hooks available to use within module code
