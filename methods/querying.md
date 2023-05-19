@@ -1,6 +1,6 @@
 ## Querying The Database
 
-The module framework is designed to encourage parameterized queries because they are commonly considered the [simplest and most effective way](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) to prevent the quite common [SQL injection attack](https://www.owasp.org/index.php/SQL_Injection).  To ensure protection, all dynamic values in queries should be passed as parameters instead of being manually appended to the query string.  This includes user input, GET/POST data, values sourced from the database, etc.  See the **Breaking Changes** for [Framework Version 4](framework/v4.md) for the differences between parameterized & traditional queries. 
+The module framework is designed to encourage parameterized queries because they are commonly considered the [simplest and most effective way](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) to prevent the quite common [SQL injection attack](https://www.owasp.org/index.php/SQL_Injection).  To ensure protection, all dynamic values in queries should be passed as parameters instead of being manually appended to the query string.  This includes user input, GET/POST data, values sourced from the database, etc.  See the **Breaking Changes** for [Framework Version 4](versions/v4.md) for the differences between parameterized & traditional queries. 
 
 
 ### Basic Queries
