@@ -79,6 +79,7 @@ renameDAG($groupId, $name) | 8.0.0 | Renames the DAG with the given Group ID num
 requireInteger($mixed) | 8.11.10 | Throws an exception if the supplied value is not an integer or a string representation of an integer.  Returns the integer equivalent of the given value regardless.
 resetSurveyAndGetCodes(<br>&emsp;$projectId, $recordId<br>&emsp;[, $surveyFormName, $eventId]<br>) | 8.11.8 | Resets the survey status so that REDCap will allow the survey to be accessed again (completed surveys can't be edited again without changing the survey settings).  A survey participant and respondent are also created if they doesn't exist.
 sanitizeAPIToken($token) | 12.2.5 | Removes any characters that are not numbers or uppercase letters A-F, and returns the resulting string.
+sanitizeFieldName($fieldName) | TBD | Removes any characters that are not numbers, letters, or underscores, and returns the resulting string.
 saveMetadata($pid, $metadata[, $preventLogging=false]) | 10.3.1 | Given a project id and a metadata array, expected format returned by dataDictionaryCSVToMetadataArray(), saves the metadata. The `$preventLogging` argument prevents logging the metadata changes, and by default is false.
 setDAG($record, $groupId) | 8.0.0 | Sets the DAG for the given record ID to given Group ID number.
 setProjectId($projectId) | 13.4.2 | Sets the current project ID to be used for all module framework functionality.  REDCap core classes are NOT guaranteed to respect this call.
