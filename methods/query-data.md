@@ -17,19 +17,10 @@ The `queryData()` method is an experimental alternative to `REDCap::getData()` t
 - `$module->compareGetDataImplementations()` - A convenience method that accepts the same parameters as `REDCap::getData()`, automatically compares the results of `REDCap::getData()` and `$module->getData()`, then returns a summary object.  Results are reported as "identical" even if `*_complete` values are returned from `REDCap::getData()` but not `$module->getData()`.
 
 ### Ideas For Future Improvements
-- Potentially using GROUP_CONCAT() instead of joins like so:
-  ```
-  select
-		group_concat(if(field_name = 'record_id', value, null)) as record_id,
-		group_concat(if(field_name = 'some_field', value, null)) as some_field,
-		group_concat(if(field_name = 'some_other_field', value, null)) as some_other_field
-	from redcap_data
-	where
-		project_id = 123
-		and field_name in ('record_id', 'some_field', 'some_other_field')
-	group by project_id, event_id, record, instance
-  ```
-- Potentially using [these pivot strategies](https://www.databasestar.com/mysql-pivot) instead of joins
+- Reimplement it using a different kind of pivot strategy than joins
+  - SELECTed fields can be efficiently returned via GROUP_CONCAT() (see the getFieldSQL() implementation).  We will likely need to split that GROUP BY into an inner GROUP BY to get rid of any duplicate rows in redcap_data, then an outer GROUP BY that executes GROUP_CONCAT().
+  - WHERE clauses likely need to be programmatically split into include & exclude clauses that return a list of record IDs & instances.  This would likely apply to ORDER BYs and IF statements in SELECTs as well.  Maybe we shouldn't worry about those and only reimplement getData() rather than queryData().
+  - If GROUP_CONCAT() has any hard limitations, [other pivot strategies](https://www.databasestar.com/mysql-pivot) may be worth considering.
 - Splitting the logic up into smaller field/instance specific sections when possible and executing each as field/instance specific "include" or "exclude"...
   - ...inner selects that return only the record/instance.
   - ...top level queries that return only the record/instance and are joined via PHP.  This is similar to what the private *Advanced Reporting* module does currently at Vanderbilt, and is significantly faster than `REDCap::getData()` in the cases used by the *COVID Data Mart* project.
