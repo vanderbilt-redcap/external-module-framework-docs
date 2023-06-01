@@ -8,3 +8,4 @@ Development Resources | Descriptions
 [Method & Hook Documentation](methods/README.md) | The list of all methods & hooks available to use within module code
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
+GitHub's Search | Github's search feature (in the top of left corner of this page) is a great way to find keywords throughout these docs
