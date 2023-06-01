@@ -4,28 +4,6 @@
 
 If you have created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
 
-### Naming a module
-
-Modules must follow a specific naming scheme for the module directory that will sit on the REDCap web server. Each version of a module will have its own directory (like REDCap) and will be located in the `/redcap/modules/` directory on the server. A module directory name consists of three parts: 
-1. A **unique name** (so that it will not duplicate any one else's module in the consortium) in [snake case](https://en.wikipedia.org/wiki/Snake_case) format
-1. "_v" (an underscore followed by the letter "v")
-1. A **module version number**.  [Semantic Versioning](https://semver.org/) is recommended (e.g. `1.2.3`), although simpler `#.#` versioning is also supported (e.g. `1.2`).
-
-The diagram below shows the general directory structure of some hypothetical  modules to illustrate how modules will sit on the REDCap web server alongside other REDCap files and directories.
-
-```
-redcap
-|-- modules
-|   |-- my_module_name_v1.0.0
-|   |-- other_module_v2.9
-|   |-- other_module_v2.10
-|   |-- other_module_v2.11
-|   |-- yet_another_module_v1.5.3
-|-- redcap_vX.X.X
-|-- redcap_connect.php
-|-- ...
-```
-
 ### Renaming a module
 
 The display name for a module can be safely renamed at any time by updating the `name` in `config.json` (as documented later).  The module directory name on the system may also be changed at any time.  Module specific URLs changing is typically the only side effect, but directory renames should still be tested in a non-production environment first to make sure all module features still work as expected.  To rename a module directory, follow these steps:
