@@ -343,7 +343,7 @@ The External Modules framework provides objects representing a module, both in *
 
 The publicly supported methods that module creators may utilize depend on the framework version they opt into via the configuration file and are documented [here](methods/README.md).
 
-**Attention!** Modules should _not_ reference any other methods or files that exist in the External Modules framework (like the *ExternalModules* class) as they could change at any time. If a method you believe should be supported by these module objects is missing, please feel free add it via a pull request.  Email mark.mcever@vumc.org in order to gain access to the [External Module Framework GitHub Repo](https://github.com/vanderbilt/redcap-external-modules).
+Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request in GitHub.  Email mark.mcever@vumc.org in order to gain access to the [External Module Framework GitHub Repo](https://github.com/vanderbilt-redcap/external-module-framework).
 
 ### Logging from module code
 
