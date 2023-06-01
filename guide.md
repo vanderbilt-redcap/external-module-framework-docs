@@ -16,13 +16,6 @@ You must understand how to use REDCap before trying to develop modules for it. V
 The University of Colorado Denver has created a series of videos that address more advanced topics. You can access all of those videos at their [YouTube Playlist](https://www.youtube.com/playlist?list=PLrnf34ZtZ9FpHcZyZuNnNFZ9cEbhijNGf).
 
 
-### Vanderbilt's External Module Documentation
-
-You will likely find it helpful to keep Vanderbilt's [official External Module documentation](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md) available while completing these exercises; this document will link relevant sections for review.
-
-**Note:** this document repeatedly references the GitHub repository for External Modules; unfortunately, that repository has been made private and its links will no longer work. Luckily, the documentation exists in your local REDCap instance at **Control Center > Plugin, Hook, & External Module Documentation > External Module Documentation**.
-
-
 ### REDCap Repo
 
 Vanderbilt publishes modules submitted by the REDCap Community in the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/index.php). The source code for each module is accessible in GitHub and linked from the entries in the REDCap Repo. These modules provide fully functional code examples. As each module in the REDCap Repo must have an open-source license, you are free to use their code in other modules.
