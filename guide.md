@@ -1,6 +1,6 @@
 # REDCap External Module Development for Developers
 
-This guide was supported by the [University of Florida Clinical and Translational Science Institute](https://www.ctsi.ufl.edu/), which is supported in part by the [NIH National Center for Advancing Translational Sciences](https://ncats.nih.gov/) under award number UL1TR001427.
+The initial version of this guide was contributed by the [University of Florida Clinical and Translational Science Institute](https://www.ctsi.ufl.edu/).  See the [acknowledgements](ACKNOWLEDGEMENTS.md) page for details.
 
 This guide provides the technical background developers need to write and test module code. It describes the REDCap classes and resources that simplify module development. This guide has recommendations for reference materials and tools to aid in module development and a series of exercises to create simple modules that extend REDCap in different ways.
 
