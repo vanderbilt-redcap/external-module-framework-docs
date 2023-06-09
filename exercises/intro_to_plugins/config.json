@@ -1,0 +1,22 @@
+{
+    "name": "Hello Plugin",
+    "description": "Module that provides a friendly page to announce its own existence",
+    "namespace": "HelloPlugin\\ExternalModule",
+    "framework-version": 3,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ],
+   "links": {
+      "control-center": [
+         {
+            "name": "Hello Admin",
+            "icon": "fas fa-globe",
+            "url": "pages/control_center_custom_page.php"
+         }
+      ]
+   }
+}

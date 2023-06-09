@@ -1,0 +1,31 @@
+<form action="javascript:void(0)" method="get">
+<label for="users">
+    Select users
+</label>
+<select id="users" name="users[]" multiple="multiple">
+    <!--
+    <option value="admin">admin</option>
+    <option value="alice">alice</option>
+    <option value="bob">bob</option>
+    <option value="carol">carol</option>
+    <option value="dan">dan</option>
+    -->
+</select>
+
+<br />
+
+<label for="newValue">
+    Allow user(s) to create databases?
+</label>
+<br />
+
+<input type="radio" name="newValue" id="Disable" value="0">
+<label for="Disable">Disable</label>
+<br />
+<input type="radio" name="newValue" id="Allow" value="1">
+<label for="Allow">Allow</label>
+
+<br />
+
+<input type="submit" id="submit">
+</form>

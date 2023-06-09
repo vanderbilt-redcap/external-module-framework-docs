@@ -1,0 +1,22 @@
+{
+    "name": "Record Wrangling",
+    "description": "Hello world page to ensure your development tools are working",
+    "namespace": "RecordWrangling\\ExternalModule",
+    "framework-version": 3,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ],
+    "links": {
+        "project": [
+            {
+                "name": "Record Wrangler",
+                "icon": "fas fa-receipt",
+                "url": "pages/project_page.php"
+            }
+        ]
+    }
+}

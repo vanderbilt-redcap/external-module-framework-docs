@@ -1,0 +1,16 @@
+{
+    "name": "Hello world",
+    "description": "Hello world page to ensure your development tools are working",
+    "namespace": "HelloWorld\\ExternalModule",
+    "framework-version": 3,
+    "permissions": [
+        "redcap_every_page_top"
+    ],
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}
