@@ -35,26 +35,22 @@ The External Module Development Guide includes a set of [development exercises](
 ### Getting the development exercises
 1. [Download the contents of this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/archive/refs/heads/main.zip)
 1. Extract the downloaded zip
-1. Copy everything in the `exercises/` folder to `<redcap-root>/modules/`, where `<redcap-root>` is the root directory of your local REDCap installation. 
- Don't copy the `exercises` folder itself; copy its _contents_.  These files should be inside the `<redcap-root>/modules/` folder:
+1. Copy each of the following directories from the `exercises/` folder to `<redcap-root>/modules/`, where `<redcap-root>` is the root directory of your local REDCap installation:
     ```
     accessing_variables
-    hello_world
+    hello_world_v0.0.0
     intro_to_hooks
     intro_to_js
     intro_to_plugins
     intro_to_queries
-    README.md
     record_wrangling
     ```
-1. Append `_v0.0.0` to each of the directories you just copied in the previous step to allow REDCap to recognize them as modules. You can do this now, or wait until you reach the step for each exercise below. These version suffixes are intentionally left off to simulate having just `git clone`d each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
+1. A version suffix has already been appended to the `hello_world` exercise.  You will also need to append `_v0.0.0` to each of the other directories you copied in the previous step to allow REDCap to recognize them as modules. You can do this now, or wait until you reach the step for each exercise below. These version suffixes are intentionally left off to simulate having just `git clone`d each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
 
 ---
 
-### [Hello World]({{ site.repo_root }}exercises/hello_world_v0.0.0/)
-This is a "complete" module intended to be used to make sure your development pipeline is set up properly.
-
-Read the section on [module requirements](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#module-requirement) until the section on hooks.
+### [Hello World](exercises/hello_world_v0.0.0/)
+This is a "complete" module intended to be used to make sure your development pipeline is set up properly.  Review the content of this module to see the minimum code required to create a module with a simple hook.  For more information on basic module requirements, see the [Requirements Page](requirements.md).
 
 ---
 
