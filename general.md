@@ -56,7 +56,7 @@ Here's an example of the minimum requirements for `config.json`:
    "name": "Example Module",
    "namespace": "MyModuleNamespace\\MyModuleClass", 
    "description": "This is a description of the module, and will be displayed below the module name in the user interface.",
-   "framework-version": 10,
+   "framework-version": 12,
    "authors": [
        {
             "name": "Jon Snow",
@@ -73,7 +73,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 * Module  **description**
 * **documentation** can be used to provide a filename or URL for the "View Documentation" link in the module list.  If this setting is omitted, the first filename that starts with "README" will be used if it exists.  If a markdown file is used, it will be automatically rendered as HTML.
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
-* Grant **permissions** for all of the operations, including hooks (e.g., **redcap_save_record**).
+* **DEPRECATED:** Prior to framework version 12, a **permissions** section was required to specify each hook you wish you use (e.g., **redcap_save_record**).  From framework version 12 forward, hooks work automatically and the **permissions** section must be removed.
 * The **framework-version** version used by the module ([click here](versions/README.md) for details).
 * **links** specify any links to show up on the left-hand toolbar. These include stand-alone webpages (substitutes for plugins) or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
 	* A **name** to be displayed on the site

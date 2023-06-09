@@ -2,7 +2,7 @@
     "name": "Record Wrangling",
     "description": "Hello world page to ensure your development tools are working",
     "namespace": "RecordWrangling\\ExternalModule",
-    "framework-version": 3,
+    "framework-version": 12,
     "authors": [
         {
             "name": "Kyle Chesney",

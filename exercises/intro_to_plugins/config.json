@@ -2,7 +2,7 @@
     "name": "Hello Plugin",
     "description": "Module that provides a friendly page to announce its own existence",
     "namespace": "HelloPlugin\\ExternalModule",
-    "framework-version": 3,
+    "framework-version": 12,
     "authors": [
         {
             "name": "Kyle Chesney",

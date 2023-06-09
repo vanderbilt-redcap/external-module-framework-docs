@@ -2,10 +2,7 @@
     "name": "Intro JS",
     "description": "Adds a counter to the project home page",
     "namespace": "IntroJS\\ExternalModule",
-    "framework-version": 3,
-    "permissions": [
-        "redcap_project_home_page"
-    ],
+    "framework-version": 12,
     "authors": [
         {
             "name": "Kyle Chesney",

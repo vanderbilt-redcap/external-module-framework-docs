@@ -77,13 +77,6 @@ Read [the official documentation on calling hooks](https://github.com/vanderbilt
         $this->includeJs('js/hello_hook.js');
 ```
 
-`config.json`
-```json
-    "permissions": [
-        "redcap_every_page_top"
-    ],
-```
-
 </details>
 <br />
 
@@ -282,9 +275,6 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
 
 `config.json`
 ```json
-    "permissions": [
-        "redcap_every_page_top"
-    ],
     "project-settings": [
         {
             "key": "custom_setting",

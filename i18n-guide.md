@@ -64,7 +64,7 @@ Here is an example of a config file supporting internationalization:
     "tt_name": "module_name",
     "description": "It does awsome stuff.",
     "tt_description": "module_desc",
-    "framework-version": 2,
+    "framework-version": 12,
     "system-settings": [
         {
             "key": "some_key",

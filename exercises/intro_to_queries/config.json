@@ -2,7 +2,7 @@
     "name": "Intro to Queries",
     "description": "Revoke or allow user privileges in bulk",
     "namespace": "IntroQueries\\ExternalModule",
-    "framework-version": 3,
+    "framework-version": 12,
     "authors": [
         {
             "name": "Kyle Chesney",

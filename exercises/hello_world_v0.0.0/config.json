@@ -2,10 +2,7 @@
     "name": "Hello world",
     "description": "Hello world page to ensure your development tools are working",
     "namespace": "HelloWorld\\ExternalModule",
-    "framework-version": 3,
-    "permissions": [
-        "redcap_every_page_top"
-    ],
+    "framework-version": 12,
     "authors": [
         {
             "name": "Kyle Chesney",
