@@ -1,10 +1,10 @@
 <?php
 
-namespace HelloPlugin\ExternalModule;
+namespace ExternalModuleExercises\HelloPageModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class HelloPageModule extends AbstractExternalModule {
 
     function sayHello() {
         print_r("Hello, world!");

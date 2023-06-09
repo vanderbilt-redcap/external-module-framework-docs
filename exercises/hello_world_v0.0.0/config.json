@@ -1,7 +1,7 @@
 {
     "name": "Hello world",
     "description": "Hello world page to ensure your development tools are working",
-    "namespace": "HelloWorld\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\HelloWorldModule",
     "framework-version": 12,
     "authors": [
         {

@@ -1,7 +1,7 @@
 {
     "name": "Intro to Queries",
     "description": "Revoke or allow user privileges in bulk",
-    "namespace": "IntroQueries\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\IntroQueriesModule",
     "framework-version": 12,
     "authors": [
         {

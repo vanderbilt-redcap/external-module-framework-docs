@@ -1,10 +1,10 @@
 <?php
 
-namespace HelloWorld\ExternalModule;
+namespace ExternalModuleExercises\HelloWorldModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class HelloWorldModule extends AbstractExternalModule {
 
     // This is generally where your module's hooks will live
     function redcap_every_page_top($project_id) {

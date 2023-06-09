@@ -1,7 +1,7 @@
 {
-    "name": "Hello Plugin",
+    "name": "Hello Page",
     "description": "Module that provides a friendly page to announce its own existence",
-    "namespace": "HelloPlugin\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\HelloPageModule",
     "framework-version": 12,
     "authors": [
         {

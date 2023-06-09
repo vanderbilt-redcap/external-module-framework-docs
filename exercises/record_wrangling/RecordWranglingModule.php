@@ -1,10 +1,10 @@
 <?php
 
-namespace RecordWrangling\ExternalModule;
+namespace ExternalModuleExercises\RecordWranglingModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class RecordWranglingModule extends AbstractExternalModule {
 
     function setupProjectPage() {
         $this->includeJs("js/rw.js");

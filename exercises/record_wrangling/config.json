@@ -1,7 +1,7 @@
 {
     "name": "Record Wrangling",
     "description": "Hello world page to ensure your development tools are working",
-    "namespace": "RecordWrangling\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\RecordWranglingModule",
     "framework-version": 12,
     "authors": [
         {

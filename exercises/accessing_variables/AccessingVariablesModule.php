@@ -1,10 +1,10 @@
 <?php
 
-namespace AccessingVariables\ExternalModule;
+namespace ExternalModuleExercises\AccessingVariablesModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class AccessingVariablesModule extends AbstractExternalModule {
 
     //FIXME: Write and use functions to show users pertinent information
 

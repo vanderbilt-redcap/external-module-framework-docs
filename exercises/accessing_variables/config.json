@@ -1,7 +1,7 @@
 {
     "name": "Accessing Variables",
     "description": "Module that describes users to themselves",
-    "namespace": "AccessingVariables\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\AccessingVariablesModule",
     "framework-version": 12,
     "authors": [
         {

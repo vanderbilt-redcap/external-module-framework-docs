@@ -1,10 +1,10 @@
 <?php
 
-namespace IntroQueries\ExternalModule;
+namespace ExternalModuleExercises\IntroQueriesModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class IntroQueriesModule extends AbstractExternalModule {
 
     function buildPluginPage() {
         // Load in resources for Select2

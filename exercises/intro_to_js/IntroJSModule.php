@@ -1,11 +1,11 @@
 <?php
 
-namespace IntroJS\ExternalModule;
+namespace ExternalModuleExercises\IntroJSModule;
 
 use ExternalModules\AbstractExternalModule;
 use RCView;
 
-class ExternalModule extends AbstractExternalModule {
+class IntroJSModule extends AbstractExternalModule {
 
     function redcap_project_home_page($project_id) {
 

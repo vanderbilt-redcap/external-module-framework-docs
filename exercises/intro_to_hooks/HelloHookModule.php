@@ -1,10 +1,10 @@
 <?php
 
-namespace HelloHook\ExternalModule;
+namespace ExternalModuleExercises\HelloHookModule;
 
 use ExternalModules\AbstractExternalModule;
 
-class ExternalModule extends AbstractExternalModule {
+class HelloHookModule extends AbstractExternalModule {
 
     // Test out using the hooks in the documentation to make an alert appear in different contexts
     // FIXME

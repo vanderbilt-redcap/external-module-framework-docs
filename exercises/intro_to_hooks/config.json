@@ -1,7 +1,7 @@
 {
     "name": "Hello Hook",
     "description": "Provide a friendly alert to REDCap users",
-    "namespace": "HelloHook\\ExternalModule",
+    "namespace": "ExternalModuleExercises\\HelloHookModule",
     "framework-version": 12,
     "authors": [
         {

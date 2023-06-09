@@ -41,7 +41,7 @@ The External Module Development Guide includes a set of [development exercises](
     hello_world_v0.0.0
     intro_to_hooks
     intro_to_js
-    intro_to_plugins
+    intro_to_pages
     intro_to_queries
     record_wrangling
     ```
@@ -64,7 +64,7 @@ Read [the official documentation on calling hooks](https://github.com/vanderbilt
 <summary>Example Solution
 </summary>
 
-`ExternalModule.php`
+`HelloHookModule.php`
 ```php
     // FIXME
     /* Write your code here */
@@ -102,7 +102,7 @@ While this module does not use any variables, note that when working with JavaSc
 <summary>Example Solution
 </summary>
 
-`ExternalModule.php`
+`IntroJSModule.php`
 ```php
         // FIXME
         // include a JavaScript file that increments the contents of incrementValue
@@ -138,7 +138,7 @@ function increase() {
 
 ---
 
-### [Hello Plugin]({{ site.repo_root }}exercises/intro_to_plugins/)
+### [Hello Page]({{ site.repo_root }}exercises/intro_to_pages/)
 
 This module introduces the use of plugins. The provided module already has a plugin page available for admins in the Control Center; the goal of this exercise is to add a second plugin page accessible _at the project level_. Unlike other modules, you will need to create an entirely new PHP file for this project, referring to `pages/control_center_custom_page.php` should be useful.
 
@@ -242,7 +242,7 @@ As before, documentation _must_ be updated when introducing features. This is ev
 </summary>
 
 This is a _bare minimum_ implementation that demonstrates how to access REDCap variables. The output is _ugly_. An attractive display of those variables is left as an exercise for the student.  
-`ExternalModule.php`
+`AccessingVariablesModule.php`
 ```php
     //FIXME: Write and use functions to show users pertinent information
     function redcap_every_page_top() {
@@ -369,7 +369,7 @@ The solutions provided below use both built-in module methods and the REDCap cla
 
 ### [Intro to Queries]({{ site.repo_root }}exercises/intro_to_queries/)
 
-In this module, you will complete a plugin page that allows admins to assign and revoke privileges for users in bulk. Make your changes in `ExternalModule.php`; you will need to write a few lines of SQL to make an `UPDATE` statement. If you visit the plugin page before you complete the `gatherUsers` function, you will receive a fatal error in `ExternalModule.php`. This error is normal. Work the problem.
+In this module, you will complete a plugin page that allows admins to assign and revoke privileges for users in bulk. Make your changes in `IntroQueriesModule.php`; you will need to write a few lines of SQL to make an `UPDATE` statement. If you visit the plugin page before you complete the `gatherUsers` function, you will receive a fatal error in `IntroQueriesModule.php`. This error is normal. Work the problem.
 
 You will occasionally have to write SQL queries; most often, this need will arise when writing a module that adds a feature for REDCap admins. Writing your own SQL should be a last resort after you have considered all of your builtin options.
 
@@ -386,7 +386,7 @@ Read [the official documentation on module functions](https://github.com/vanderb
 <summary>Example Solution
 </summary>
 
-`ExternalModule.php`
+`IntroQueriesModule.php`
 ```php
     function gatherUsers() {
         // FIXME: use $sql with an appropriate function to get a list of every user
