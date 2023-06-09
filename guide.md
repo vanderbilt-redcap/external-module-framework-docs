@@ -1,4 +1,4 @@
-# REDCap External Module Development for Developers
+# REDCap External Module Development Beginner's Guide
 
 The initial version of this guide was contributed by the [University of Florida Clinical and Translational Science Institute](https://www.ctsi.ufl.edu/).  See the [acknowledgements](ACKNOWLEDGEMENTS.md) page for details.
 
@@ -30,7 +30,7 @@ People new to development or those teaching a development class will likely find
 
 ## External Module Development Exercises
 
-The External Module Development Guide includes a set of [development exercises](exercises) to use as a guide for module development. Each activity teaches a different facet of module development. Most of the modules are intentionally incomplete. They generally have comments denoting regions where you will need to add code to implement a missing feature.
+The External Module Development Guide includes a set of [development exercises](exercises) to use as a guide for module development. Each exercise teaches a different facet of module development. The majority of the exercises are missing essential functionality with comments denoting the regions where you will need to add code to implement a missing feature.
 
 ### Getting the development exercises
 1. [Download the contents of this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/archive/refs/heads/main.zip)
@@ -393,6 +393,8 @@ When a module call doesn't work, look at its source code to see if it calls a co
 You will probably find your [docker environment's PHPMyAdmin container](http://localhost/phpmyadmin/) useful for this exercise. Adjust that URL to match the port number of your docker environment's web server container if it fails.
 
 **NB**: Those of you familiar with SQL may wonder about the use of prepared statements. These are _not_ currently implemented but will be soon - in Framework Version 4 - read the [official documentation on queries](https://github.com/vanderbilt/redcap-external-modules/blob/release/docs/querying.md) for more information. An example of using prepared statements is provided in the solution below.
+
+Read [the official documentation on module functions](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/intro.md). Search for the `query` function.
 
 <details>
 <summary>Example Solution
