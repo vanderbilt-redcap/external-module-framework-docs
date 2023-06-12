@@ -45,7 +45,10 @@ The External Module Development Guide includes a set of [development exercises](
     intro_to_queries
     record_wrangling
     ```
-1. A version suffix has already been appended to the `hello_world` exercise.  You will also need to append `_v0.0.0` to each of the other directories you copied in the previous step, then enable each under **Control Center -> External Modules -> Manage**. You can do this now, or wait until you reach the step for each exercise below. Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just `git clone`d each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
+1. Perform these steps for each of the above module directories.   You can do this for all modules now, or wait until you reach the exercise for each below.
+    - Append the `_v0.0.0` version suffix to each directory name. A version suffix has already been appended to the `hello_world` exercise as an example.  Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just cloned each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
+    - Enable each module under **Control Center -> External Modules -> Manage**
+    - Enable the module on a project under **Any Project Page -> External Modules -> Manage**, and use that project when testing each of the exercises below.  This is required since some hooks only run on project pages by default.
 
 ---
 
