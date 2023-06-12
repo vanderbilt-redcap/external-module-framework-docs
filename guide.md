@@ -49,7 +49,7 @@ The External Module Development Guide includes a set of [development exercises](
     - Append the `_v0.0.0` version suffix to each directory name. A version suffix has already been appended to the `hello_world` exercise as an example.  Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just cloned each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
     - Enable each module under **Control Center -> External Modules -> Manage**
     - Enable the module on a project under **Any Project Page -> External Modules -> Manage**, and use that project when testing each of the exercises below.  This is required since some hooks only run on project pages by default.
-1. Complete each exercise as described by finding and modifying the sections of the code labeled `FIXME` in each module.
+1. Complete each exercise as described and/or by finding and modifying the sections of the code labeled `FIXME` in each module.
 1. Compare your solution to the `Example Solution` provided for each exercise
 
 ---
