@@ -49,6 +49,8 @@ The External Module Development Guide includes a set of [development exercises](
     - Append the `_v0.0.0` version suffix to each directory name. A version suffix has already been appended to the `hello_world` exercise as an example.  Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just cloned each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
     - Enable each module under **Control Center -> External Modules -> Manage**
     - Enable the module on a project under **Any Project Page -> External Modules -> Manage**, and use that project when testing each of the exercises below.  This is required since some hooks only run on project pages by default.
+1. Complete each exercise as described by finding and modifying the sections of the code labeled `FIXME` in each module.
+1. Compare your solution to the `Example Solution` provided for each exercise
 
 ---
 
@@ -61,7 +63,7 @@ This is a "complete" module intended to be used to make sure your development pi
 
 This module serves as an introduction to hooks by providing an alert that notifies users it is active with a friendly "Hello world!" message. You will learn how to utilize hook functions to run arbitrary code - in this case, a small bit of JavaScript that displays an alert. While you will not be _writing_ any JavaScript for this portion, you will see how to load in JavaScript files, and how to expose backend variables to the frontend.
 
-Read the [Using Hooks in Modules](hooks.md) page, look for the text `FIXME` in the `intro_to_hook_v0.0.0` module, then try to complete the exercise.
+Read the [Using Hooks in Modules](hooks.md) page.
 
 <details>
 <summary>Example Solution
