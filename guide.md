@@ -127,15 +127,10 @@ While this module does not use any variables, it is important to remember to [sc
 $( document ).ready(function() {
     /* Write your code below */
     $('#incrementButton').click(function() {
-        increase();
+        let inc = $('#incrementValue').text();
+        $('#incrementValue').text(++inc);
     });
 });
-
-/* If you wish, make a function */
-function increase() {
-    let inc = $('#incrementValue').text();
-    $('#incrementValue').text(++inc);
-}
 ```
 
 </details>
