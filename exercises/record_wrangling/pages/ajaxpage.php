@@ -18,5 +18,5 @@ if ($pid = $_GET['pid']) {
      * While some functions will log that data was saved, logging that
      * your module initiated the change can aid in debugging and auditing
      */
-    $module->framework->log("Updated field '$field_name' to value '$new_value' for project_id '$pid'");
+    $module->log("Updated field '$field_name' to value '$new_value' for project_id '$pid'");
 }

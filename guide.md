@@ -220,7 +220,7 @@ Check the [official External Module documentation on functions](https://github.c
 Note that there is an unlisted property of the [`User` object](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/intro.md#user-method) that you will need: 
 
 ```php
-$User = $this->framework->getUser();
+$User = $this->getUser();
 $User->username;
 ```
 
@@ -254,7 +254,7 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
     function displayVars() {
         print_r("<pre>"); // Wrap the display area in <pre> tag for formatting
 
-        $userobj = $this->framework->getUser();
+        $userobj = $this->getUser();
 
         print_r("Username: " . $userobj->username . "\n");
         print_r("You are " . ( ($userobj->isSuperUser()) ? "" : "not " ) . "a superuser.\n");
@@ -262,10 +262,10 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
         var_dump($userobj->getRights());
 
         print_r("Page path: " . PAGE . "\n");
-        print_r("Project ID: " . $this->framework->getProjectId() . "\n"); // Display project ID via framework function
+        print_r("Project ID: " . $this->getProjectId() . "\n"); // Display project ID via framework function
         // OR
         //print_r("Project ID: " . PROJECT_ID . "\n"); // Display project ID via constant
-        print_r("Custom Setting: " . $this->framework->getProjectSetting('custom_setting'));
+        print_r("Custom Setting: " . $this->getProjectSetting('custom_setting'));
 
         print_r("</pre>");
     }
@@ -323,7 +323,7 @@ The solutions provided below use both built-in module methods and the REDCap cla
      * passing project ID and an empty array for record ID to get data ALL data for the project ID
      * Not listed in official documentation, must read AbstractExternalModule source code
      */
-    $redcap_data = $module->framework->getData($pid, []);
+    $redcap_data = $module->getData($pid, []);
 
     /* method 1 b: use the REDCap class directly
      * pass only the project ID
@@ -352,7 +352,7 @@ The solutions provided below use both built-in module methods and the REDCap cla
      */
     foreach($redcap_data as $record_id => $events) {
         foreach($events as $event_id => $data) {
-            $response = $module->framework->saveData($pid, $record_id, $event_id, $data);
+            $response = $module->saveData($pid, $record_id, $event_id, $data);
         }
     }
 
@@ -396,7 +396,7 @@ Read [the official documentation on module functions](https://github.com/vanderb
         $sql = 'SELECT username
             FROM redcap_user_information';
 
-        $result = $this->framework->query($sql);
+        $result = $this->query($sql);
 
         /* stop writing here */
         // parse the mysqli response object into an array
@@ -415,18 +415,18 @@ Read [the official documentation on module functions](https://github.com/vanderb
             SET allow_create_db = ' . $new_value . '
             WHERE username IN ("' . $users . '")';
 
-        $result = $this->framework->query($sql);
+        $result = $this->query($sql);
 
          /* Example of a prepared statement in Framework v4
          $sql = 'UPDATE redcap_user_information
             SET allow_create_db = ?
             WHERE username IN (?)';
           */
-        //$result = $this->framework->query($sql, [$new_value, $users]);
+        //$result = $this->query($sql, [$new_value, $users]);
 
         if ($result) {
             // Log what was done if successfull
-            $this->framework->log("Set allow_db to $new_value for users: \"$users\"");
+            $this->log("Set allow_db to $new_value for users: \"$users\"");
         }
 
         return $result;

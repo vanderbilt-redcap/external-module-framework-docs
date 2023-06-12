@@ -15,7 +15,7 @@ $module->setupProjectPage();
 
 $fields = [0 => '-- choose a field --'];
 // retrieve a list of field names for this project
-foreach($module->framework->getMetadata(PROJECT_ID) as $field_id => $data) {
+foreach($module->getMetadata(PROJECT_ID) as $field_id => $data) {
     $fields[$field_id] = $data['field_label'];
 }
 

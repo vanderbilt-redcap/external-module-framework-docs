@@ -9,13 +9,13 @@ class RecordWranglingModule extends AbstractExternalModule {
     function setupProjectPage() {
         $this->includeJs("js/rw.js");
         $settings = [
-            'ajaxpage' => $this->framework->getUrl('pages/ajaxpage.php')
+            'ajaxpage' => $this->getUrl('pages/ajaxpage.php')
         ];
         $this->setJsSettings($settings);
     }
 
     protected function includeJs($path) {
-        echo '<script src="' . $this->framework->getUrl($path, true) . '">;</script>';
+        echo '<script src="' . $this->getUrl($path, true) . '">;</script>';
     }
 
     protected function setJsSettings($settings) {
