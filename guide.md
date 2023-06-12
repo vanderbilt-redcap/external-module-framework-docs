@@ -45,7 +45,7 @@ The External Module Development Guide includes a set of [development exercises](
     intro_to_queries
     record_wrangling
     ```
-1. A version suffix has already been appended to the `hello_world` exercise.  You will also need to append `_v0.0.0` to each of the other directories you copied in the previous step to allow REDCap to recognize them as modules. You can do this now, or wait until you reach the step for each exercise below. These version suffixes are intentionally left off to simulate having just `git clone`d each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
+1. A version suffix has already been appended to the `hello_world` exercise.  You will also need to append `_v0.0.0` to each of the other directories you copied in the previous step, then enable each under **Control Center -> External Modules -> Manage**. You can do this now, or wait until you reach the step for each exercise below. Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just `git clone`d each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
 
 ---
 
@@ -54,11 +54,11 @@ This is a "complete" module intended to be used to make sure your development pi
 
 ---
 
-### [Hello Hook]({{ site.repo_root }}exercises/intro_to_hooks/)
+### [Hello Hook](exercises/intro_to_hooks/)
 
 This module serves as an introduction to hooks. You will learn how to utilize hook functions to run arbitrary code - in this case, a small bit of JavaScript that displays an alert. While you will not be _writing_ any JavaScript for this portion, you will see how to load in JavaScript files, and how to expose backend variables to the frontend.
 
-Read [the official documentation on calling hooks](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#how-to-call-redcap-hooks).
+Read the [Using Hooks in Modules](hooks.md) page, look for the text `FIXME` in the `intro_to_hook_v0.0.0` module, then try to complete the exercise.
 
 <details>
 <summary>Example Solution
