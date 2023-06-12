@@ -53,13 +53,13 @@ The External Module Development Guide includes a set of [development exercises](
 ---
 
 ### [Hello World](exercises/hello_world_v0.0.0/)
-This is a "complete" module intended to be used to make sure your development pipeline is set up properly.  Review the content of this module to see the minimum code required to create a module with a simple hook.  For more information on basic module requirements, see the [Requirements Page](requirements.md).
+This is a "complete" module intended to be used to make sure your development pipeline is set up properly.  It displays a hello world message on all project pages.  Review the content of this module to see the minimum code required to create a module with a simple hook.  For more information on basic module requirements, see the [Requirements Page](requirements.md).
 
 ---
 
 ### [Hello Hook](exercises/intro_to_hooks/)
 
-This module serves as an introduction to hooks. You will learn how to utilize hook functions to run arbitrary code - in this case, a small bit of JavaScript that displays an alert. While you will not be _writing_ any JavaScript for this portion, you will see how to load in JavaScript files, and how to expose backend variables to the frontend.
+This module serves as an introduction to hooks by providing an alert that notifies users it is active with a friendly "Hello world!" message. You will learn how to utilize hook functions to run arbitrary code - in this case, a small bit of JavaScript that displays an alert. While you will not be _writing_ any JavaScript for this portion, you will see how to load in JavaScript files, and how to expose backend variables to the frontend.
 
 Read the [Using Hooks in Modules](hooks.md) page, look for the text `FIXME` in the `intro_to_hook_v0.0.0` module, then try to complete the exercise.
 
@@ -83,7 +83,7 @@ Read the [Using Hooks in Modules](hooks.md) page, look for the text `FIXME` in t
 
 ### [Intro JS]({{ site.repo_root }}exercises/intro_to_js/)
 
-This module teaches best practices when including JavaScript in your External Modules. It also introduces the use of the REDCap core class, `RCView`; the source for this class is located in the root of your REDCap folder at `Classes/RCView.php`. Note that while clever use of an `onclick` attribute might allow you to complete this module, the purpose is to work with a separate JavaScript file.
+This module teaches best practices when including JavaScript in your External Modules by adding a clickable counter to the home page of projects for which it is enabled. It also introduces the use of the REDCap core class, `RCView`; the source for this class is located in the root of your REDCap folder at `Classes/RCView.php`. Note that while clever use of an `onclick` attribute might allow you to complete this module, the purpose is to work with a separate JavaScript file.
 
 Read [the official documentation on module functions, specifically `getUrl`](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/v3.md). You might also find it helpful to refer to previous exercises for examples of JavaScript use.
 
