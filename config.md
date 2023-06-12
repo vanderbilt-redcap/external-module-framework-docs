@@ -14,7 +14,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 	* An **icon**
 		* For framework version 3 and later, the **icon** must either be the [Font Awesome](https://fontawesome.com/icons?d=gallery) classes (e.g. `fas fa-user-friends`) or a path to an icon file within the module itself (e.g. `images/my-icon.png`).
 		* For framework versions prior to 3, the filename of a REDCap icon in the `Resources/images` folder must be specified without the extension (e.g. `user_list`).  This is deprecated because those icons are no longer used by REDCap itself, and may be modified or removed at any time.
-	* A **url** either in the local directory or external to REDCap. External links need to start with either 'http://' or 'https://'. Javascript links are also supported; these need to start with 'javascript:' and may only use single quotes.
+	* A **url**.  Either a relative path to a module page, or external URL starting with either 'http://' or 'https://'. Javascript links are also supported; these need to start with 'javascript:' and may only use single quotes.
    * A **target** that will be used for the 'target' attribute of the rendered a tag.
 * **system-settings** specify settings configurable at the system-wide level (this Control Center).  Settings do NOT have to be defined in config.json to be used programmatically.  
 * **project-settings** specify settings configurable at the project level, different for each project.  Settings do NOT have to be defined in config.json to be used programmatically.  

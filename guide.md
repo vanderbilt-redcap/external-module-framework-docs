@@ -138,17 +138,11 @@ $( document ).ready(function() {
 
 ---
 
-### [Hello Page]({{ site.repo_root }}exercises/intro_to_pages/)
+### [Hello Page](exercises/intro_to_pages/)
 
 This module introduces the use of module pages. The provided module already has a page available for admins in the Control Center; the goal of this exercise is to add a second page accessible _at the project level_. Unlike other modules, you will need to create an entirely new PHP file for this project, referring to `pages/control_center_custom_page.php` should be useful.
 
-Read [the official documentation on creating pages](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#how-to-create-pages-for-your-module).
-
-Pages can be configured to appear as links in the left-hand menu by adding them to `config.json` as shown below. Since framework version 3, [Font Awesome](https://fontawesome.com/icons?d=gallery) icons are used.  When assigning Font Awesome icons, the entry will appear as follows: `fa<style> fa-<icon_name>`, where available `<style>`s are:
-- s: solid
-- r: regular
-- l: light
-- d: duotone
+Read [the documentation on pages](pages.md).
 
 <details>
 <summary>Example Solution
@@ -185,12 +179,6 @@ echo RCView::h4([], $title);
 $module->sayHello();
 
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/footer.php';
-```
-
-Don't forget to update docs when you add new features!  
-`README.md`
-```markdown
-Provides pages that say "Hello, world" in the control center and in projects.
 ```
 
 </details>
