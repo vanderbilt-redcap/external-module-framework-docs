@@ -8,7 +8,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * **DEPRECATED:** Prior to framework version 12, a **permissions** section was required to specify each hook you wish you use (e.g., **redcap_save_record**).  From framework version 12 forward, hooks work automatically and the **permissions** section must be removed.
 * The **framework-version** version used by the module ([click here](versions/README.md) for details).
-* **links** specify any links to show up on the left-hand toolbar. These include stand-alone webpages (substitutes for plugins) or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
+* **links** specify any links to show up on the left-hand toolbar. These include module pages or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
 	* A **name** to be displayed on the site
    * A **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.
 	* An **icon**

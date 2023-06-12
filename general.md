@@ -1,6 +1,6 @@
 ## External Module Framework - Official Documentation
 
-"External Modules" is a class-based framework for plugins and hooks in REDCap. Modules can utilize any of the "REDCap" class methods (e.g., \REDCap::getData), and they also come with many other helpful built-in methods to store and manage settings for a given module, as well as provide support for internationalization (translation of displayed strings) of modules. The documentation provided on this page will be useful for anyone creating an external module.
+"External Modules" is a class-based framework replacing legacy plugins and hooks in REDCap. Modules can utilize any of the "REDCap" class methods (e.g., \REDCap::getData), and they also come with many other helpful built-in methods to store and manage settings for a given module, as well as provide support for internationalization (translation of displayed strings) of modules. The documentation provided on this page will be useful for anyone creating an external module.
 
 If you have created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
 
@@ -19,15 +19,13 @@ The display name for a module can be safely renamed at any time by updating the 
     - All project enables, settings, logs, crons, etc. should be preserved.
 1. Once enough time has passed for any running cron jobs to finish, delete the old directory (on all web nodes if there are multiple)
 
-### How to create plugin pages for your module
+### How to create pages for your module
 
-A module can have plugin pages (or what resemble traditional REDCap plugins). They are called "plugin" pages because they exist as a new page (i.e., does not currently exist in REDCap), whereas a hook runs in-line inside of an existing REDCap page/request. 
+A module can have pages, similar to traditional REDCap plugins.  While traditional plugin pages are accessible directly from the web (e.g., https://example.com/redcap/plugins/my-plugin/my-page.php), module pages must be accessed through a url returned by the `getUrl()` method (e.g., https://example.com/redcap/redcap_vX.X.X/ExternalModules/?prefix=my_module&page=my-page). Thus it is important to note that PHP files in a module's directory cannot be accessed directly from the web browser (e.g., https://example.com/redcap/redcap/modules/my_module_v#.#.#/my-page.php).
 
-The difference between module plugin pages and traditional plugins is that while you would typically navigate directly to a traditional plugin's URL in a web browser (e.g., https://example.com/redcap/plugins/votecap/pluginfile.php?pid=26), module plugins cannot be accessed directly but can only be accessed through the External Modules framework's directory (e.g., https://example.com/redcap/redcap_vX.X.X/ExternalModules/?prefix=your_module&page=pluginfile&pid=26). Thus it is important to note that PHP files in a module's directory (e.g., /redcap/modules/votecap/pluginfile.php) cannot be accessed directly from the web browser.
+Note: When building links to module pages in module code, make sure to use the `getUrl()` method (documented [here](methods/README.md)) to build all page URLs on the fly.  Manually building URLs to pages will not work in all cases.
 
-Note: If you are building links to plugin pages in your module, you should use the  `getUrl()` method (documented in the methods list below), which will build the URL all the required parameters for you.
-
-**Add a link on the project menu to your plugin:** Adding a page to your module is fairly easy. First, it requires adding an item to the `links` option in the config.json file. In order for the plugin link to show up in a project where the module is enabled, put the link settings (name, icon, and url) under the `project` sub-option, as seen below, in which *url* notes that index.php in the module directory will be the endpoint of the URL, *"VoteCap"* will be the link text displayed. See the **Config.json** section above for details on the *icon* parameter. You may add as many links as you wish.  By default, project links will only display for superusers and users with design rights, but this can be customized in each module (see the *redcap_module_link_check_display()* documentation above). 
+**Add a link on the project menu to your page:** Adding a page to your module is fairly easy. First, it requires adding an item to the `links` option in the config.json file. In order for the link to show up in a project where the module is enabled, put the link settings (name, icon, and url) under the `project` sub-option, as seen below, in which *url* notes that index.php in the module directory will be the endpoint of the URL, *"VoteCap"* will be the link text displayed. See the **Config.json** section above for details on the *icon* parameter. You may add as many links as you wish.  By default, project links will only display for superusers and users with design rights, but this can be customized in each module (see the *redcap_module_link_check_display()* documentation above). 
 
 ``` json
 {
@@ -52,7 +50,7 @@ Setting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 show-header-and-footer | Specify **true** to automatically show the REDCap header and footer on this page.  Defaults to **false** when omitted.
 
 **Adding links to the Control Center menu:**
-If you want to similarly add links to your plugins on the Control Center's left-hand menu (as opposed to a project's left-hand menu), then you will need to add a `control-center` section to your `links` settings, as seen below.
+If you want to similarly add links to your pages on the Control Center's left-hand menu (as opposed to a project's left-hand menu), then you will need to add a `control-center` section to your `links` settings, as seen below.
 
 ``` json
 {
@@ -77,7 +75,7 @@ If you want to similarly add links to your plugins on the Control Center's left-
 }
 ```
 
-**Disabling authentication in plugins:** If a plugin page should not enforce REDCap's authentication but instead should be publicly viewable to the web, then in the config.json file you need to 1) **append `?NOAUTH` to the URL in the `links` setting**, and then 2) **add the plugin file name to the `no-auth-pages` setting**, as seen below. Once those are set, all URLs built using `getUrl()` will automatically append *NOAUTH* to the plugin URL, and when someone accesses the plugin page, it will know not to enforce authentication because of the *no-auth-pages* setting. Otherwise, External Modules will enforce REDCap authentication by default.
+**Disabling authentication for specific pages:** If a module page should not enforce REDCap's authentication but instead should be publicly viewable to the web, then in the `config.json` file you need to 1) **append `?NOAUTH` to the URL in the `links` setting**, and then 2) **add the file name to the `no-auth-pages` setting**, as seen below. Once those are set, all URLs built using `getUrl()` will automatically append *NOAUTH* to the page URL, and when someone accesses the page, it will know not to enforce authentication because of the *no-auth-pages* setting. Otherwise, External Modules will enforce REDCap authentication by default.
 
 ``` json
 {
@@ -97,9 +95,7 @@ If you want to similarly add links to your plugins on the Control Center's left-
 }
 ```
 
-The actual code of your plugin page will likely reference methods in your module class. It is common to first initiate the plugin by instantiating your module class and/or calling a method in the module class, in which this will cause the External Modules framework to process the parameters passed, discern if authentication is required, and other initial things that will be required before processing the plugin and outputting any response HTML (if any) to the browser.
-
-**Example plugin page code:**
+**Example page code:**
 
 ```php
 <?php

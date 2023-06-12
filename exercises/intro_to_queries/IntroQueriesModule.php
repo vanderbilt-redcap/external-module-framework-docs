@@ -6,7 +6,7 @@ use ExternalModules\AbstractExternalModule;
 
 class IntroQueriesModule extends AbstractExternalModule {
 
-    function buildPluginPage() {
+    function buildPage() {
         // Load in resources for Select2
         $this->includeJsResource('select2.js');
         $this->includeCssResource('select2.css');

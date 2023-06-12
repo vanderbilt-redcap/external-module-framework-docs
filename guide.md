@@ -143,12 +143,11 @@ function increase() {
 
 ### [Hello Page]({{ site.repo_root }}exercises/intro_to_pages/)
 
-This module introduces the use of plugins. The provided module already has a plugin page available for admins in the Control Center; the goal of this exercise is to add a second plugin page accessible _at the project level_. Unlike other modules, you will need to create an entirely new PHP file for this project, referring to `pages/control_center_custom_page.php` should be useful.
+This module introduces the use of module pages. The provided module already has a page available for admins in the Control Center; the goal of this exercise is to add a second page accessible _at the project level_. Unlike other modules, you will need to create an entirely new PHP file for this project, referring to `pages/control_center_custom_page.php` should be useful.
 
-Read [the official documentation on creating plugin pages](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#how-to-create-plugin-pages-for-your-module).
+Read [the official documentation on creating pages](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#how-to-create-pages-for-your-module).
 
-Plugins appear as links in the left-hand menu. The EM framework allows you to decorate the links with icons set in a `link` object under `config.json`. In framework version >= 3, you have access to [Font Awesome](https://fontawesome.com/icons?d=gallery) icons.  
-When assigning Font Awesome icons, the entry will appear as follows: `fa<style> fa-<icon_name>`, where available `<style>`s are:
+Pages can be configured to appear as links in the left-hand menu by adding them to `config.json` as shown below. Since framework version 3, [Font Awesome](https://fontawesome.com/icons?d=gallery) icons are used.  When assigning Font Awesome icons, the entry will appear as follows: `fa<style> fa-<icon_name>`, where available `<style>`s are:
 - s: solid
 - r: regular
 - l: light
@@ -206,7 +205,7 @@ Provides pages that say "Hello, world" in the control center and in projects.
 
 While working on this module, you will learn how to access constants and variables defined by REDCap. You will also use `project-settings` to allow users to set variables.
 
-You may display this via a hook or a project plugin page.
+You may display this via a hook or a project page.
 
 The goal of this exercise is to create a module that displays a user's:
 1. Username
@@ -304,11 +303,11 @@ Displays information relevant to users, including their user permissions and loc
 
 **Setup**: A prebuilt project file is provided for this module. You will need to create a new project, select the "Upload a REDCap project XML file" option, and use the `RecordWrangling_project.xml` file located at the root of the module directory.
 
-This module introduces you to interactions with the `redcap_data` table. You will finish a plugin that will allow a user with admin rights to insert an arbitrary text value into a field across all records of a project. You should look in `Classes/REDCap.php` and `ExternalModules/AbstractExternalModule.php` in the root of your REDCap directory for `getData` and `saveData` functions.
+This module introduces you to interactions with the `redcap_data` table. You will finish a page that will allow a user with admin rights to insert an arbitrary text value into a field across all records of a project. You should look in `Classes/REDCap.php` and `ExternalModules/AbstractExternalModule.php` in the root of your REDCap directory for `getData` and `saveData` functions.
 
 This module uses AJAX. Your updates should be made in `pages/ajaxpage.php`. You should still look through the other files to understand the module as a whole.
 
-You may have noticed the `setData` function in the official module documentation. At first glance, this function may appear suitable for this exercise, but plugins do not provide the context it requires. It is more suited to _hooks_. While `setData` takes only 3 arguments (`$record`, `$fieldName`, and `$values`), it actually requires an `event_id` - a numerical identifier for the event - to be detected for it to function properly; this is fine for a hook that is intended to run on a record page. `setData`'s lack of logging is also an issue. Any write events to the REDCap database short of logging itself should be logged.
+You may have noticed the `setData` function in the official module documentation. At first glance, this function may appear suitable for this exercise, but pages do not provide the context it requires. It is more suited to _hooks_. While `setData` takes only 3 arguments (`$record`, `$fieldName`, and `$values`), it actually requires an `event_id` - a numerical identifier for the event - to be detected for it to function properly; this is fine for a hook that is intended to run on a record page. `setData`'s lack of logging is also an issue. Any write events to the REDCap database short of logging itself should be logged.
 
 The solutions provided below use both built-in module methods and the REDCap class implementations of `getData` and `saveData`.
 
@@ -372,12 +371,12 @@ The solutions provided below use both built-in module methods and the REDCap cla
 
 ### [Intro to Queries]({{ site.repo_root }}exercises/intro_to_queries/)
 
-In this module, you will complete a plugin page that allows admins to assign and revoke privileges for users in bulk. Make your changes in `IntroQueriesModule.php`; you will need to write a few lines of SQL to make an `UPDATE` statement. If you visit the plugin page before you complete the `gatherUsers` function, you will receive a fatal error in `IntroQueriesModule.php`. This error is normal. Work the problem.
+In this module, you will complete a page that allows admins to assign and revoke privileges for users in bulk. Make your changes in `IntroQueriesModule.php`; you will need to write a few lines of SQL to make an `UPDATE` statement. If you visit the page before you complete the `gatherUsers` function, you will receive a fatal error in `IntroQueriesModule.php`. This error is normal. Work the problem.
 
 You will occasionally have to write SQL queries; most often, this need will arise when writing a module that adds a feature for REDCap admins. Writing your own SQL should be a last resort after you have considered all of your builtin options.
 
 While evaluating builtin options for this exercise, you might be tempted to use `framework->getUser`. It won't meet your needs, but it's worth exploring why. For this module, you need a class method that lists _all_ users, but `framework->getUser` does not do that.
-When a module call doesn't work, look at its source code to see if it calls a core class. `framework->getUser` is a wrapper around `\REDCap::getUsers()` which might seem useful, but calling this is _also_ unsuitable since it is only allowed in a project context. As we are writing a plugin page for the Control Center, `\REDCap::getUsers()` will fail. The project context requirement in `\REDCap::getUsers()` forces us to write a SQL query of REDCap's user information table.
+When a module call doesn't work, look at its source code to see if it calls a core class. `framework->getUser` is a wrapper around `\REDCap::getUsers()` which might seem useful, but calling this is _also_ unsuitable since it is only allowed in a project context. As we are writing a page for the Control Center, `\REDCap::getUsers()` will fail. The project context requirement in `\REDCap::getUsers()` forces us to write a SQL query of REDCap's user information table.
 
 You will probably find your [docker environment's PHPMyAdmin container](http://localhost/phpmyadmin/) useful for this exercise. Adjust that URL to match the port number of your docker environment's web server container if it fails.
 
