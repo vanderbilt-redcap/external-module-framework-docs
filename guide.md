@@ -81,21 +81,21 @@ Read the [Using Hooks in Modules](hooks.md) page, look for the text `FIXME` in t
 
 ---
 
-### [Intro JS]({{ site.repo_root }}exercises/intro_to_js/)
+### [Intro JS](exercises/intro_to_js/)
 
 This module teaches best practices when including JavaScript in your External Modules by adding a clickable counter to the home page of projects for which it is enabled. It also introduces the use of the REDCap core class, `RCView`; the source for this class is located in the root of your REDCap folder at `Classes/RCView.php`. Note that while clever use of an `onclick` attribute might allow you to complete this module, the purpose is to work with a separate JavaScript file.
 
-Read [the official documentation on module functions, specifically `getUrl`](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/v3.md). You might also find it helpful to refer to previous exercises for examples of JavaScript use.
+Read the [method documentation](methods/README.md) for the `getUrl()` method. You might also find it helpful to refer to previous exercises for examples of JavaScript use.
 
-While this module does not use any variables, note that when working with JavaScript it is [recommended to scope the variables within an object](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/official-documentation.md#javascript-recommendations). Two sample helper functions to accomplish this goal in PHP are written below.
+While this module does not use any variables, it is important to remember to [scope JavaScript variables and functions within an object](javascript.md). Two sample helper functions to accomplish this goal in PHP are written below.
 
 ```php
     protected function setJsSettings($settings) {
-        echo '<script>myModuleName = ' . json_encode($settings) . ';</script>';
+        echo '<script>const myModuleName = ' . json_encode($settings) . ';</script>';
     }
 
     // Recall that you must instantiate an empty JS object prior to the first call of this function, i.e.
-    // echo '<script>myModuleName = {};</script>';
+    // echo '<script>const myModuleName = {};</script>';
     protected function setSingleJsSetting($key, $value) {
         echo "<script>myModuleName." . $key . " = " . json_encode($value) . ";</script>";
     }

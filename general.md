@@ -271,35 +271,6 @@ It may be the case that a module is not compatible with specific versions of RED
 }
 ```
 
-### JavaScript recommendations
-
-If your module will be using JavaScript, it is *highly recommended* that your JavaScript variables and functions not be placed in the global scope. Doing so could cause a conflict with other modules that are running at the same time that might have the same variable/function names. As an alternative, consider creating a function as an **IIFE (Immediately Invoked Function Expression)** or instead creating the variables/functions as properties of a **single global scope object** for the module, as seen below.
-
-```JavaScript
-<script type="text/javascript">
-  // IIFE - Immediately Invoked Function Expression
-  (function($, window, document) {
-      // The $ is now locally scoped
-
-      // The rest of your code goes here!
-
-  }(window.jQuery, window, document));
-  // The global jQuery object is passed as a parameter
-</script>
-```
-
-```JavaScript
-<script type="text/javascript">
-  // Single global scope object containing all variables/functions
-  var MCRI_SurveyLinkLookup = {};
-  MCRI_SurveyLinkLookup.modulevar = "Hello world!";
-  MCRI_SurveyLinkLookup.sayIt = function() {
-    alert(this.modulevar);
-  };
-  MCRI_SurveyLinkLookup.sayIt();
-</script>
-```
-
 ### Constructor Related Pitfalls
 
 Adding constructors to modules is not recommended because all module features are not available in constructors under all conditions (like calling `setSystemSetting()` when enabling modules at the system level).  Instead, [lazy instantiation](https://en.wikipedia.org/wiki/Lazy_initialization) of any required resources is recommended inside the getter method for each resource at the time it is first used.  If you must implement a constructor, calling `parent::__construct();` on the first line (as shown below) will make as many module features available as possible.
