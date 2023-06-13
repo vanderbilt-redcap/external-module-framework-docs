@@ -7,28 +7,30 @@ use ExternalModules\AbstractExternalModule;
 class IntroQueriesModule extends AbstractExternalModule {
 
     function buildPage() {
-        // Load in resources for Select2
-        $this->includeJsResource('select2.js');
-        $this->includeCssResource('select2.css');
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $users = $_POST['users'];
+            $newValue = $_POST['newValue'];
+
+            if ($this->alterUsers($users, $newValue)) {
+                $message = "Set allow_create_db to $newValue for " . implode(', ', $users);
+            } else {
+                $message = 'something went wrong';
+            }
+        }
+        else{
+            $message = null;
+        }
 
         $this->includeJs('js/iq.js');
         $settings = [
             'users' => $this->gatherUsers(),
-            'ajaxpage' => $this->getUrl('pages/ajaxpage.php')
+            'message' => $message,
         ];
         $this->setJsSettings($settings);
     }
 
     protected function includeJs($path) {
         echo '<script src="' . $this->getUrl($path, true) . '">;</script>';
-    }
-
-    protected function includeJsResource($library) {
-        echo '<script src="' . APP_PATH_JS . $library . '">;</script>';
-    }
-
-    protected function includeCssResource($library) {
-        echo '<link href="' . APP_PATH_CSS . $library . '" rel="stylesheet" />';
     }
 
     protected function setJsSettings($settings) {

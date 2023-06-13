@@ -1,5 +1,5 @@
 {
-    "name": "Hello world",
+    "name": "Hello World",
     "description": "Hello world page to ensure your development tools are working",
     "namespace": "ExternalModuleExercises\\HelloWorldModule",
     "framework-version": 12,

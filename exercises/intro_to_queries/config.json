@@ -13,7 +13,7 @@
    "links": {
       "control-center": [
          {
-            "name": "Page",
+            "name": "User Selection Page",
             "icon": "fas fa-globe",
             "url": "pages/user_selection.php"
          }
