@@ -4,6 +4,8 @@
 
 The following methods are provided by the framework.  Modules that have been updated to framework version `5` or greater can access methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
 
+Please also make sure you are aware of the built-in developer methods on your REDCap instance under **Control Center -> Plugin, Hook, & External Module Documentation** page, as well as the PHP constants under **redcap_info()**.  Eventually, that & this documentation will ideally be merged.
+
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | --- 
 addAutoNumberedRecord([$pid]) | 8.0.0 | Creates the next auto numbered record and returns the record id.  If the optional PID parameter is not specified, the current PID will be automatically detected.
