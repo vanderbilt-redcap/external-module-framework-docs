@@ -186,7 +186,7 @@ require_once APP_PATH_DOCROOT . 'ProjectGeneral/footer.php';
 
 ---
 
-### [Accessing Variables]({{ site.repo_root }}exercises/accessing_variables/)
+### [Accessing Variables](exercises/accessing_variables/)
 
 While working on this module, you will learn how to access constants and variables defined by REDCap. You will also use `project-settings` to allow users to set variables.
 
@@ -200,35 +200,13 @@ The goal of this exercise is to create a module that displays a user's:
 1. The current project's `project_id`
 1. The value of a variable set in the module's configuration menu
 
-Check the [official External Module documentation on functions](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/intro.md) for functions which provide this information for you. Useful phrases to search for are "User" and "projectSetting".
-
-Note that there is an unlisted property of the [`User` object](https://github.com/vanderbilt/redcap-external-modules/blob/testing/docs/framework/intro.md#user-method) that you will need: 
-
-```php
-$User = $this->getUser();
-$User->username;
-```
-
-If your programming environment has a debugger available, you can use it to see the accessible constants. If you do not have a debugger or cannot connect it to your REDCap docker container, please view the list below. Note that most of these are available as functions.  
-<details>
-<summary>Useful global constants
-</summary>
-
-- **PAGE**: The path portion of the URL for the current web page. This is the only constant listed that is not easily determined by a function
-- **PROJECT_ID**: The numerical ID of the project being viewed
-- **USERID**: The username of the user viewing the page
-- **SUPER_USER**: A boolean integer indication if the user from **USERID** has admin privileges
-
-</details>
-<br />
-
-As before, documentation _must_ be updated when introducing features. This is even more important when adding functionality that users interact with (e.g. an entry in `project-settings` in the `config.json`)!
+Check the [Method Documentation](methods/README.md) for methods which provide this information for you. Useful phrases to search for are "User" and "projectSetting".
 
 <details>
 <summary>Example Solution Via a Hook
 </summary>
 
-This is a _bare minimum_ implementation that demonstrates how to access REDCap variables. The output is _ugly_. An attractive display of those variables is left as an exercise for the student.  
+This is a _bare minimum_ implementation that demonstrates how to access REDCap variables. The output is _ugly_. An attractive display of those variables is left as part of the exercise.  
 `AccessingVariablesModule.php`
 ```php
     //FIXME: Write and use functions to show users pertinent information
@@ -241,7 +219,7 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
 
         $userobj = $this->getUser();
 
-        print_r("Username: " . $userobj->username . "\n");
+        print_r("Username: " . $userobj->getUsername() . "\n");
         print_r("You are " . ( ($userobj->isSuperUser()) ? "" : "not " ) . "a superuser.\n");
         print_r("Your user rights: \n");
         var_dump($userobj->getRights());
@@ -266,21 +244,6 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
         }
     ]
 ```
-
-An unordered list is a great way to explain simple options to users.  
-`README.md`
-```markdown
-Displays information relevant to users, including their user permissions and location in REDCap.
-
-...
-
-## Project Configuration
-- **Custom Setting**: A message that will be displayed along with other information
-
-```
-
-</details>
-<br />
 
 ---
 
