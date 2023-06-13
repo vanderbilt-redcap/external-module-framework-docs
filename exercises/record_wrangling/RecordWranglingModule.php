@@ -6,20 +6,32 @@ use ExternalModules\AbstractExternalModule;
 
 class RecordWranglingModule extends AbstractExternalModule {
 
-    function setupProjectPage() {
-        $this->includeJs("js/rw.js");
-        $settings = [
-            'ajaxpage' => $this->getUrl('pages/ajaxpage.php')
-        ];
-        $this->setJsSettings($settings);
+    function handlePost(){
+        $field_name = $_POST['field_name'];
+        $new_value = $_POST['new_value'];
+
+        //FIXME: use a function to getData and assign it to a variable called $redcap_data
+
+
+        $this->changeField($redcap_data, $field_name, $new_value); // update the $redcap_data array inplace
+
+        //FIXME: use a function to target this project's $pid and use the array $redcap_data to overwrite
+        // the database
+
+
+        /* Log what was done
+        * While some functions will log that data was saved, logging that
+        * your module initiated the change can aid in debugging and auditing
+        */
+        $this->log("Updated field '$field_name' to value '$new_value' for project_id '$pid'");
+
+        ?>
+        <script> alert(`Inserted ` + <?=json_encode($new_value)?> + ` into ` + <?=json_encode($field_name)?> + ` for all records`)</script>
+        <?php
     }
 
-    protected function includeJs($path) {
+    function includeJs($path) {
         echo '<script src="' . $this->getUrl($path, true) . '">;</script>';
-    }
-
-    protected function setJsSettings($settings) {
-        echo '<script>recordWrangling = ' . json_encode($settings) . ';</script>';
     }
 
     function changeField(&$redcap_data, $field, $new_value) {
