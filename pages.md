@@ -6,17 +6,24 @@ Note: When building links to module pages in module code, make sure to use the `
 
 
 #### Left-Hand Menu Project Links
-Links to pages can be configured to appear in REDCap's left-hand menu by adding them to `config.json`. Links configured under the `project` section (as shown below) will be visible by default for users with design rights, on all project pages, on projects where the module is enabled.  This behavior can be modified via the `redcap_module_link_check_display()` hook (see the [method documentation](methods/README.md) for details).  See [the config.json docs](config.md) for details on link configuration options.
+Links to pages can be configured to appear in REDCap's left-hand menu by adding them to `config.json`.  These can include module pages or links to outside websites.  Links configured under the `control-center` section (shown below) will appear only in REDCap's **Control Center**. Links configured under the `project` section (shown below) will be visible by default **only for users with design rights**, on all project pages, on projects where the module is enabled.  Display behavior/permission and link details (name, url, etc.) can be modified on the fly via the `redcap_module_link_check_display()` hook (see the [method documentation](methods/README.md#em-hooks) for details).  See [the config.json docs](config.md) for details on link configuration options.
 
 ``` json
 {
    "links": {
+      "control-center": [
+         {
+            "name": "My Control Center Page",
+            "icon": "fas fa-receipt",
+            "url": "control-center-page.php",
+            "show-header-and-footer": true
+         }
+      ],
       "project": [
          {
-            "name": "VoteCap",
-            "key": "votecap",
+            "name": "My Project Page",
             "icon": "fas fa-receipt",
-            "url": "my-page.php",
+            "url": "project-page.php",
             "show-header-and-footer": true
          }
       ]
@@ -24,29 +31,6 @@ Links to pages can be configured to appear in REDCap's left-hand menu by adding 
 }
 ```
 
-The following optional settings may also be specified for each project link:
-
-Setting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description
-------- | -----------
-show-header-and-footer | Specify **true** to automatically show the REDCap header and footer on this page.  Defaults to **false** when omitted.
-
-#### Left-Hand Menu Control Center Links
-If you want to similarly add links to your pages on the Control Center's left-hand menu (as opposed to a project's left-hand menu), then you will need to add a `control-center` section to your `links` settings, as seen below.
-
-``` json
-{
-   "links": {
-      "control-center": [
-         {
-            "name": "VoteCap System Config",
-            "key": "config",
-            "icon": "fas fa-receipt",
-            "url": "config.php"
-         }
-      ]
-   }
-}
-```
 #### Disabling authentication for specific pages
 If a module page should not enforce REDCap's authentication but instead should be publicly viewable to the web, then in the `config.json` file you need to 1) **append `?NOAUTH` to the URL in the `links` setting**, and then 2) **add the file name to the `no-auth-pages` setting**, as seen below. Once those are set, all URLs built using `getUrl()` will automatically append *NOAUTH* to the page URL, and when someone accesses the page, it will know not to enforce authentication because of the *no-auth-pages* setting. Otherwise, External Modules will enforce REDCap authentication by default.
 

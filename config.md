@@ -8,14 +8,15 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * **DEPRECATED:** Prior to framework version 12, a **permissions** section was required to specify each hook you wish you use (e.g., **redcap_save_record**).  From framework version 12 forward, hooks work automatically and the **permissions** section must be removed.
 * The **framework-version** version used by the module ([click here](versions/README.md) for details).
-* **links** specify any links to show up on the left-hand toolbar. These include module pages or links to outside websites. These are listable at the control-center level or at the project level.  Link URLs and names can be modified before display with the `redcap_module_link_check_display` hook ([click here](methods/README.md#em-hooks) for details).  A **link** consists of:
+* **links** specify any links to show up on the left-hand menu. For details, see [Pages & Links](pages.md) page. A **link** consists of:
 	* A **name** to be displayed on the site
-   * A **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.
-	* An **icon**
+	* A **url**.  Either a relative path to a module page, or external URL starting with either 'http://' or 'https://'. Javascript links are also supported; these need to start with 'javascript:' and may only use single quotes.
+   * An optional **key** (unique within _links_) to identify the link (optional, limited to [-a-zA-Z0-9]). The key (prefixed with the module's prefix and a dash) will be output in the 'data-link-key' attribute of the rendered a tag.
+	* An optional **icon**
 		* For framework version 3 and later, the **icon** must either be the [Font Awesome](https://fontawesome.com/icons?d=gallery) classes (e.g. `fas fa-user-friends`) or a path to an icon file within the module itself (e.g. `images/my-icon.png`).
 		* For framework versions prior to 3, the filename of a REDCap icon in the `Resources/images` folder must be specified without the extension (e.g. `user_list`).  This is deprecated because those icons are no longer used by REDCap itself, and may be modified or removed at any time.
-	* A **url**.  Either a relative path to a module page, or external URL starting with either 'http://' or 'https://'. Javascript links are also supported; these need to start with 'javascript:' and may only use single quotes.
-   * A **target** that will be used for the 'target' attribute of the rendered a tag.
+   * An optional  **target** that will be used for the 'target' attribute of the rendered a tag.
+   * An optional **show-header-and-footer** boolean.  When **true**, automatically includes the REDCap header and footer on this page.  Defaults to **false** when omitted.
 * **system-settings** specify settings configurable at the system-wide level (this Control Center).  Settings do NOT have to be defined in config.json to be used programmatically.  
 * **project-settings** specify settings configurable at the project level, different for each project.  Settings do NOT have to be defined in config.json to be used programmatically.  
 * A setting consists of:
