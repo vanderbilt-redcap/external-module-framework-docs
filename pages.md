@@ -32,22 +32,12 @@ Links to pages can be configured to appear in REDCap's left-hand menu by adding 
 ```
 
 #### Disabling authentication for specific pages
-If a module page should not enforce REDCap's authentication but instead should be publicly viewable to the web, then in the `config.json` file you need to 1) **append `?NOAUTH` to the URL in the `links` setting**, and then 2) **add the file name to the `no-auth-pages` setting**, as seen below. Once those are set, all URLs built using `getUrl()` will automatically append *NOAUTH* to the page URL, and when someone accesses the page, it will know not to enforce authentication because of the *no-auth-pages* setting. Otherwise, External Modules will enforce REDCap authentication by default.
+If a module page should not enforce REDCap's authentication but instead should be publicly viewable to the web, it must be added to the list of `no-auth-pages` in `config.json` (without the `.php` extension, as shown below). Also, any URLs accessing that page will need to include a `NOAUTH` GET parameter.  This GET parameter is automatically appended to URLs built using `getUrl()` when the third parameter to that function is set to `true`.
 
 ``` json
 {
-   "links": {
-      "project": [
-         {
-            "name": "VoteCap",
-            "key": "votecap",
-            "icon": "fas fa-receipt",
-            "url": "index.php?NOAUTH"
-         }
-      ]
-   },
    "no-auth-pages": [
-      "index"
+      "my-no-auth-page"
    ],
 }
 ```
