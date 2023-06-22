@@ -2,9 +2,11 @@
 
 **Some method behavior differs between framework versions.  [Click here](../versions/README.md) for more information on framework versioning in general.**
 
-The following methods are provided by the framework.  Modules that have been updated to framework version `5` or greater can access methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
+The following **PHP** and **JavaScript** methods are provided by the framework.  Modules that have been updated to framework version `5` or greater can access methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
 
 Please also make sure you are aware of the built-in developer methods on your REDCap instance under **Control Center -> Plugin, Hook, & External Module Documentation** page, as well as the PHP constants under **redcap_info()**.  Eventually, that & this documentation will ideally be merged.
+
+Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request for this repo with example documentation for the method(s) you'd like to be supported.
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | --- 

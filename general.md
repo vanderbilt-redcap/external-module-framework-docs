@@ -4,13 +4,7 @@
 
 If you have created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
 
-### Available developer methods in External Modules
 
-The External Modules framework provides objects representing a module, both in **PHP** and **JavaScript**.
-
-The publicly supported methods that module creators may utilize depend on the framework version they opt into via the configuration file and are documented [here](methods/README.md).
-
-Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request in GitHub.  Email mark.mcever@vumc.org in order to gain access to the [External Module Framework GitHub Repo](https://github.com/vanderbilt-redcap/external-module-framework).
 
 ### Constructor Related Pitfalls
 
