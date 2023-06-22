@@ -1,11 +1,10 @@
 # REDCap External Module Framework Documentation
-You've reached the official documentation for REDCap's External Module Framework!  These docs and the External Module Framework itself are both very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request` to submit them for review.
 
-Development Resources | Descriptions
--|-
-[Beginner's Guide](guide.md) | Start here if you're new to External Module development
-[General Documentation](general.md) | Technical details relating to many aspects of module development
-GitHub's Search | Github's search feature (in the top of right corner of this page) is a great way to find keywords throughout these docs
+You've reached the official documentation for REDCap's External Module Framework!  This framework can be used to create External Modules, the recommended way to programmatically extend REDCap's base functionality.  These docs and the External Module Framework itself are both very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request` to submit them for review.
+
+If you're brand new to module development, see the [beginner's guide](guide.md).
+
+If you have already created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
 
 Framework Features | Descriptions
 -|-
@@ -23,5 +22,7 @@ Framework Features | Descriptions
 
 Misc. Resources | Descriptions
 -|-
+[Beginner's Guide](guide.md) | Start here if you're new to External Module development
 [Dependencies](dependencies.md) | Recommendations for including shared libraries in your module code
 [Renaming a module](renaming.md) | Concerns when renaming a module
+GitHub's Search | Github's search feature (in the top of right corner of this page) is a great way to find keywords throughout these docs
