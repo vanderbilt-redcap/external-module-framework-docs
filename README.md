@@ -12,12 +12,14 @@ Framework Features | Descriptions
 [Module Pages](pages.md) | Modules can provide their own pages to perform any arbitrary actions
 [Hooks](hooks.md) | Modules can define hook methods that execute in certain places on REDCap core pages
 [Methods](methods/README.md) | The framework provides many features via methods on the module object
-[Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
+[SQL Queries](methods/querying.md) | The recommended way to query the database from module code
+[Logging](methods/logs.md) | The framework's built-in logging functionality
 [AJAX Requests](ajax.md) | The recommended way to perform AJAX requests from module code
-[Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
 [Crons](crons.md) | Scheduled tasks that automatically execute periodically in the background
 [Unit Testing](unit-testing.md) | Writing standard PHPUnit tests for your module
 [Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
+[Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
+[Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
 
 Misc. Resources | Descriptions
 -|-
