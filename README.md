@@ -5,7 +5,21 @@ Development Resources | Descriptions
 -|-
 [Beginner's Guide](guide.md) | Start here if you're new to External Module development
 [General Documentation](general.md) | Technical details relating to many aspects of module development
-[Method & Hook Documentation](methods/README.md) | The list of all methods & hooks available to use within module code
+GitHub's Search | Github's search feature (in the top of right corner of this page) is a great way to find keywords throughout these docs
+
+Framework Features | Descriptions
+-|-
+[Module Pages](pages.md) | Modules can provide their own pages to perform any arbitrary actions
+[Hooks](hooks.md) | Modules can define hook methods that execute in certain places on REDCap core pages
+[Methods](methods/README.md) | The framework provides many features via methods on the module object
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
+[AJAX Requests](ajax.md) | The recommended way to perform AJAX requests from module code
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
-GitHub's Search | Github's search feature (in the top of left corner of this page) is a great way to find keywords throughout these docs
+[Crons](crons.md) | Scheduled tasks that automatically execute periodically in the background
+[Unit Testing](unit-testing.md) | Writing standard PHPUnit tests for your module
+[Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
+
+Misc. Resources | Descriptions
+-|-
+[Dependencies](dependencies.md) | Recommendations for including shared libraries in your module code
+[Renaming a module](renaming.md) | Concerns when renaming a module
