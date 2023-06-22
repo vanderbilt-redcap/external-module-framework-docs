@@ -12,10 +12,6 @@ The publicly supported methods that module creators may utilize depend on the fr
 
 Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request in GitHub.  Email mark.mcever@vumc.org in order to gain access to the [External Module Framework GitHub Repo](https://github.com/vanderbilt-redcap/external-module-framework).
 
-### Logging from module code
-
-The External Modules framework provides mechanism to log to the `redcap_external_modules_log` and `redcap_external_modules_log_parameters` tables. See the PHP and JavaScript versions of the `log()` method [here](methods/README.md).
-
 ### Constructor Related Pitfalls
 
 Adding constructors to modules is not recommended because all module features are not available in constructors under all conditions (like calling `setSystemSetting()` when enabling modules at the system level).  Instead, [lazy instantiation](https://en.wikipedia.org/wiki/Lazy_initialization) of any required resources is recommended inside the getter method for each resource at the time it is first used.  If you must implement a constructor, calling `parent::__construct();` on the first line (as shown below) will make as many module features available as possible.
