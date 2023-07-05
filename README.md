@@ -23,6 +23,11 @@ Framework Features | Descriptions
 Misc. Resources | Descriptions
 -|-
 [Beginner's Guide](guide.md) | Start here if you're new to External Module development
+[Module Directory Names](directory-names.md) | Information on module directory naming
+[Module Code Requirements](requirements.md) | Information on basic module requirements
+[config.json](config.md) | Details on the format of the `config.json` file
+[JavaScript in Modules](javascript.md) | Recommendations for using javascript in modules
 [Dependencies](dependencies.md) | Recommendations for including shared libraries in your module code
 [Renaming a module](renaming.md) | Concerns when renaming a module
+[Acknowledgments](ACKNOWLEDGEMENTS.md) | Acknowledging contributors that have made these docs possible!
 GitHub's Search | Github's search feature (in the top of right corner of this page) is a great way to find keywords throughout these docs
