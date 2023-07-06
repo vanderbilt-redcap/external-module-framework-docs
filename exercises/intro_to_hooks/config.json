@@ -1,0 +1,13 @@
+{
+    "name": "Hello Hook",
+    "description": "Provide a friendly alert to REDCap users",
+    "namespace": "ExternalModuleExercises\\HelloHookModule",
+    "framework-version": 12,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}

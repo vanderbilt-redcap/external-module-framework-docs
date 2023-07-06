@@ -1,0 +1,13 @@
+{
+    "name": "Hello World",
+    "description": "Hello world page to ensure your development tools are working",
+    "namespace": "ExternalModuleExercises\\HelloWorldModule",
+    "framework-version": 12,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}

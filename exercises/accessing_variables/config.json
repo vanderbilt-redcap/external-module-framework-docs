@@ -1,0 +1,13 @@
+{
+    "name": "Accessing Variables",
+    "description": "Module that describes users to themselves",
+    "namespace": "ExternalModuleExercises\\AccessingVariablesModule",
+    "framework-version": 12,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}

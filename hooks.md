@@ -1,0 +1,56 @@
+### Using Hooks in Modules
+
+One of the more powerful things that modules can do is to utilize REDCap Hooks, which allow you to execute PHP code in specific places in REDCap. For general information on REDCap hook functions, open **Control Center**, click **Plugin, Hook, & External Module Documentation**, and scroll down to the **Hook functions** section in the left menu. To use a hook in your module you must **add a method in your module class with the exact same name as the name of the desired hook function**. For example, in the HideHomePageEmails class below, there is a method named `redcap_project_home_page`, which means that when REDCap calls the redcap_project_home_page hook, it will execute the module's redcap_project_home_page method.
+
+``` php
+<?php 
+namespace Vanderbilt\HideHomePageEmails;
+
+class HideHomePageEmails extends \ExternalModules\AbstractExternalModule 
+{
+    // This method will be called by the redcap_data_entry_form hook
+    function redcap_data_entry_form($project_id, $record, $instrument, $event_id, $group_id, $repeat_instance) 
+    {
+        // Put your code here to get executed by the hook
+    }
+}
+```
+
+Remember that each hook function has different method parameters that get passed to it (e.g., $project_id), so be sure to include the correct parameters as seen in the hook documentation for the particular hook function you are defining in your module class.
+
+##### Special note regarding the `redcap_email` hook
+When used in an External Module, this hook **must** return an actual boolean value (either `true` or `false`). Do not return 0, 1, or other truthy/falsy values. The results of multiple modules using this hook will be combined with logical AND, i.e. as long as one implementation returns `false`, the email will not be sent by REDCap.
+
+##### Every Page Hooks
+By default, every page hooks will only execute on project specific pages (and only on projects with the module enabled).  However, you can allow them to execute on pages that aren't project specific by setting the following flag in `config.json`.  **WARNING: This flag is risky and should ONLY be used if absolutely necessary.  It will cause your every page hooks to fire on literally ALL non-project pages (the login page, control center pages, "My Projects", etc.).  You will need strict and well tested checking at the top of your hook to make sure it only executes in exactly the contexts desired:**
+
+`"enable-every-page-hooks-on-system-pages": true`
+
+<h5 id='em-hooks'>Hooks provided by External Modules</h5>
+There are a few extra hooks dedicated for modules use:
+
+Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
+--- | --- | ---
+redcap_module_ajax($action, $payload, $project_id, $record, $instrument, $event_id, $repeat_instance, $survey_hash, $response_id, $survey_queue_hash, $page, $page_full, $user_id, $group_id) | 12.5.9 | Triggered by calling the `ajax()` method of the _Javascript Module Object_. `$action` (must be a string) and `$payload` are the parameters submitted to `module.ajax()`; the other parameters give context information that, when set, can be trusted to be correct (as with REDCap hooks). Allowed actions (in authenticated and non-authenticated contexts) must be explicitly declared in `config.json` through the _auth-ajax-actions_ and _no-auth-ajax-actions_ settings (arrays of strings), respectively.
+redcap_module_configuration_settings($project_id, $settings) | 11.0.0 | Triggered when the system or project configuration dialog is displayed for a given module.  This hook allows modules to dynamically modify and return the settings that will be displayed.
+redcap_module_system_enable($version) | 9.0.0 | Triggered when a module is enabled or changed to a different version in Control Center.  It is not recommended to use this hook as a primary means of determining when to transition modified module settings, as there are many edge cases that could conflict with such logic (e.g. temporarily downgrading a module).  It is instead recommended to transition settings based solely on the state of the values currently stored.
+redcap_module_system_disable($version) | 9.0.0 | Triggered when a module gets disabled on Control Center.
+~~redcap_module_system_change_version($version, $old_version)~~ | 9.0.0 | This hook is no longer used.  Since REDCap 12.0.4 the `redcap_module_system_enable()` hook has been called in its place. See [this community post](https://redcap.vanderbilt.edu/community/post.php?id=142034) for details.
+redcap_module_project_enable($version, $project_id) | 9.0.0 | Triggered when a module gets enabled on a specific project.
+redcap_module_project_disable($version, $project_id) | 9.0.0 | Triggered when a module gets disabled on a specific project.
+redcap_module_configure_button_display() | 9.0.0 | Triggered when each enabled module defined is rendered.  Return `null` if you don't want to display the Configure button and `true` to display.
+redcap_module_link_check_display($project_id, $link) | 9.0.0 | Triggered when each link defined in `config.json` is rendered, allowing link visibility to be controlled dynamically.  This method also controls whether pages will load if their URL is accessed directly.  Override this method and return `null` to prevent a given link from displaying, or modify and return the `$link` parameter as desired. The `$link` parameter is an array matching the link definition in `config.json` with an additional `url` value added.
+redcap_module_save_configuration($project_id) | 9.0.0 | Triggered after a module configuration is saved.
+redcap_module_import_page_top($project_id) | 9.0.0 | Triggered at the top of the Data Import Tool page.
+Examples: 
+``` php
+<?php
+
+function redcap_module_system_enable($version) {
+    // Do stuff
+}
+
+function redcap_module_system_disable($version) {
+    // Do stuff
+}
+```

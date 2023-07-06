@@ -1,0 +1,13 @@
+{
+    "name": "Intro JS",
+    "description": "Adds a counter to the project home page",
+    "namespace": "ExternalModuleExercises\\IntroJSModule",
+    "framework-version": 12,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ]
+}

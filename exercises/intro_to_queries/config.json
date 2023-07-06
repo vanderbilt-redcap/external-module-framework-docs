@@ -1,0 +1,22 @@
+{
+    "name": "Intro to Queries",
+    "description": "Revoke or allow user privileges in bulk",
+    "namespace": "ExternalModuleExercises\\IntroQueriesModule",
+    "framework-version": 12,
+    "authors": [
+        {
+            "name": "Kyle Chesney",
+            "email": "kyle.chesney@ufl.edu",
+            "institution": "University of Florida - CTSI"
+        }
+    ],
+   "links": {
+      "control-center": [
+         {
+            "name": "User Selection Page",
+            "icon": "fas fa-globe",
+            "url": "pages/user_selection.php"
+         }
+      ]
+   }
+}

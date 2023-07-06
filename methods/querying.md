@@ -111,7 +111,7 @@ $this->query("
 ")
 ```
 ```php
-$query = $module->framework->createQuery();
+$query = $module->createQuery();
 $query->add("
   select *
   from foo
@@ -120,7 +120,7 @@ $query->add("
 $query->execute();
 ```
 ```php
-$query = $module->framework->createQuery();
+$query = $module->createQuery();
 $query->add("select *");
 $query->add("from foo");
 $query->add("join some_table");
