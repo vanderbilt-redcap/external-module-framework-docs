@@ -6,6 +6,14 @@ If you're brand new to module development, see the [beginner's guide](guide.md).
 
 If you have already created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
 
+### How to contribute to this documentation
+
+These docs (and the External Module Framework itself) are very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request`.
+
+### How to contribute to the development of the EM Framework itself
+
+Contributions (new features, bugfixes, etc.) to the External Module Framework code repo are welcome too!  If you would like access to that repo, ask `mark.mcever@vumc.org` for access, then read [the that repo's constribution instructions](https://github.com/vanderbilt-redcap/external-module-framework/blob/testing/CONTRIBUTING.md).
+
 Framework Features | Descriptions
 -|-
 [Module Pages](pages.md) | Modules can provide their own pages to perform any arbitrary actions
@@ -19,14 +27,6 @@ Framework Features | Descriptions
 [Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
-
-### How to contribute to this documentation
-
-These docs (as the External Module Framework itself) are very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request`.
-
-### How to contribute to the development of the EM Framework itself
-
-Contributions (new features, bugfixes, etc.) to the External Module Framework code repo are welcome too!  If you would like access to that repo, ask `mark.mcever@vumc.org` for access, then read [the that repo's constribution instructions](https://github.com/vanderbilt-redcap/external-module-framework/blob/testing/CONTRIBUTING.md).
 
 Misc. Resources | Descriptions
 -|-
