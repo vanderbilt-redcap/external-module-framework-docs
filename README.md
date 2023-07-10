@@ -26,7 +26,7 @@ These docs (as the External Module Framework itself) are very much a community e
 
 ### How to contribute to the development of the EM Framework itself
 
-If you would like to make contributions to the External Module Framework (code enhancements, new features, bugfixes), then these are welcome, too! Please [visit this page](framework-contributions.md) for more information on the specifics of contributing to the the EM Framework code repository.
+Contributions (new features, bugfixes, etc.) to the External Module Framework code repo are welcome too!  If you would like access to that repo, ask `mark.mcever@vumc.org` for access, then read [the that repo's constribution instructions](https://github.com/vanderbilt-redcap/external-module-framework/blob/testing/CONTRIBUTING.md).
 
 Misc. Resources | Descriptions
 -|-
