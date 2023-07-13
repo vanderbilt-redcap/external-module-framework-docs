@@ -62,6 +62,11 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 	* When type = **sub_settings**, the sub_settings element can specify a group of items that can be repeated as a group if the sub_settings itself is repeatable. The settings within sub_settings follow the same specification here.  It is also possible to nest sub_settings within sub_settings.
 	* As a reminder, true and false are specified as their actual values (true/false not as the strings "true"/"false"). Other than that, all values and variables are strings.
 	* **DEPRECATED (for now): Default values do NOT currently work consistently, and will likely need to be re-implemented.** Both project-settings and system-settings may have a **default** value provided (using the attribute "default"). This will set the value of a setting when the module is enabled either in the project or system, respectively.
+* Any _Action Tags_ provided by the module can be added in the **action-tags** array. For each action tag, provide an object with these keys:
+  * **tag** - the name of the action tag, e.g. "@MODULE-ACTION"
+  * **description** - the description of this action tag (HTML is allowed)  
+  
+  These action tags and descriptions will be added to the _@ Action Tags_ popup.
 * To support **internationalization** of External Modules (translatability of strings displayed by modules), many of the JSON keys in the configuration file have a _companion key_ that is prepended by "**tt_**", such as *tt_name* or *tt_description* (full list of translatable keys: _name_, _description_, _documentation_, _icon_, _url_, _default_, _cron_description_, as well as _required_ and _hidden_). When provided with a value that corresponds to a key in a language file supplied with the module, the value for the setting will be replaced with the value from the language file. For details, please refer to the [internationalization guide](i18n-guide.md).
 * **Attention!** If your JSON is not properly specified, an Exception will be thrown.
 
@@ -189,6 +194,13 @@ For reference, below is a nearly comprehensive example of the types of things th
 
    "no-auth-ajax-actions": [
       "action-1"
+   ],
+
+   "action-tags": [
+      {
+         "tag": "@MODULE-ACTION-TAG",
+         "description": "A description for this action tag."
+      }
    ],
 
    "system-settings": [
