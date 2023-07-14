@@ -13,5 +13,5 @@ We need your help making REDCap even more extensible!  If you encounter a need t
 1. Email `mark.mcever@vumc.org` the new hook line, and the location where it needs to be added to the REDCap source. A copy/paste including surrounding lines is generally the easiest way to communicate this.  Alternatively, PRs are welcome if you happen to have access to REDCap's source repo.
 1. Create a PR for this repo that documents the new hook in the list on [this page](hooks.md)
 
-## The trajectory of hooks over time
+## The Trajectory of Hooks Over Time
 The REDCap ecosystem could be compared to the WordPress ecosystem when it comes to the frequency of customization.  It is possible that the number of hooks in REDCap could increase significantly over time, as it has in WordPress.  See the graph at the bottom of [this page](https://adambrown.info/p/wp_hooks) to get a feel for how the number of WordPress hooks has increased since it was created in 2004.
