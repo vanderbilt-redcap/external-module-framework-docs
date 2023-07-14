@@ -26,6 +26,9 @@ By default, every page hooks will only execute on project specific pages (and on
 
 `"enable-every-page-hooks-on-system-pages": true`
 
+## Proposing New Hooks
+See [Proposing New Hooks](new-hooks.md) for instructions on how to propose additional hooks that any External Module can call.
+
 <h2 id='em-hooks'>Hooks provided by External Modules</h2>
 There are a few extra hooks dedicated for modules use:
 
