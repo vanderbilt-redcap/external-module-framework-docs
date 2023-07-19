@@ -20,6 +20,14 @@ Framework Features | Descriptions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
 
+### How to contribute to this documentation
+
+These docs (as the External Module Framework itself) are very much a community effort. If/when you notice room for improvement, feel free to [create an issue](https://github.com/vanderbilt-redcap/external-module-framework-docs/issues/new).  It is also highly encouraged to [fork this repo](https://github.com/vanderbilt-redcap/external-module-framework-docs/fork), make any changes you desire, then go to the `Pull Requests` tab from your fork and select `New pull request`.
+
+### How to contribute to the development of the EM Framework itself
+
+If you would like to make contributions to the External Module Framework (code enhancements, new features, bugfixes), then these are welcome, too! Please [visit this page](framework-contributions.md) for more information on the specifics of contributing to the the EM Framework code repository.
+
 Misc. Resources | Descriptions
 -|-
 [Beginner's Guide](guide.md) | Start here if you're new to External Module development
