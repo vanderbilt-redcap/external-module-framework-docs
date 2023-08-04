@@ -30,6 +30,7 @@ Framework Features | Descriptions
 [Unit Testing](unit-testing.md) | Writing standard PHPUnit tests for your module
 [Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
+[Security](security.md) | A summary of security related features
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
 
 Misc. Resources | Descriptions
