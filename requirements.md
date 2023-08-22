@@ -40,7 +40,8 @@ Each module must define a module class that extends `ExternalModules\AbstractExt
 namespace MyModuleNamespace\MyModuleClass;
 
 // Declare your module class, which must extend AbstractExternalModule 
-class MyModuleClass extends \ExternalModules\AbstractExternalModule {
+class MyModuleClass extends \ExternalModules\AbstractExternalModule
+{
      // Your module methods, constants, etc. go here
 }
 ```
