@@ -17,7 +17,7 @@ Here's an example of the minimum requirements for `config.json`:
 ``` json
 {
    "name": "Example Module",
-   "namespace": "MyModuleNamespace\\MyModuleClass", 
+   "namespace": "MyModuleNamespace\\MyModuleClassName", 
    "description": "This is a description of the module, and will be displayed below the module name in the user interface.",
    "framework-version": 12,
    "authors": [
@@ -40,7 +40,7 @@ Each module must define a module class that extends `ExternalModules\AbstractExt
 namespace MyModuleNamespace\MyModuleClass;
 
 // Declare your module class, which must extend AbstractExternalModule 
-class MyModuleClass extends \ExternalModules\AbstractExternalModule
+class MyModuleClassName extends \ExternalModules\AbstractExternalModule
 {
     // Your module methods, constants, etc. go here
 }
