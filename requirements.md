@@ -16,12 +16,12 @@ Here's an example of the minimum requirements for `config.json`:
 
 ``` json
 {
-   "name": "Example Module",
-   "namespace": "MyModuleNamespace\\MyModuleClassName", 
-   "description": "This is a description of the module, and will be displayed below the module name in the user interface.",
-   "framework-version": 12,
-   "authors": [
-       {
+    "name": "Example Module",
+    "namespace": "MyModuleNamespace\\MyModuleClassName", 
+    "description": "This is a description of the module, and will be displayed below the module name in the user interface.",
+    "framework-version": 12,
+    "authors": [
+        {
             "name": "Jon Snow",
             "email": "jon.snow@vumc.org",
             "institution": "Vanderbilt University Medical Center"
