@@ -10,24 +10,24 @@ Links to pages can be configured to appear in REDCap's left-hand menu by adding 
 
 ``` json
 {
-   "links": {
-      "control-center": [
-         {
-            "name": "My Control Center Page",
-            "icon": "fas fa-receipt",
-            "url": "control-center-page.php",
-            "show-header-and-footer": true
-         }
-      ],
-      "project": [
-         {
-            "name": "My Project Page",
-            "icon": "fas fa-receipt",
-            "url": "project-page.php",
-            "show-header-and-footer": true
-         }
-      ]
-   }
+    "links": {
+        "control-center": [
+            {
+                "name": "My Control Center Page",
+                "icon": "fas fa-receipt",
+                "url": "control-center-page.php",
+                "show-header-and-footer": true
+            }
+        ],
+        "project": [
+            {
+                "name": "My Project Page",
+                "icon": "fas fa-receipt",
+                "url": "project-page.php",
+                "show-header-and-footer": true
+            }
+        ]
+    }
 }
 ```
 
@@ -36,9 +36,9 @@ If a module page should not enforce REDCap's authentication but instead should b
 
 ``` json
 {
-   "no-auth-pages": [
-      "my-no-auth-page"
-   ],
+    "no-auth-pages": [
+        "my-no-auth-page"
+    ],
 }
 ```
 
