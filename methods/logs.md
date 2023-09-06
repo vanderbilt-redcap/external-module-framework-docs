@@ -20,7 +20,7 @@ $logId = $this->log(
 ### Querying Logs
 The `queryLogs()` method works similarly to the `query()` method, and can be used as follows:
 ```php
-$pseudoSql = "select timestamp, user where message = ?"
+$pseudoSql = "select timestamp, username where message = ?"
 $parameters = ['some message'];
 
 $result = $module->queryLogs($pseudoSql, $parameters);
@@ -37,7 +37,7 @@ $pseudoSql = "
 	where
 		timestamp > ?
 		and project_id in (?, ?)
-		and user in (?, ?)
+		and username in (?, ?)
 		or your_parameter_name like ?
 	order by timestamp desc
 ";
