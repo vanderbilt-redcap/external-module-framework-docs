@@ -17,6 +17,9 @@ $logId = $this->log(
 );
 ```
 
+### Viewing Logs
+REDCap has built-in `View Logs` links in the left menu under `External Modules` in both the Control Center and on project pages.  While these are useful for debugging, modules will likely want to query their own logs to display or respond to them in module specific ways.
+
 ### Querying Logs
 The `queryLogs()` method works similarly to the `query()` method, and can be used as follows:
 ```php
