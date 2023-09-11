@@ -1,12 +1,12 @@
 # Using Hooks in Modules
 
-One of the more powerful things that modules can do is to utilize REDCap Hooks, which allow you to execute PHP code in specific places in REDCap. For general information on REDCap hook functions, open **Control Center**, click **Plugin, Hook, & External Module Documentation**, and scroll down to the **Hook functions** section in the left menu. To use a hook in your module you must **add a method in your module class with the exact same name as the name of the desired hook function**. For example, in the HideHomePageEmails class below, there is a method named `redcap_project_home_page`, which means that when REDCap calls the redcap_project_home_page hook, it will execute the module's redcap_project_home_page method.
+One of the more powerful things that modules can do is to utilize REDCap Hooks, which allow you to execute PHP code in specific places in REDCap. For general information on REDCap hook functions, open **Control Center**, click **Plugin, Hook, & External Module Documentation**, and scroll down to the **Hook functions** section in the left menu. To use a hook in your module you must **add a method in your module class with the exact same name as the name of the desired hook function**. For example, in the `ExampleModule` class below, there is a method named `redcap_project_home_page`, which means that when REDCap calls the redcap_project_home_page hook, it will execute the module's redcap_project_home_page method.
 
 ``` php
 <?php 
-namespace Vanderbilt\HideHomePageEmails;
+namespace Vanderbilt\ExampleModule;
 
-class HideHomePageEmails extends \ExternalModules\AbstractExternalModule 
+class ExampleModule extends \ExternalModules\AbstractExternalModule 
 {
     // This method will be called by the redcap_data_entry_form hook
     function redcap_data_entry_form($project_id, $record, $instrument, $event_id, $group_id, $repeat_instance) 
