@@ -11,8 +11,8 @@ $logId = $module->log("Some simple message");
 $logId = $module->log(
 	"Some message and associated parameters",
 	[
-		"your_parameter_name"=> 123,
-		"your_other_parameter_name"=> "some string"
+		"your_parameter_name" => 123,
+		"your_other_parameter_name" => "some string"
 	]
 );
 ```
