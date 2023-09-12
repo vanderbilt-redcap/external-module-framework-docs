@@ -8,7 +8,7 @@ $logId = $module->log("Some simple message");
 ```
 
 ```php
-$logId = $this->log(
+$logId = $module->log(
 	"Some message and associated parameters",
 	[
 		"your_parameter_name"=> 123,
