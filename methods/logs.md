@@ -23,7 +23,7 @@ REDCap has built-in `View Logs` links in the left menu under `External Modules` 
 ### Querying Logs
 The `queryLogs()` method works similarly to the `query()` method, and can be used as follows:
 ```php
-$pseudoSql = "select timestamp, username where message = ?"
+$pseudoSql = "select timestamp, username where message = ?";
 $parameters = ['some message'];
 
 $result = $module->queryLogs($pseudoSql, $parameters);
