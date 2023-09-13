@@ -29,7 +29,7 @@ By default, every page hooks will only execute on project specific pages (and on
 ## Proposing New Hooks
 See [Proposing New Hooks](new-hooks.md) for instructions on how to propose additional hooks that any External Module can call.
 
-<h2 id='em-hooks'>Hooks provided by External Modules</h2>
+<h2 id='em-hooks'>Hooks provided by External Module Framework</h2>
 There are a few extra hooks dedicated for modules use:
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
