@@ -193,7 +193,7 @@ The _JavaScript Module Object_ provides the following methods framework version 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | ---
 afterRender(action) | 12.2.10 | Accepts a function to be called after the page has finished rendering AND if/when it is re-rendered when switching languages using the Multi-Language Management feature. Please make sure it is safe to call the given `action` multiple times. This method could be expanded in the future to handle other scenarios where the page is re-rendered. Actions can be registered at any time, even before the DOM is ready, but will be called the earliest when the DOM is ready.
-ajax(action, data) | 12.5.9 | Performs a server request (POST) with the string _action_ and the payload _data_ (any type) and returns a `Promise`. Response and errors can then be acted upon in its `.then` and `.catch` methods (see example above). The module must implement the `redcap_module_ajax` hook to process the request.
+ajax(action, data) | 12.5.9 | Performs a server request (POST) with the string _action_ and the payload _data_ (any type) and returns a `Promise`. Response and errors can then be acted upon in its `.then` and `.catch` methods (see example above). The module must implement the `redcap_module_ajax` hook to process the request.  See [this page](../ajax.md) for more details.
 getUrl(path, noAuth = false) | 11.2.3 | Works similarly to the PHP method with the same name, except that API endpoints are always returned.
 getUrlParameter(name) | 8.11.10 | Returns the value for the specified GET/URL parameter.
 getUrlParameters() | 8.11.10 | Returns an object containing all GET parameters for the current URL.
