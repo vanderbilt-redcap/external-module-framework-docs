@@ -30,7 +30,7 @@ exitAfterHook() | 8.2.0 | Calling this method inside of a hook will schedule PHP
 getChoiceLabel($fieldName, $value, [, $pid]) | 8.0.0 | Get the label associated with the specified field & value.  The project ID parameter will be automatically detected if possible.
 getChoiceLabels($fieldName[, $pid]) | 8.0.0 | Returns an array mapping all choice values to labels for the specified field.
 getConfig() | 8.0.0 | Returns an array representation of `config.json`, with reserved settings added.
-getCSRFToken() | 11.1.1 | Returns the CSRF token that REDCap will expect on the next POST request.  This token will be automatically added in many cases.  See the [v8 page](../versions/v8.md) for more details.
+getCSRFToken() | 11.1.1 | Returns the CSRF token that REDCap will expect on the next POST request.  This token will be automatically added in many cases.  See the [v8 page](../versions/v8.md) for more details, and the `Configuration Example` module bundled with REDCap for examples in difference scenarios.
 getDAG($recordId) | 10.3.1 | Return the Group ID number for the given record ID on the current project.
 getData(...) | 10.8.2 | **BETA:** An experimental `queryData()` based alternative to `REDCap::getData()`.  This method requires a `framework-version` of `7` or higher, as there was an old undocumented and problematic implementation of `getData()` prior to then.  See [this page](query-data.md) for details.
 getEnabledModules([$pid]) | 9.9.1 | Returns an array with the modules enabled on the system or for the project with the given project id. The array is of the form "prefix" => "version".
