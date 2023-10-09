@@ -8,19 +8,22 @@ $logId = $module->log("Some simple message");
 ```
 
 ```php
-$logId = $this->log(
+$logId = $module->log(
 	"Some message and associated parameters",
 	[
-		"your_parameter_name"=> 123,
-		"your_other_parameter_name"=> "some string"
+		"your_parameter_name" => 123,
+		"your_other_parameter_name" => "some string"
 	]
 );
 ```
 
+### Viewing Logs
+REDCap has built-in `View Logs` links in the left menu under `External Modules` in both the Control Center and on project pages.  While these are useful for debugging, modules will likely want to query their own logs to display or respond to them in module specific ways.
+
 ### Querying Logs
 The `queryLogs()` method works similarly to the `query()` method, and can be used as follows:
 ```php
-$pseudoSql = "select timestamp, user where message = ?"
+$pseudoSql = "select timestamp, username where message = ?";
 $parameters = ['some message'];
 
 $result = $module->queryLogs($pseudoSql, $parameters);
@@ -37,7 +40,7 @@ $pseudoSql = "
 	where
 		timestamp > ?
 		and project_id in (?, ?)
-		and user in (?, ?)
+		and username in (?, ?)
 		or your_parameter_name like ?
 	order by timestamp desc
 ";
