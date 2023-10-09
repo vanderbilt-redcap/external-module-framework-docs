@@ -27,6 +27,9 @@ Beyond those in the REDCap Repo, [GitHub](https://github.com) is commonly used b
 
 People new to development or those teaching a development class will likely find the [University of Florida's EMD-101 Guide](https://ctsit.github.io/redcap_external_module_development_guide/emd101) useful. These instructions install everything required to build a local REDCap development environment using Docker and GitHub tools. As always, you'll need to get a redcap.zip file from your local REDCap Admins, but everything else is freely downloadable from the public internet.
 
+### Building Your First External Module Video
+
+The exercises below are a great step by step guide. For those who might also benefit from seeing some of these steps in action, see the [Building Your First External Module](https://www.youtube.com/watch?v=UEGshbg5gLw) video from REDCapCon 2023.  Please forgive Mark's errors and typos!
 
 ## External Module Development Exercises
 
