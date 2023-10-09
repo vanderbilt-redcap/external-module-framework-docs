@@ -1,6 +1,6 @@
 ## Module Logs
 
-Modules have built-in `log()`, `queryLogs()`, and `removeLogs()` methods that can be used for any common logging or historical data storage purposes.  If you have not already, please read the documentation for these three methods on the [method documentation](methods/README.md) page, including the JavaScript version of the `log()` method.  Example usage for each method can be found below:
+Modules have built-in `log()`, `queryLogs()`, and `removeLogs()` methods that can be used for any common logging or historical data storage purposes.  If you have not already, please read the documentation for these three methods on the [method documentation](README.md) page, including the JavaScript version of the `log()` method.  Example usage for each method can be found below:
 
 ### Storing Logs
 ```php
