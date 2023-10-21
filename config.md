@@ -41,7 +41,9 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* json
 		* password
 		* project-id
+		* public-report-list
 		* radio
+		* report-list
 		* rich-text
 		* sub_settings
 		* text
@@ -283,6 +285,18 @@ For reference, below is a nearly comprehensive example of the types of things th
                "name": "Event name",
                "required": true,
                "type": "event-list"
+            },
+            {
+               "key": "report",
+               "name": "Report",
+               "required": true,
+               "type": "report-list"
+            },
+            {
+               "key": "public-report",
+               "name": "Public Report",
+               "required": true,
+               "type": "public-report-list"
             },
             {
             "key": "test-text",
