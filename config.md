@@ -41,7 +41,6 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* json
 		* password
 		* project-id
-		* public-report-list
 		* radio
 		* report-list
 		* rich-text
@@ -56,6 +55,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
    * **allow-project-overrides** is a boolean option for system settings available since REDCap 13.1.2.  When set to `true`, that setting will also appear in the project configuration dialog (under the name defined by the `project-name` option).  Calls to `$module->getProjectSetting()` will then return the system value if no project value is set.  This features only works on top-level settings (not `sub_settings`).
 	* **autocomplete** is a boolean that enables autocomplete on dropdown fields.
 	* **field-type** is a string that can limit a field-list setting to only fields of the given type. "enum" is a special type that includes radio, select, checkbox, true/false and yes/no fields.
+	* **public-only** is a boolean that restricts a report-list to only public reports.
    * **project-name** is a string option available since REDCap 13.1.2.  When used in conjunction with `allow-project-overrides`, this is the setting name that will display in project configuration dialogs.
 	* **validation** is a string that can limit a field-list setting to only fields with a given validation type, such as email or phone. "date" and "datetime" are special validation types that include all formats for date_* and datetime_* respectively.
 	* **branchingLogic** is an structure which represents a condition or a set of conditions that defines whether the field should be displayed. See examples at the end of this section.
