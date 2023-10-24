@@ -289,14 +289,13 @@ For reference, below is a nearly comprehensive example of the types of things th
             {
                "key": "report",
                "name": "Report",
-               "required": true,
                "type": "report-list"
             },
             {
                "key": "public-report",
                "name": "Public Report",
-               "required": true,
-               "type": "public-report-list"
+               "type": "report-list",
+               "public-only": true
             },
             {
             "key": "test-text",
