@@ -45,6 +45,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* report-list
 		* rich-text
 		* sub_settings
+		* survey-list (added in TBD)
 		* text
 		* textarea
 		* user-list
@@ -273,6 +274,12 @@ For reference, below is a nearly comprehensive example of the types of things th
             "name": "Form name",
             "required": true,
             "type": "form-list"
+            },
+            {
+               "key": "survey-name",
+               "name": "Survey name",
+               "required": true,
+               "type": "survey-list"
             },
             {
                "key": "arm-name",
