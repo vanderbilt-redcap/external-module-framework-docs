@@ -54,14 +54,15 @@ A query object is also available to simplify query building if desired:
 ```php
 $query = $module->createQuery();
 
-$query->add('
+$table = \Records::getDataTable($project_id);
+$query->add("
   select *
-  from redcap_data a
-  join redcap_data b
+  from $table a
+  join $table b
   on a.record = b.record
   where
     project_id = ?
-', $project_id);
+", $project_id);
 
 if(is_array($event_ids)){
   $query->add('and')->addInClause('a.event_id', $event_ids);
@@ -83,7 +84,7 @@ while($row = $result->fetch_assoc()){
 Query objects can also be used to get the number of affected rows since the `db_affected_rows()` method will not work with parameters:
 ```php
 $query = $module->createQuery();
-$query->add('delete from redcap_data where record = ?', $record_id);
+$query->add('update my_custom_table where column = ?', $value);
 $query->execute();
 $affected_rows = $query->affected_rows;
 ```
