@@ -42,7 +42,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* password
 		* project-id
 		* radio
-		* report-list (added in TBD)
+		* report-list (added in 14.0.0)
 		* rich-text
 		* sub_settings
 		* survey-list (added in TBD)
