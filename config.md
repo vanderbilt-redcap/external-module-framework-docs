@@ -28,6 +28,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* checkbox
 		* color-picker
 		* dag-list
+		* dashboard-list (added in TBD)
 		* date
 			* Date fields currently use jQuery UI's datepicker and include validation to ensure that dates entered follows datepicker's default date format (MM/DD/YYYY).  This could be expanded to include other date formats in the future.
 		* descriptive
@@ -45,7 +46,6 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* report-list (added in 14.0.0)
 		* rich-text
 		* sub_settings
-		* survey-list (added in TBD)
 		* text
 		* textarea
 		* user-list
@@ -56,8 +56,8 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
    * **allow-project-overrides** is a boolean option for system settings available since REDCap 13.1.2.  When set to `true`, that setting will also appear in the project configuration dialog (under the name defined by the `project-name` option).  Calls to `$module->getProjectSetting()` will then return the system value if no project value is set.  This features only works on top-level settings (not `sub_settings`).
 	* **autocomplete** is a boolean that enables autocomplete on dropdown fields.
 	* **field-type** is a string that can limit a field-list setting to only fields of the given type. "enum" is a special type that includes radio, select, checkbox, true/false and yes/no fields.
-	* **public-only** is a boolean that restricts a report-list to only public reports.
    * **project-name** is a string option available since REDCap 13.1.2.  When used in conjunction with `allow-project-overrides`, this is the setting name that will display in project configuration dialogs.
+   * **visibility-filter** is a string that can be applied to a form-list, report-list, or dashboard-list. `public` limits the field to showing only publicly visible forms (i.e., surveys), reports, or dashboards. `nonpublic` similarly limits the field to showing only forms, reports, or dashboard that are *not* publicly visible. Omitting this setting will show the default behavior: all forms, reports, or dashboards.
 	* **validation** is a string that can limit a field-list setting to only fields with a given validation type, such as email or phone. "date" and "datetime" are special validation types that include all formats for date_* and datetime_* respectively.
 	* **branchingLogic** is an structure which represents a condition or a set of conditions that defines whether the field should be displayed. See examples at the end of this section.
 	  * **WARNING:** There are known issues with sub-settings and `branchingLogic` currently.  If anyone would like to help resolve them, the best course of action might be to help [grezniczek](https://github.com/grezniczek) complete his [new configuration interface](https://github.com/grezniczek/redcap_em_config_study), which already has an improved implementation of sub-setting branching logic.
@@ -270,16 +270,16 @@ For reference, below is a nearly comprehensive example of the types of things th
          "repeatable":true,
          "sub_settings":[
             {
-            "key": "form-name",
-            "name": "Form name",
-            "required": true,
-            "type": "form-list"
+               "key": "form-name",
+               "name": "Form name",
+               "required": true,
+               "type": "form-list"
             },
             {
                "key": "survey-name",
                "name": "Survey name",
-               "required": true,
-               "type": "survey-list"
+               "type": "form-list",
+               "visibility-filter": "public"
             },
             {
                "key": "arm-name",
@@ -292,17 +292,6 @@ For reference, below is a nearly comprehensive example of the types of things th
                "name": "Event name",
                "required": true,
                "type": "event-list"
-            },
-            {
-               "key": "report",
-               "name": "Report",
-               "type": "report-list"
-            },
-            {
-               "key": "public-report",
-               "name": "Public Report",
-               "type": "report-list",
-               "public-only": true
             },
             {
             "key": "test-text",
@@ -412,6 +401,57 @@ For reference, below is a nearly comprehensive example of the types of things th
          "required": false,
          "type": "project-id",
          "repeatable": false
+      },
+      {
+         "key": "form",
+         "name": "All Forms",
+         "type": "form-list"
+      },
+      {
+         "key": "form-public",
+         "name": "Public Forms (i.e., surveys)",
+         "type": "form-list",
+         "visibility-filter": "public"
+      },
+      {
+         "key": "form-nonpublic",
+         "name": "Nonpublic Forms (i.e., data entry forms without surveys)",
+         "type": "form-list",
+         "visibility-filter": "nonpublic"
+      },
+      {
+         "key": "report",
+         "name": "All Reports",
+         "type": "report-list"
+      },
+      {
+         "key": "report-public",
+         "name": "Public Reports",
+         "type": "report-list",
+         "visibility-filter": "public"
+      },
+      {
+         "key": "nonpublic-report",
+         "name": "Nonpublic Reports",
+         "type": "report-list",
+         "visibility-filter": "nonpublic"
+      },
+      {
+         "key": "dashboard",
+         "name": "All Dashboards",
+         "type": "dashboard-list"
+      },
+      {
+         "key": "dashboard-public",
+         "name": "Public Dashboards",
+         "type": "dashboard-list",
+         "visibility-filter": "public"
+      },
+      {
+         "key": "dashboard-nonpublic",
+         "name": "Nonpublic Dashboards",
+         "type": "dashboard-list",
+         "visibility-filter": "nonpublic"
       }
    ],
    "crons": [
