@@ -28,7 +28,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* checkbox
 		* color-picker
 		* dag-list
-		* dashboard-list (added in TBD)
+		* dashboard-list (added in 14.0.3)
 		* date
 			* Date fields currently use jQuery UI's datepicker and include validation to ensure that dates entered follows datepicker's default date format (MM/DD/YYYY).  This could be expanded to include other date formats in the future.
 		* descriptive
