@@ -1,6 +1,6 @@
 # Proposing New Hooks
 
-We need your help making REDCap even more extensible!  If you encounter a need to customize REDCap in a new way that is currently difficult or impossible, please consider proposing that a new hook be added to REDCap's source code.  Please keep in mind that new hooks will only be available in External Modules, where [Framework Versioning](versions/README.md) ensures full backward compatibility.
+We need your help making REDCap even more extensible!  If you encounter a need to customize REDCap in a new way that is currently difficult or impossible, please consider proposing that a new hook be added to REDCap's source code.  Please keep in mind that new hooks will only be available in External Modules, where [Framework Versioning](versions/README.md) allows behavioral changes going forward while ensuring full backward compatibility.
 
 ## Instructions
 1. Add the hook to the REDCap source on your localhost using a code block like the following:
