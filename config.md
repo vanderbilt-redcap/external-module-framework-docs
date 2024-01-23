@@ -53,7 +53,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 	* **choices** consist of a **value** and a **name** for selecting elements (dropdowns, radios).
 	* **super-users-only** can be set to **true** to only allow super users to access a given setting.
 	* **repeatable** is a boolean that specifies whether the element can repeat many times. **If it is repeatable (true), the element will return an array of values.**
-   * **allow-project-overrides** is a boolean option for system settings available since REDCap 13.1.2.  When set to `true`, that setting will also appear in the project configuration dialog (under the name defined by the `project-name` option).  Calls to `$module->getProjectSetting()` will then return the system value if no project value is set.  This features only works on top-level settings (not `sub_settings`).
+   * **allow-project-overrides** is a boolean option for system settings available since REDCap TBD.  When set to `true`, that setting will also appear in the project configuration dialog (under the name defined by the `project-name` option).  Calls to `$module->getProjectSetting()` will then return the system value if no project value is set.  This features only works on top-level settings (not `sub_settings`).
 	* **autocomplete** is a boolean that enables autocomplete on dropdown fields.
 	* **field-type** is a string that can limit a field-list setting to only fields of the given type. "enum" is a special type that includes radio, select, checkbox, true/false and yes/no fields.
    * **project-name** is a string option available since REDCap 13.1.2.  When used in conjunction with `allow-project-overrides`, this is the setting name that will display in project configuration dialogs.
