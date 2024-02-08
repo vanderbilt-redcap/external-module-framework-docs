@@ -46,7 +46,8 @@ redcap_module_configure_button_display() | 9.0.0 | Triggered when each enabled m
 redcap_module_link_check_display($project_id, $link) | 9.0.0 | Triggered when each link defined in `config.json` is rendered, allowing link visibility to be controlled dynamically.  This method also controls whether pages will load if their URL is accessed directly.  Override this method and return `null` to prevent a given link from displaying, or modify and return the `$link` parameter as desired. The `$link` parameter is an array matching the link definition in `config.json` with an additional `url` value added.
 redcap_module_save_configuration($project_id) | 9.0.0 | Triggered after a module configuration is saved.
 redcap_module_import_page_top($project_id) | 9.0.0 | Triggered at the top of the Data Import Tool page.
-Examples: 
+
+#### Examples:
 ``` php
 <?php
 
