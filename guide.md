@@ -265,16 +265,17 @@ This module uses AJAX. Your updates should be made in `pages/ajaxpage.php`. You 
 <summary>Example Solution
 </summary>
 
-`pages/ajaxpage.php`
+`RecordWranglingModule.php`
 ```php
     //FIXME: use a function to getData and assign it to a variable called $redcap_data
 
+    $pid = $this->getProjectId();
     $redcap_data = \REDCap::getData([
         'project_id' => $pid,
         'fields' => $field_name
     ]);
 
-    $module->changeField($redcap_data, $field_name, $new_value); // update the $redcap_data array inplace
+    $this->changeField($redcap_data, $field_name, $new_value); // update the $redcap_data array inplace
 
     //FIXME: use a function to target this project's $pid and use the array $redcap_data to overwrite
     // the database
