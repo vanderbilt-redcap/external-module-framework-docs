@@ -15,3 +15,5 @@ Actions must be declared in `config.json`, separately for authenticated (a user 
 > `"auth-ajax-actions": [ "action1", "action2" ],`
 
 > `"no-auth-ajax-actions": [ "action2" ],`
+
+Note that for performance reasons and due to concurrency issues, the framework queues all requests and handles them sequentially in the order they are issued.
