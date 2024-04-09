@@ -85,7 +85,7 @@ removeSystemSetting($key) | 8.0.0 | Removes the value stored systemwide for the 
 removeUserSetting($key) | 8.3.0 | Removes the value stored for the specified key for the current user and project.  This method does nothing on surveys and NOAUTH pages.
 renameDAG($groupId, $name) | 8.0.0 | Renames the DAG with the given Group ID number to the specified name.
 requireInteger($mixed) | 8.11.10 | Throws an exception if the supplied value is not an integer or a string representation of an integer.  Returns the integer equivalent of the given value regardless.
-resetSurveyAndGetCodes(<br>&emsp;$projectId, $recordId<br>&emsp;[, $surveyFormName, $eventId, $instance]<br>) | 8.11.8 | Resets the survey status so that REDCap will allow the survey to be accessed again (completed surveys can't be edited again without changing the survey settings).  A survey participant and respondent are also created if they doesn't exist.
+resetSurveyAndGetCodes(<br>&emsp;$projectId, $recordId<br>&emsp;[, $surveyFormName, $eventId, $instance]<br>) | 8.11.8, TBD | Resets the survey status so that REDCap will allow the survey to be accessed again (completed surveys can't be edited again without changing the survey settings).  A survey participant and respondent are also created if they doesn't exist.  The `$instance` parameter was added in TBD.
 sanitizeAPIToken($token) | 12.2.5 | Removes any characters that are not numbers or uppercase letters A-F, and returns the resulting string.
 sanitizeFieldName($fieldName) | 13.8.0 | Removes any characters that are not numbers, letters, or underscores, and returns the resulting string.
 setDAG($record, $groupId) | 8.0.0 | Sets the DAG for the given record ID to given Group ID number.
