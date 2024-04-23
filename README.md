@@ -4,7 +4,7 @@ You've reached the official documentation for REDCap's External Module Framework
 
 If you're brand new to module development, see the [beginner's guide](guide.md).
 
-If you have already created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vanderbilt.edu/consortium/modules/).
+If you have already created a module and wish to share it with the REDCap community, you may submit it to the [REDCap External Modules Submission Survey](https://redcap.vumc.org/surveys/?s=X83KEHJ7EA). If your module gets approved after submission, it will become available for download by any REDCap administrator from the [REDCap Repo](https://redcap.vumc.org/consortium/modules/).
 
 ### How to contribute to this documentation
 
@@ -16,7 +16,7 @@ Contributions (new features, bugfixes, etc.) to the External Module Framework co
 
 ### Documentation Backstory
 
-This documentation was moved from the private REDCap Core & External Module Framework repos to this public repo to make it possible to share universal links to specific parts of the documentation, and to reduce barriers for community contribution.  We considered hosting these docs at `redcap.vanderbilt.edu/docs`, but decided that using GitHub directly would be most likely to encourage contributions.  A copy of these docs is also included in the External Module Framework repo via [git-subrepo](https://github.com/ingydotnet/git-subrepo), to ensure that any find/replace actions also update the docs.  Over time, we may want to consider moving other developer docs here from REDCap core.
+This documentation was moved from the private REDCap Core & External Module Framework repos to this public repo to make it possible to share universal links to specific parts of the documentation, and to reduce barriers for community contribution.  We considered hosting these docs at `redcap.vumc.org/docs`, but decided that using GitHub directly would be most likely to encourage contributions.  A copy of these docs is also included in the External Module Framework repo via [git-subrepo](https://github.com/ingydotnet/git-subrepo), to ensure that any find/replace actions also update the docs.  Over time, we may want to consider moving other developer docs here from REDCap core.
 
 Framework Features | Descriptions
 -|-

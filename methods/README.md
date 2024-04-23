@@ -117,8 +117,8 @@ The following methods are available on the `Project` object returned by `$module
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | ---
-addRole($roleName, $rights) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vanderbilt.edu/community/post.php?id=226211).** Add a role with the given name to a project.  The `$rights` argument is expected in the format returned by `getRights()`.
-addUser($username[, $rights]) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vanderbilt.edu/community/post.php?id=226211).** Adds a user to a project, optionally with the specified rights in the format returned by `getRights()`.
+addRole($roleName, $rights) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vumc.org/community/post.php?id=226211).** Add a role with the given name to a project.  The `$rights` argument is expected in the format returned by `getRights()`.
+addUser($username[, $rights]) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vumc.org/community/post.php?id=226211).** Adds a user to a project, optionally with the specified rights in the format returned by `getRights()`.
 addOrUpdateInstances($instances, $keyFieldNames) | 10.3.1 | Allows adding or updating of repeating form instances by matching the values of one or more "key" fields on each instance.  This method is useful for keeping a repeating instrument in sync with an external data source that uses IDs that aren't compatible with `redcap_repeat_instance`, or uses a combination of multiple fields as a unique identifier.  The `$instances` specified should be in the format returned by `REDCap::getData()` when using the `json` type and using `json_decoding($data, true)` to convert the data into a PHP array.  This method does not remove existing fields or instances that are not specified (though it could be modified to do so if anyone wants to work on it).  The result of the underlying `REDCap::saveData()` call will be returned, and should be checked for any errors or warnings.  For convenience, this method may also be called directly on the module object for the current project.
 getField($fieldName) | 10.8.2 | Returns a `Field` object as documented below for the given field name.
 getForm($formName) | 10.8.2 | Returns a `Form` object as documented below for the given form name.
@@ -132,7 +132,7 @@ getUsers() | 8.11.10 | Returns an array of `User` objects for each user with rig
 queryData($sql) | 10.8.2 | **BETA:** An experimental alternative to `REDCap::getData()` that executes filter logic via SQL rather than PHP.  See [this page](query-data.md) for details.
 removeRole() | 10.4.1 | Removes a role from a project.
 removeUser($username) | 10.4.1 | Removes a user from a project.
-setRights($username, $rights) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vanderbilt.edu/community/post.php?id=226211).** Sets the rights for a specified user. The `$rights` argument is expected in the format returned by `getRights()`.
+setRights($username, $rights) | 10.4.1 | **WARNING: Some rights passed to this method [are ignored](https://redcap.vumc.org/community/post.php?id=226211).** Sets the rights for a specified user. The `$rights` argument is expected in the format returned by `getRights()`.
 setRoleForUser($roleName, $username) | 10.4.1 | Sets the role for the given user.
 
 #### Form Object
