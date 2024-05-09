@@ -100,6 +100,7 @@ tt($key[, $value, ...]) | 9.5.0 | Returns the language string identified by `$ke
 tt_addToJavascriptModuleObject(<br>&emsp;$key, $item<br>) | 9.5.0 | Adds an item (such as a string, number, or array), identified by the given key, to the _JavaScript Module Object_'s language string store, where it then can be retrieved using the `tt()` function of the _JavaScript Module Object_.
 tt_transferToJavascriptModuleObject(<br>&emsp;[$key[, $value[, ...]]]<br>) | 9.5.0 | Transfers one (interpolated) or many language strings (without interpolation) to the _JavaScript Module Object_. When no arguments are passed, or `null` for `$key`, all strings defined in the module's language file are transferred. An array of keys can be passed to transfer multiple language strings. When `$key` is a string, further arguments can be passed which will be used for interpolation (if the first such argument is an array, its elements will be used for interpolation and any further arguments ignored).
 validateSettings($settings) | 8.0.2 | Override this method in order to validate settings at save time.  If a non-empty error message string is returned, it will be displayed to the user, and settings will NOT be saved.
+validateS3URL($url) | TBD | Verifies that the specified `$url` is an Amazon S3 url and either returns the verified `$url` to inform the security scanner, or throws an exception.
 
 #### Deprecated Methods
 
