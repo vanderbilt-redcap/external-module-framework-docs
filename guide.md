@@ -141,7 +141,7 @@ $( document ).ready(function() {
 
 ---
 
-### [Hello Page](exercises/intro_to_pages/)
+### [Intro Page](exercises/intro_to_pages/)
 
 This module introduces the use of module pages. The provided module already has a page available for admins in the Control Center; the goal of this exercise is to add a second page accessible _at the project level_. Unlike other modules, you will need to create an entirely new PHP file for this project, referring to `pages/control_center_custom_page.php` should be useful.
 
@@ -195,13 +195,14 @@ While working on this module, you will learn how to access constants and variabl
 
 You may display this via a hook or a project page.
 
-The goal of this exercise is to create a module that displays a user's:
-1. Username
-1. Admin (aka superuser) status
-1. Their user rights
-1. The current page path
-1. The current project's `project_id`
-1. The value of a variable set in the module's configuration menu
+The goal of this exercise is to create a module that:
+1. Displays Username
+1. Displays Admin (aka superuser) status
+1. Displays Their user rights
+1. Displays The current page path
+1. Displays The current project's `project_id`
+1. Creates a custom variable on the project's configuration menu
+1. Displays said custom variable set in the module's configuration menu
 
 Check the [Method Documentation](methods/README.md) for methods which provide this information for you. Useful phrases to search for are "User" and "projectSetting".
 
@@ -259,7 +260,7 @@ This is a _bare minimum_ implementation that demonstrates how to access REDCap v
 
 This module introduces you to interactions with the `redcap_data` table. You will finish a page that will allow a user with admin rights to insert an arbitrary text value into a field across all records of a project. You should look at the documentation for the `getData()` and `saveData()` methods on your REDCap instance under **Control Center -> Plugin, Hook, & External Module Documentation**.
 
-This module uses AJAX. Your updates should be made in `pages/ajaxpage.php`. You should still look through the other files to understand the module as a whole.
+This module uses AJAX. Your updates should be made in `pages/ajaxpage.php`. Be sure to review the methods in `RecordWranglingModule.php` as much of the business logic is already written. 
 
 <details>
 <summary>Example Solution
@@ -282,7 +283,7 @@ This module uses AJAX. Your updates should be made in `pages/ajaxpage.php`. You 
 
     \REDCap::saveData($pid, 'array', $redcap_data, 'overwrite');
 
-    /* Log what was done
+    // Log what was done
 ```
 
 </details>

@@ -1,5 +1,5 @@
 {
-    "name": "Hello Page",
+    "name": "Intro to Pages",
     "description": "Module that provides a friendly page to announce its own existence",
     "namespace": "ExternalModuleExercises\\HelloPageModule",
     "framework-version": 12,
