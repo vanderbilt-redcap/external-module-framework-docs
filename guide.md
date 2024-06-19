@@ -197,12 +197,12 @@ You may display this via a hook or a project page.
 
 The goal of this exercise is to create a module that:
 1. Displays Username
-2. Displays Admin (aka superuser) status
-3. Displays Their user rights
-4. Displays The current page path
-5. Displays The current project's `project_id`
-6. Creates a custom variable on the project's configuration menu
-7. Displays said custom variable set in the module's configuration menu
+1. Displays Admin (aka superuser) status
+1. Displays Their user rights
+1. Displays The current page path
+1. Displays The current project's `project_id`
+1. Creates a custom variable on the project's configuration menu
+1. Displays said custom variable set in the module's configuration menu
 
 Check the [Method Documentation](methods/README.md) for methods which provide this information for you. Useful phrases to search for are "User" and "projectSetting".
 
