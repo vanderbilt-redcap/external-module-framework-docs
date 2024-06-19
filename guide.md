@@ -202,7 +202,7 @@ The goal of this exercise is to create a module that:
 4. Displays The current page path
 5. Displays The current project's `project_id`
 6. Creates a custom variable on the project's configuration menu
-6. Displays said custom variable set in the module's configuration menu
+7. Displays said custom variable set in the module's configuration menu
 
 Check the [Method Documentation](methods/README.md) for methods which provide this information for you. Useful phrases to search for are "User" and "projectSetting".
 
