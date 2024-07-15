@@ -22,9 +22,13 @@ Remember that each hook function has different method parameters that get passed
 When used in an External Module, this hook **must** return an actual boolean value (either `true` or `false`). Do not return 0, 1, or other truthy/falsy values. The results of multiple modules using this hook will be combined with logical AND, i.e. as long as one implementation returns `false`, the email will not be sent by REDCap.
 
 ## Every Page Hooks
-By default, every page hooks will only execute on project specific pages (and only on projects with the module enabled).  However, you can allow them to execute on pages that aren't project specific by setting the following flag in `config.json`.  **WARNING: This flag is risky and should ONLY be used if absolutely necessary.  It will cause your every page hooks to fire on literally ALL non-project pages (the login page, control center pages, "My Projects", etc.).  You will need strict and well tested checking at the top of your hook to make sure it only executes in exactly the contexts desired:**
+By default, every page hooks will only execute on project specific pages (and only on projects with the module enabled).  However, you can allow them to execute on pages that aren't project specific by setting the following flag in `config.json`.  **WARNING: This flag is risky and should ONLY be used if absolutely necessary.  It will cause your every page hooks to fire on literally ALL non-project pages (control center pages, "My Projects", etc.).  You will need strict and well tested checking at the top of your hook to make sure it only performs actions in exactly the contexts desired:**
 
 `"enable-every-page-hooks-on-system-pages": true`
+
+As of REDCap version TBD, every page hooks no longer execute by default when the login form is displayed.  Specific modules can be configured to allow every page hooks when the login form is displayed by setting the following flag in `config.json`
+
+`"enable-every-page-hooks-on-login-form": true`
 
 ## Proposing New Hooks
 See [Proposing New Hooks](new-hooks.md) for instructions on how to propose additional hooks that any External Module can call.
