@@ -69,7 +69,7 @@ importDataDictionary($projectId,$path) | 9.7.6 | Given a project id and a path, 
 initializeJavascriptModuleObject() | 8.7.2 | Returns a JavaScript block that initializes the JavaScript version of the module object (documented below).
 isAuthenticated() | 13.4.11 | Returns `true` in authenticated contexts and `false` in NOAUTH contexts.
 isModuleEnabled($prefix [, $pid]) | 9.9.1 | Returns true if the module with the given prefix is enabled on the system (when no project id is supplied) or the given project; or false otherwise.
-isModulePage([$path]) | Determines whether the current page is provided by the current module, and optionally whether the given `$path` parameter matches the `page` URL parameter.  If `$path` is not specified, `true` is returned on any page provided by the current module.
+isModulePage([$path]) | 14.0.3 | Determines whether the current page is provided by the current module, and optionally whether the given `$path` parameter matches the `page` URL parameter.  If `$path` is not specified, `true` is returned on any page provided by the current module.
 isPage($path) | 9.7.6 | Returns true if the current page matches the supplied file/dir path.  The path can be any file/dir under the versioned REDCap directory (e.g. `Design/online_designer.php`).
 isREDCapPage($path) | 14.0.3 | An alias of `isPage()` that clarifies the distinction from `isModulePage()`.  Once most REDCap servers have updated to a version that includes this method, `isPage()` will officially become deprecated in favor of this method.
 isRoute($routeName) | 8.11.10 | Returns true if the 'route' GET/URL parameter matches the specified string.
