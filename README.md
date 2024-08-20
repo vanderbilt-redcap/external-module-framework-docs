@@ -27,6 +27,7 @@ Framework Features | Descriptions
 [Logging](methods/logs.md) | The framework's built-in logging functionality
 [AJAX Requests](ajax.md) | The recommended way to perform AJAX requests from module code
 [Crons](crons.md) | Scheduled tasks that automatically execute periodically in the background
+[Twig](twig.md) | Built-in Twig Engine for reusable, concise and safe templating in HTML, JS and CSS
 [Unit Testing](unit-testing.md) | Writing standard PHPUnit tests for your module
 [Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
