@@ -26,7 +26,7 @@ By default, every page hooks will only execute on project specific pages (and on
 
 `"enable-every-page-hooks-on-system-pages": true`
 
-As of REDCap version TBD, every page hooks no longer execute by default when the login form is displayed.  Specific modules can be configured to allow every page hooks when the login form is displayed by setting the following flag in `config.json`
+As of REDCap version 14.6.3, every page hooks no longer execute by default when the login form is displayed.  Specific modules can be configured to allow every page hooks when the login form is displayed by setting the following flag in `config.json`
 
 `"enable-every-page-hooks-on-login-form": true`
 
