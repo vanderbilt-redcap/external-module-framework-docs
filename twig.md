@@ -1,7 +1,7 @@
 # Twig
 ## Configuration
 ### 1. Including Twig
-Twig comes included in the External Module Framework as of version TBD.  Each module has its own Twig `Environment` that comes pre-loaded with several EM framework methods.  The "Example Twig Page" from the Configuration Example module bundled with REDCap for working example.
+Twig comes included in the External Module Framework as of REDCap version 14.6.4.  Each module has its own Twig `Environment` that comes pre-loaded with several EM framework methods.  The "Example Twig Page" from the Configuration Example module bundled with REDCap for working example.
 ### 2. Initialize Twig
 When you're ready to use Twig, you first need to call `initializeTwig($templateNameDirectory = 'views')`.  This will load the twig classes into the Autoloader. It's best practice to use a a directory named "`views`", and this is the default directory name.
 ```
