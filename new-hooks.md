@@ -15,7 +15,7 @@ We need your help making REDCap even more extensible!  If you encounter a need t
 1. Now that you've finished testing, reconsider the following with all developers in the consortium in mind:
     1. The hook's name
     1. Parameters (if any) that would be appropriate to pass to this new hook.  In addition to your current use case, please try to imagine likely future use cases.  With the exception of `$project_id`, please avoid global parameters that can & should be accessed via module methods (e.g. `$module->getRecordId()`, `$module->getUser()`, etc.)
-    1. A return value (if appropriate)
+    1. A return value (if appropriate).  Return values will require a module framework admin to implement special handling in `ExternalModules::filterHookResults()` to define expected behavior in the case where multiple modules return a value for this hook. 
 1. Email `mark.mcever@vumc.org` the new hook line, and the location where it needs to be added to the REDCap source. A copy/paste including surrounding lines is generally the easiest way to communicate this.  Alternatively, PRs are welcome if you happen to have access to REDCap's source repo.
 1. Create a PR for this repo that documents the new hook in the list on [this page](hooks.md)
 
