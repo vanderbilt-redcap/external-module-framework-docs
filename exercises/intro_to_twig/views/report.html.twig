@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<!-- update this CSS file to use 'getUrl' in twig -->
+<link rel="stylesheet" type="text/css" href="<?= $module->getUrl('css/report.css') ?>">
+
+<!-- write your new template here -->
+<h1>Edit This File in /views/report.html.twig</h1>
+
+<script>
+    $(document).ready(function () {
+        $('#advance-report').DataTable();
+    });
+</script>

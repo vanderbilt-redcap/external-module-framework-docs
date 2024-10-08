@@ -1,12 +1,23 @@
 ## Methods Provided by the External Module Framework
 
-**Some method behavior differs between framework versions.  [Click here](../versions/README.md) for more information on framework versioning in general.**
+**Some method behavior differs between framework versions.**  [Click here](../versions/README.md) for more information on framework versioning in general.
 
-The following **PHP** and **JavaScript** methods are provided by the framework.  Modules that have been updated to framework version `5` or greater can access methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
+The following **PHP** and **JavaScript** methods are provided by the framework. These methods are exposed on the framework class or a number of helper objects:
+
+- [Framework Methods](#framework-methods) ([Deprecated Methods](#deprecated-methods))  
+- [Project Object Methods](#project-object)
+- [Form Object Methods](#form-object)
+- [Field Object Methods](#field-object)
+- [User Object Methods](#user-object)
+- [Javascript Module Object Methods](#javascript-module-object)
+
+Note that modules that have been updated to framework version `5` or greater can access the framework methods directly on the module object (e.g. `$module->getModuleName()`).  Modules on older framework versions can access methods via the framework object (e.g. `$module->framework->getModuleName()`).  Older methods may also be accessible directly on the module class even in on framework versions (for backward compatibility).  Unless otherwise stated, module methods throw standard PHP exceptions if any errors occur.  Any uncaught exception triggers an email to the REDCap admin address, avoiding the need for any error checking boilerplate in many cases.
 
 Please also make sure you are aware of the built-in developer methods on your REDCap instance under **Control Center -> Plugin, Hook, & External Module Documentation** page, as well as the PHP constants under **redcap_info()**.  Eventually, that & this documentation will ideally be merged.
 
 Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request for this repo with example documentation for the method(s) you'd like to be supported.
+
+### Framework Methods
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | --- 
@@ -30,7 +41,7 @@ exitAfterHook() | 8.2.0 | Calling this method inside of a hook will schedule PHP
 getChoiceLabel($fieldName, $value, [, $pid]) | 8.0.0 | Get the label associated with the specified field & value.  The project ID parameter will be automatically detected if possible.
 getChoiceLabels($fieldName[, $pid]) | 8.0.0 | Returns an array mapping all choice values to labels for the specified field.
 getConfig() | 8.0.0 | Returns an array representation of `config.json`, with reserved settings added.
-getCSRFToken() | 11.1.1 | Returns the CSRF token that REDCap will expect on the next POST request.  This token will be automatically added in many cases.  See the [v8 page](../versions/v8.md) for more details, and the `Configuration Example` module bundled with REDCap for examples in difference scenarios.
+getCSRFToken() | 11.1.1 | Returns the CSRF token that REDCap will expect on the next POST request.  This token will be automatically added in many cases.  See the [v8 page](../versions/v8.md) for more details, and the `Module Development Examples` module bundled with REDCap for examples in difference scenarios.
 getDAG($recordId) | 10.3.1 | Return the Group ID number for the given record ID on the current project.
 getData(...) | 10.8.2 | **BETA:** An experimental `queryData()` based alternative to `REDCap::getData()`.  This method requires a `framework-version` of `7` or higher, as there was an old undocumented and problematic implementation of `getData()` prior to then.  See [this page](query-data.md) for details.
 getDataClassical($projectId, $fields, $records) | 14.6.3 | For classical REDCap projects only (no longitudinal projects), this class replaces REDCap::getData(). It is quickest for queries that don't exceed 40,000 data points. It's actually slower than REDCap::getData() for queries that dramatically exceed that number (e.g., 320k data points). Flight Tracker typically streams data one record at a time, so this class adequately serves that purpose. When 40,000 data points are not exceeded, a 50-100% speedup is observed on redcap.vumc.org compared to REDCap::getData(). (That is, a call that takes REDCap::getData() 20 seconds would require 10-15 seconds for this method.) The resulting data structures are functionally equivalent in json-array format. Note: All parameters, including $fields and $records, must be explicitly stated.
@@ -56,6 +67,7 @@ getRecordId() | 8.7.2 | Returns the current record id if called from within a ho
 getRecordIdField([$pid]) | 9.3.5 | Returns the name of the record ID field. Unlike the same method on the `REDCap` class, this method accepts a `$pid`, and also works outside a project context when a `pid` GET parameter is set.
 getRepeatingForms([$eventId, $pid]) | 9.7.6 | Returns an array of repeating form names for the current or specified event & pid.
 getSafePath($path[, $root]) | 9.7.6 | Ensures that a [path traversal attack](https://www.owasp.org/index.php/Path_Traversal) is not in progress by verifying that the `$path` is within either the module directory, or the `$root` directory (if specified).  If a potential attack is detected, an exception is thrown.  Using this method is important when generating paths using strings created from user input.  The `$path` can be relative to the `$root`, or include it.  The `$root` can be either absolute or relative to the module directory.
+getSelectedCheckboxes($record, $variableName) | TBD | Helper method to get an array of selected values from a checkbox variable when the data format is `'return_format' => 'json-array'`.  `$record` is one record from this return type, and `$variable` is the variable name. Returns an array of selected values (eg `[1, 4]`). | 
 getSettingConfig($key) | 8.0.0 | Returns the configuration for the specified setting.
 getSettingKeyPrefix() | 8.0.0 | This method can be overridden to prefix all setting keys.  This allows for multiple versions of settings depending on contexts defined by the module.
 getSubSettings($key&nbsp;[,&nbsp;$pid]) | 8.0.0 | Returns the sub-settings under the specified key in a user friendly array format.  In most cases the project id can be detected automatically, but it can optionally be specified as a parameter instead.  System settings are supported as of framework version 14.
@@ -167,7 +179,7 @@ getRights([$projectIds]) | 8.11.10 | Returns this user's rights on the specified
 hasDesignRights([$projectId]) | 8.11.10 | Returns true if the user has design rights on the specified project.  The current project is used if no project id is specified.
 isSuperUser() | 8.11.10 | Returns true if the user is a super user.
 
-<h4 id='em-jsmo'>JavaScript Module Object</h4>
+### JavaScript Module Object
 
 A JavaScript version of any module object can be initialized by including the JavaScript code block returned by the PHP module object's `initializeJavascriptModuleObject()` method at any point in any hook. The name of the _JavaScript Module Object_ is returned by the framework method `getJavascriptModuleObjectName()`. Here is a basic example of how to initialize and use the _JavaScript Module Object_ from any PHP hook:
 
@@ -200,14 +212,16 @@ The _JavaScript Module Object_ provides the following methods framework version 
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 --- | --- | ---
-afterRender(action) | 12.2.10 | Accepts a function to be called after the page has finished rendering AND if/when it is re-rendered when switching languages using the Multi-Language Management feature. Please make sure it is safe to call the given `action` multiple times. This method could be expanded in the future to handle other scenarios where the page is re-rendered. Actions can be registered at any time, even before the DOM is ready, but will be called the earliest when the DOM is ready.
+afterRender(action) | 12.2.10 | Accepts a function to be called after the page has finished rendering AND if/when it is re-rendered when switching languages using the Multi-Language Management (MLM) feature. Please make sure it is safe to call the given `action` multiple times. This method could be expanded in the future to handle other scenarios where the page is re-rendered. Actions can be registered at any time, even before the DOM is ready, but will be called the earliest when the DOM is ready.
 ajax(action, data) | 12.5.9 | Performs a server request (POST) with the string _action_ and the payload _data_ (any type) and returns a `Promise`. Response and errors can then be acted upon in its `.then` and `.catch` methods (see example above). The module must implement the `redcap_module_ajax` hook to process the request.  See [this page](../ajax.md) for more details.
+getCurrentLanguage() | TBD | Gets the currently active language (or `null` in case MLM initialization is still pending) on pages where MLM is enabled, or `false` in case MLM is not enabled. This method is typically called inside a callback registered with the _afterRender_ method (see above).
 getUrl(path, noAuth = false) | 11.2.3 | Works similarly to the PHP method with the same name, except that API endpoints are always returned.
 getUrlParameter(name) | 8.11.10 | Returns the value for the specified GET/URL parameter.
 getUrlParameters() | 8.11.10 | Returns an object containing all GET parameters for the current URL.
 isImportPage() | 8.11.10 | Returns true if the current page is a **Data Import Tool** page.
 isImportReviewPage() | 8.11.10 | Returns true if the current page is the **Data Import Tool** review page.
 isImportSuccessPage() | 8.11.10 | Returns true if the current page is the **Data Import Tool** success page.
+isMlmActive() | TBD | Returns true if Multi-Language Management is enabled on a page.
 isRoute(routeName) | 8.11.10 | See the description for the PHP version of this method (above). 
 log(message[, parameters]) | 8.11.10 | See the description for the PHP version of this method (above). The requirement for allow lists or other [input validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#implementing-input-validation) for user sourced data is even more important in this context. The _enable-ajax-logging_ flag must be set to `true` in `config.json` to enable this method.  In a non-authenticated context, the _enable-no-auth-logging_ flag must also be set to `true` for all framework versions.  From framework version 11 on, a promise is returned that resolves to the ID of the log added.
 tt(key[, value[, ...]]) | 9.5.0 | Returns the string identified by `key` from the language store, optionally interpolated with the values passed as additional arguments (if the first such value is an array or object, its elements/members are used for interpolation and any further arguments are ignored). Refer to the [internationalization guide](../i18n-guide.md) for more details.

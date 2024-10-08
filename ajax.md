@@ -1,6 +1,6 @@
 ### Making requests from JavaScript to modules
 
-The External Module Framework provides the `ajax()` method on the _Javascript Module Object_ (see [documentation](methods/README.md#em-jsmo)), which can be used to make server requests to the module. The module must process the request in the `redcap_module_ajax` hook and (optionally) return a response (see [documentation](hooks.md#em-hooks)).
+The External Module Framework provides the `ajax()` method on the _Javascript Module Object_ (see [documentation](methods/README.md#javascript-module-object)), which can be used to make server requests to the module. The module must process the request in the `redcap_module_ajax` hook and (optionally) return a response (see [documentation](hooks.md#hooks-provided-by-the-external-module-framework)).
 
 ```js
 module.ajax('action', payload).then(function(response) {

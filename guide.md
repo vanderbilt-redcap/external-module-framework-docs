@@ -47,6 +47,7 @@ The External Module Development Guide includes a set of [development exercises](
     intro_to_pages
     intro_to_queries
     record_wrangling
+    intro_to_twig
     ```
 1. Perform these steps for each of the above module directories.   You can do this for all modules now, or wait until you reach the exercise for each below.
     - Append the `_v0.0.0` version suffix to each directory name. A version suffix has already been appended to the `hello_world` exercise as an example.  Version suffixes are required for REDCap to recognize modules, and are intentionally left off to simulate having just cloned each module from a public repository.  For more details on module directory naming, see the [Directory Names](directory-names.md) page. 
@@ -353,3 +354,91 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
 
 </details>
 <br />
+
+---
+
+### [Intro to Twig](exercises/intro_to_twig/)
+This module outlines how to use the [PHP Template Engine Twig](https://twig.symfony.com/) in the EM Framework.  You will take an existing custom module page written in pure PHP and re-write it using Twig. 
+
+Please review our documentation on the Framework's inclusion of [Twig](twig.md) here. The goals of this exercise are to:
+1.  Install the REDCap project included in the `intro_to_twig` module (`TwigExercises_project.REDCap.xml`).
+1. Enable the `into_to_twig` module in your instance of REDCap and on the included project.
+1. Review `tree-report-twig.php` as this file is what renders `/views/report.html.twig`. Make special note of the variables defined in the `render()` function as those will be needed in twig. 
+1. Translate the functionality of `tree-report.php` into `/views/report.html.twig` using twig's functions and tags.
+1. Include the CSS file `report.css`.
+1.  Use `getChoiceLabel` inside twig for `foliage_type`.
+1. Add this module's method of `getCheckboxChoiceLabels` to twig using `addFunction()` ([Twig Documentation Here](https://twig.symfony.com/doc/3.x/advanced.html#functions)).
+
+1. **Bonus**: Create a partial template for the report title and include it in your main template.  ([Twig Documentation of Include Here](https://twig.symfony.com/doc/3.x/functions/include.html))
+
+<details>
+<summary>Example Solution
+</summary>
+
+`/views/report.html.twig`
+
+```
+<!-- update this CSS file to use 'getUrl' in twig -->
+<link rel="stylesheet" type="text/css" href="{{ getUrl('css/report.css') }}">
+
+ <h1>{{ title }}</h1>
+ <table id="advance-report">
+     <thead>
+     <tr>
+         <th>Row #</th>
+         <th>Record ID</th>
+         <th>Common Name</th>
+         <th>Latin Name</th>
+         <th>Region</th>
+         <th>Foliage Type</th>
+         <th>Notes</th>
+     </tr>
+     </thead>
+     <tbody>
+     {% set row_number = 0 %}
+     {% for record_id,record in records %}
+         <tr>
+             <td>{{ loop.index }}</td>
+             <td>{{ record_id }}</td>
+             <td>{{ record.common_name }}</td>
+             <td>{{ record.latin_name }}</td>
+             <td>{{ getCheckboxChoiceLabels(record, 'region')|join(', ') }}</td>
+             <td>{{ getChoiceLabel('foliage_type', record.foliage_type) }}</td>
+             <td>{{ record.notes|slice(0, 100) ~ '...' }}</td>
+         </tr>
+     {% endfor %}
+     </tbody>
+ </table>
+```
+
+`TwigExerciseModule.php`
+
+```
+ public function loadTwigExtensions()
+ {
+     $twigFunction = new TwigFunction('getCheckboxChoiceLabels', [$this, 'getCheckboxChoiceLabels'])
+     $this->getTwig()->addFunction($twigFunction);
+ }
+```
+
+**Bonus**
+New file for Report Title: `_report_title.html.twig`:
+
+```
+<h1>{{ title }}</h1>
+```
+
+Including it back in `/views/report.html.twig`
+
+```
+ {{ include('_report_title.html.twig', {title: title}) }}
+ <table id="advance-report" class="display" style="width:100%">
+     <thead>
+     <tr>
+         <th>Row #</th>
+         <th>Record ID</th>
+         <th>Common Name</th>
+         ...
+```
+
+</details>

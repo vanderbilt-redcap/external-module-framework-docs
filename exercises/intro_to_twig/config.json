@@ -1,0 +1,30 @@
+{
+  "name": "Intro To Twig",
+  "description": "A module for using the Twig Templating Engine in External Modules",
+  "documentation": "README.md",
+  "framework-version": 16,
+  "namespace": "ExternalModuleExercises\\TwigExerciseModule",
+  "authors": [
+    {
+      "name": "John Paul",
+      "email": "datacore@vumc.org",
+      "institution": "Vanderbilt University Medical Center"
+    }
+  ],
+  "links": {
+    "project": [
+      {
+        "name": "Tree Report",
+        "icon": "tree",
+        "url": "tree-report",
+        "show-header-and-footer": true
+      },
+      {
+        "name": "Twig Tree Report",
+        "icon": "tree",
+        "url": "tree-report-twig",
+        "show-header-and-footer": true
+      }
+    ]
+  }
+}

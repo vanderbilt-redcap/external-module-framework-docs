@@ -1,0 +1,24 @@
+#advance-report_wrapper {
+    width: 99%;
+    margin-top: 10px;
+}
+#advance-report{
+    width:100%
+}
+#advance-report th{
+    background-color: #95bde7a3;
+}
+#advance-report-dashboard {
+    width: 100%;
+    max-width: 1200px;
+}
+
+#advance-report-dashboard td{
+    border: 1px solid #858585;
+}
+
+#advance-report-dashboard th{
+    padding: 10px;
+    border: 1px solid #858585;
+    background-color: #95bde7a3;
+}

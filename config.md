@@ -140,9 +140,9 @@ For reference, below is a nearly comprehensive example of the types of things th
 
 ``` json
 {
-   "name": "Configuration Example",
+   "name": "Module Development Examples",
 
-   "namespace": "Vanderbilt\\ConfigurationExampleExternalModule",
+   "namespace": "Vanderbilt\\ModuleDevelopmentExamples",
 
    "description": "Example module to show off all the options available",
    
