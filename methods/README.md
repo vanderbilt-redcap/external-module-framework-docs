@@ -25,8 +25,9 @@ You may encounter a scenario where you want to use a newer module method and set
  * TODO - This method was copied from the Framework class and should be removed once we are able to set `redcap-version-min` to a version that includes it.
  */
 function theMethodName($anyParameters){
-    if(method_exists('ExternalModules\Framework', 'theMethodName')){
-        return parent::theMethodName($anyParameters);
+    $methodName = __FUNCTION__;
+    if(method_exists('ExternalModules\Framework', $methodName)){
+        return parent::$methodName($anyParameters);
     }
     else{
         // Replace this comment with a copy of the desired method's contents from `<redcap-root>/redcap_v#.#.#/ExternalModules/classes/framework/Framework.php`
