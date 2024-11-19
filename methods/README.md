@@ -17,6 +17,9 @@ Please also make sure you are aware of the built-in developer methods on your RE
 
 Modules should **not** reference any undocumented methods, classes, files, etc. (like the *ExternalModules* class).  Undocumented code can change at any time. If you'd like additional functionality to be officially supported, please create an issue or pull request for this repo with example documentation for the method(s) you'd like to be supported.
 
+### Using Newer Framework Methods With Older REDCap Versions
+You may encounter a scenario where you want to use a newer module method and set your module's `redcap-version-min` to the version of REDCap that includes that new method.  However, you may not be able to do this because the latest version of your module also needs to work at other institutions are running an older REDCap versions.  In this case it is recommended to copy the new module method from `<redcap-root>/redcap_v#.#.#/ExternalModules/classes/framework/Framework.php` into your module class with a TODO comment saying `This was copied from the Framework class and should be removed once 'redcap-version-min' can be set to #.#.#`, while replacing the number signs with the first REDCap version that includes that method.  This strategy works well with most new methods.
+
 ### Framework Methods
 
 Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
