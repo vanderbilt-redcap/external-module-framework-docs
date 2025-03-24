@@ -12,7 +12,7 @@ These docs (and the External Module Framework itself) are very much a community 
 
 ### How to contribute to the development of the EM Framework itself
 
-Contributions (new features, bugfixes, etc.) to the External Module Framework code repo are welcome too!  To gain access to that repo, email your GitHub username to `mark.mcever@vumc.org`.  Once you have access, read [the that repo's constribution instructions](https://github.com/vanderbilt-redcap/external-module-framework/blob/testing/CONTRIBUTING.md).
+Contributions (new features, bugfixes, etc.) to the External Module Framework code repo are welcome too!  To gain access to that repo, email your GitHub username to `redcap-external-module-framework@vumc.org`.  Once you have access, read [the that repo's constribution instructions](https://github.com/vanderbilt-redcap/external-module-framework/blob/testing/CONTRIBUTING.md).
 
 ### Documentation Backstory
 
