@@ -19,7 +19,8 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
    * An optional **show-header-and-footer** boolean.  When **true**, automatically includes the REDCap header and footer on this page.  Defaults to **false** when omitted.
 * **system-settings** specify settings configurable at the system-wide level (this Control Center).  Settings do NOT have to be defined in config.json to be used programmatically.  
 * **project-settings** specify settings configurable at the project level, different for each project.  Settings do NOT have to be defined in config.json to be used programmatically.  
-* A setting consists of:
+  
+  A setting consists of:
 	* A **key** that is the unique identifier for the item. Dashes (-'s) are preferred to underscores (_'s).
 	* A **name** that is the plain-text label for the identifier. You have to tell your users what they are filling out.
 	* **required** is a boolean to specify whether the user has to fill this item out in order to use the module.
@@ -70,6 +71,13 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
   * **description** - the description of this action tag (HTML is allowed)  
   
   These action tags and descriptions will be added to the _@ Action Tags_ popup.
+* When providing AJAX services (via the `redcap_module_ajax` hook and the `JMSO.ajax()` method), the supported actions must be declared in the **auth-ajax-actions** and/or **no-auth-ajax-actions** arrays, respectively. See [Module AJAX](ajax.md) for more information.
+* When providing API services (via the `redcap_module_api` hook), the supported actions (API methods) must be declared in the **api-actions** object.
+
+  Actions (and their descriptions) are shown to admins when a module is enabled and on the API page in projects.  
+
+  For modules providing API services, the EM Framework implements special actions that provide information about the module, which may include the authors when opted in via the **include-authors-in-api-info** flag (which can be set to `true` or `false`).  
+  See [Module API](api.md) for more details, requirements, and examples.
 * To support **internationalization** of External Modules (translatability of strings displayed by modules), many of the JSON keys in the configuration file have a _companion key_ that is prepended by "**tt_**", such as *tt_name* or *tt_description* (full list of translatable keys: _name_, _description_, _documentation_, _icon_, _url_, _default_, _cron_description_, as well as _required_ and _hidden_). When provided with a value that corresponds to a key in a language file supplied with the module, the value for the setting will be replaced with the value from the language file. For details, please refer to the [internationalization guide](i18n-guide.md).
 * **Attention!** If your JSON is not properly specified, an Exception will be thrown.
 
@@ -161,6 +169,8 @@ For reference, below is a nearly comprehensive example of the types of things th
       }
    ],
 
+   "include-authors-in-api-info": true,
+
    "framework-version": 12,
 
    "enable-every-page-hooks-on-system-pages": false,
@@ -198,6 +208,16 @@ For reference, below is a nearly comprehensive example of the types of things th
    "no-auth-ajax-actions": [
       "action-1"
    ],
+
+   "api-actions": {
+      "api-action-1": {
+         "description": "This action can be with or without a token.",
+         "access": [ "auth", "no-auth" ]
+      },
+      "api-action-2": {
+         "description": "Must be called with a token."
+      }
+   },
 
    "action-tags": [
       {
