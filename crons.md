@@ -36,16 +36,14 @@ Sometimes modules have large backlogs of work that they are processing constantl
 
 #### Setting a Project Context Within a Cron
 Using methods like `$module->getProjectId()` will not work by default inside a cron because crons do not run in a project context.  Here is one common way of simulating a project context in a cron method:
-```
+```php
 function cron($cronInfo){
 	foreach($this->getProjectsWithModuleEnabled() as $localProjectId){
 		$this->setProjectId($localProjectId);
 
-		// If setProjectId() is not available in your REDCap version, the following will have the same effect:
-		$_GET['pid'] = $localProjectId;
-
 		// Project specific method calls go here.
 		$someValue = $this->getProjectSetting('some_key');
+		$this->myCustomProjectSpecificMethod();
 	}
 
 	return "The \"{$cronInfo['cron_description']}\" cron job completed successfully.";
