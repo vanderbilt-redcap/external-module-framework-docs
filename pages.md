@@ -4,6 +4,10 @@ A module can have pages, similar to traditional REDCap plugins.  While tradition
 
 Note: When building links to module pages in module code, make sure to use the `getUrl()` method (documented [here](methods/README.md)) to build all page URLs on the fly.  Manually building URLs to pages will not work in all cases.
 
+#### Reserved Variables for Authenticated Pages
+When designing module pages that require authentication, please be aware that the following $_GET variables are reserved by REDCap:
+* code
+* state
 
 #### Left-Hand Menu Project Links
 Links to pages can be configured to appear in REDCap's left-hand menu by adding them to `config.json`.  These can include module pages or links to outside websites.  Links configured under the `control-center` section (shown below) will appear only in REDCap's **Control Center**. Links configured under the `project` section (shown below) will be visible by default **only for users with design rights**, on all project pages, on projects where the module is enabled.  Display behavior/permission and link details (name, url, etc.) can be modified on the fly via the `redcap_module_link_check_display()` hook (see the [method documentation](hooks.md#em-hooks) for details).  See [the config.json docs](config.md) for details on link configuration options.

@@ -42,6 +42,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 		* form-list
 		* json
 		* password
+         	* Values saved with a password setting are still stored as plain text. It is not encrypted.
 		* project-id
 		* radio
 		* report-list (added in 14.0.0)
@@ -71,6 +72,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
   * **description** - the description of this action tag (HTML is allowed)  
   
   These action tags and descriptions will be added to the _@ Action Tags_ popup.
+* **enable-email-hook-in-system-contexts** must be set to true in order for the 'redcap_email' hook to function in a system context. **Survey invitations are done in a system context, so this flag is required if a module needs to use the redcap_email hook on survey invitations.**
 * When providing AJAX services (via the `redcap_module_ajax` hook and the `JMSO.ajax()` method), the supported actions must be declared in the **auth-ajax-actions** and/or **no-auth-ajax-actions** arrays, respectively. See [Module AJAX](ajax.md) for more information.
 * When providing API services (via the `redcap_module_api` hook), the supported actions (API methods) must be declared in the **api-actions** object.
 
