@@ -1,0 +1,399 @@
+{
+	"name": "Module Development Examples",
+
+	"namespace": "Vanderbilt\\ModuleDevelopmentExamples",
+
+	"framework-version": 16,
+
+	"description": "A external module to illustrate many of the configuration options and features of the External Module Framework (e.g. pages, hooks, AJAX requests, and API requests)",
+
+	"documentation": "README.md",
+
+	"authors": [
+		{
+			"name": "Vanderbilt University DataCore Team",
+			"email": "datacore@vumc.org",
+			"institution": "Vanderbilt University Medical Center"
+		},
+		{
+			"name": "Mark McEver",
+			"email": "mark.mcever@vumc.org",
+			"institution": "Vanderbilt University Medical Center"
+		},
+		{
+			"name": "Günther Rezniczek",
+			"email": "guenther.rezniczek@rub.de",
+			"institution": "Ruhr-Universität Bochum"
+		}
+	],
+
+	"include-authors-in-api-info": true,
+
+	"enable-every-page-hooks-on-system-pages": false,
+
+	"enable-ajax-logging": true,
+
+	"enable-no-auth-logging": true,
+
+	"auth-ajax-actions": [
+		"example-action"
+	],
+
+	"no-auth-ajax-actions": [
+		"example-action"
+	],
+
+	"links": {
+		"project": [
+			{
+				"name": "Import Example Data (START HERE)",
+				"icon": "fas fa-upload",
+				"url": "import-example-data.php",
+				"show-header-and-footer": true
+			},
+			{
+				"name": "Example Page With Headers",
+				"icon": "fas fa-file",
+				"url": "header-page.php",
+				"show-header-and-footer": true
+			},
+			{
+				"name": "Example Page Without Headers",
+				"icon": "fas fa-file",
+				"url": "no-header-page.php"
+			},
+			{
+				"name": "Example NOAUTH Page",
+				"icon": "fas fa-file",
+				"url": "no-auth-page.php?NOAUTH"
+			},
+			{
+				"name": "Example Twig Page",
+				"icon": "fas fa-tree",
+				"url": "twig-page.php"
+			},
+			{
+				"name": "Example Choice Labels",
+				"icon": "fas fa-check",
+				"url": "example-choice-labels.php",
+				"show-header-and-footer": true
+			}
+		],
+		"control-center": [
+			{
+				"name": "Example Module Control Center Page",
+				"icon": "fas fa-file",
+				"url": "control-center-page.php",
+				"show-header-and-footer": true
+			}
+		]
+	},
+
+	"no-auth-pages": [
+		"public-page",
+		"ajax-test",
+		"no-auth-page",
+		"example-action"
+	],
+
+	"no-csrf-pages": [
+		"ajax-test-no-csrf"
+	],
+
+	"api-actions": {
+		"get-item": {
+			"description": "Gets the item specified by <code>item-id</code>.",
+			"access": ["auth", "no-auth"]
+		},
+		"list-items": {
+			"description": "Returns a list of items with <i>item-id</i> and <i>item-name</i>.",
+			"access": ["auth", "no-auth"]
+		},
+		"add-item": {
+			"description": "Adds an item to the list. Specify the item's name in the <code>item-name</code> parameter. The id of the new item will be returned as <i>'item-id'</i>."
+		},
+		"remove-item": {
+			"description": "Removes an item from the list. Specifiy the item's id in the <code>item-id</code> parameter."
+		}
+	},
+
+	"compatibility": {
+		"redcap-version-min": "8.0.0",
+		"php-version-min": "7.2"
+    },
+
+	"crons": [
+		{
+			"cron_name": "example_cron",
+			"cron_description": "This is basic cron example.",
+			"method": "example_cron",
+			"cron_frequency": "604800",
+			"cron_max_run_time": "604800"
+		}
+	],
+
+	"system-settings": [
+		{
+			"key": "system-text",
+			"name": "System Text",
+			"type": "text"
+		},
+		{
+			"key": "branching-logic-example-1",
+			"name": "Visible When System Text is '1'",
+			"type": "text",
+			"branchingLogic": {
+				"field": "system-text",
+				"value": 1
+			}
+		},
+		{
+			"key": "system-file",
+			"name": "System Upload",
+			"required": false,
+			"type": "file",
+			"repeatable": false
+		},
+		{
+			"key": "system-checkbox",
+			"name": "System Checkbox",
+			"required": false,
+			"type": "checkbox",
+			"repeatable": false
+		},
+		{
+			"key": "system-project",
+			"name": "Project",
+			"required": false,
+			"type": "project-id",
+			"repeatable": false
+		},
+		{
+			"key": "test-list",
+			"name": "List of Sub Settings",
+			"required": true,
+			"type": "sub_settings",
+			"repeatable":true,
+			"sub_settings":[
+				{
+					"key": "system_project_sub",
+					"name": "System Project",
+					"required": true,
+					"type": "project-id"
+				},
+				{
+					"key": "system_project_text",
+					"name": "Sub Text Field",
+					"required": true,
+					"type": "text"
+				}
+			]
+		}
+	],
+
+	"project-settings": [
+		{
+			"key": "descriptive-field",
+			"name": "This is just a descriptive field with only static text and no input field.",
+			"type": "descriptive"
+		},
+		{
+			"key": "custom-field1",
+			"name": "Custom Field 1 (this feature is deprecated)",
+			"type": "custom",
+			"source": "js/test_javascript.js",
+			"functionName": "ExternalModulesOptional.customTextAlert"
+		},
+		{
+			"key": "custom-field2",
+			"name": "Custom Field 2 (this feature is deprecated)",
+			"type": "custom",
+			"source": "extra_types.js",
+			"functionName": "ExternalModulesOptional.addColorToText"
+		},
+		{
+			"key": "test-list2",
+			"name": "List of Sub Settings",
+			"required": true,
+			"type": "sub_settings",
+			"repeatable":true,
+			"sub_settings":[
+				{
+					"key": "form-name",
+					"name": "Form Name",
+					"required": true,
+					"type": "form-list"
+				},
+				{
+					"key": "arm-id",
+					"name": "Arm ID",
+					"required": true,
+					"type": "arm-list"
+				},
+				{
+					"key": "event-id",
+					"name": "Event ID",
+					"required": true,
+					"type": "event-list"
+				},
+				{
+					"key": "test-text",
+					"name": "Text Field",
+					"required": true,
+					"type": "text"
+				},
+				{
+					"key": "test-date",
+					"name": "Date Field",
+					"type": "date"
+				},
+				{
+					"key": "test-email",
+					"name": "Email Field",
+					"type": "email"
+				}
+			]
+		},
+		{
+			"key": "text-area",
+			"name": "Text Area",
+			"required": true,
+			"type": "textarea",
+			"repeatable": true
+		},
+		{
+			"key": "rich-text-area",
+			"name": "Rich Text Area",
+			"required": true,
+			"type": "rich-text"
+		},
+		{
+			"key": "field",
+			"name": "Field",
+			"required": false,
+			"type": "field-list",
+			"repeatable": false
+		},
+		{
+			"key": "dag-id",
+			"name": "Data Access Group ID",
+			"required": false,
+			"type": "dag-list",
+			"repeatable": false
+		},
+		{
+			"key": "username",
+			"name": "Username",
+			"required": false,
+			"type": "user-list",
+			"repeatable": false
+		},
+		{
+			"key": "user-role-id",
+			"name": "User Role ID",
+			"required": false,
+			"type": "user-role-list",
+			"repeatable": false
+		},
+		{
+			"key": "file",
+			"name": "File Upload",
+			"required": false,
+			"type": "file",
+			"repeatable": false
+		},
+		{
+			"key": "checkbox",
+			"name": "Test Checkbox",
+			"required": false,
+			"type": "checkbox",
+			"repeatable": false
+		},
+		{
+			"key": "dropdown",
+			"name": "Dropdown",
+			"type": "dropdown",
+			"choices":[
+				{
+					"name" : "Option 1",
+					"value" : "1"
+				},
+				{
+					"name" : "Option 2",
+					"value" : "2"
+				}
+			]
+		},
+		{
+			"key": "dropdown-autocomplete",
+			"name": "Dropdown With Autocomplete",
+			"type": "dropdown",
+			"autocomplete": true,
+			"choices":[
+				{
+					"name" : "Option 1",
+					"value" : "1"
+				},
+				{
+					"name" : "Option 2",
+					"value" : "2"
+				}
+			]
+		},
+		{
+			"key": "radio",
+			"name": "Test Radio",
+			"required": false,
+			"type": "radio",
+			"choices":[
+				{
+					"name" : "My Radio 1",
+					"value" : "1"
+				},
+				{
+					"name" : "My Radio 2",
+					"value" : "2"
+				}
+			],
+			"repeatable": false
+		},
+		{
+			"key": "button",
+			"name": "Test Button",
+			"type": "button",
+			"url":
+			{
+				"name": "Click here",
+				"value": "url-button-page.php"
+			}
+		},
+		{
+			"key": "project",
+			"name": "Other Project",
+			"required": false,
+			"type": "project-id",
+			"repeatable": false
+		},
+		{
+			"key": "super-users-only",
+			"name": "For Super Users Only",
+			"type": "text",
+			"super-users-only": true
+		},
+		{
+			"key": "color-picker",
+			"name": "Color Picker",
+			"type": "color-picker"
+		},
+		{
+			"key": "dashboard-list",
+			"name": "Dashboard List",
+			"type": "dashboard-list"
+		},
+		{
+			"key": "report-list",
+			"name": "Report List",
+			"type": "report-list"
+		}
+	]
+}

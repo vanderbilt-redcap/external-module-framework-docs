@@ -1,0 +1,14 @@
+<h1>Twig Example Page</h1>
+
+
+{% block content %}{% endblock %}
+
+<form method="post" action="{{ getUrl('twig-page.php') }}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required="required"><br><br>
+    <label for="feeling">Feeling:</label>
+    <input type="text" id="feeling" name="feeling" required="required"><br><br>
+    <input type="submit" value="Submit">  
+</form>
+
+
