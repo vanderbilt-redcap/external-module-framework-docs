@@ -5,26 +5,26 @@ namespace ExternalModuleExercises\IntroJSModule;
 use ExternalModules\AbstractExternalModule;
 use RCView;
 
-class IntroJSModule extends AbstractExternalModule {
+class IntroJSModule extends AbstractExternalModule
+{
+	public function redcap_project_home_page($project_id) {
 
-    function redcap_project_home_page($project_id) {
+		// Define attributes for html elements
+		$button_attributes = [
+			'class' => 'btn btn-primary',
+			'id' => 'incrementButton'
+		];
+		$button_text = "Click to increment";
 
-        // Define attributes for html elements
-        $button_attributes = [
-            'class' => 'btn btn-primary',
-            'id' => 'incrementButton'
-        ];
-        $button_text = "Click to increment";
+		// call a prebuilt button maker
+		echo RCView::button($button_attributes, $button_text);
 
-        // call a prebuilt button maker
-        echo RCView::button($button_attributes, $button_text);
+		echo RCView::p(['id' => 'incrementValue'], '0');
 
-        echo RCView::p(['id' => 'incrementValue'], '0');
-
-        // FIXME
-        // include a JavaScript file that increments the contents of incrementValue
-        // upon clicking the incrementButton
-        /* write your code below */
-    }
+		// FIXME
+		// include a JavaScript file that increments the contents of incrementValue
+		// upon clicking the incrementButton
+		/* write your code below */
+	}
 
 }

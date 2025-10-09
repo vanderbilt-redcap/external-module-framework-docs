@@ -1,13 +1,13 @@
 <?php
 
 namespace ExternalModuleExercises\TwigExerciseModule;
+
 use ExternalModules\AbstractExternalModule;
 use Twig\TwigFunction;
 
 class TwigExerciseModule extends AbstractExternalModule
 {
-	public function getTreeReportData()
-	{
+	public function getTreeReportData() {
 		return \REDCap::getData([
 			'project_id' => $this->getProjectId(),
 			'return_format' => 'json-array',
@@ -21,12 +21,11 @@ class TwigExerciseModule extends AbstractExternalModule
 	 * @param $variableName - the REDCap variable to get labels from.
 	 * @return array - contains labels for a given variable name.
 	 */
-	public function getCheckboxChoiceLabels($record, $variableName)
-	{
+	public function getCheckboxChoiceLabels($record, $variableName) {
 		$allLabels = $this->getChoiceLabels($variableName);
 		$selectedLabels = [];
 		foreach ($record as $labelKey => $isChecked) {
-			if(str_contains($labelKey, $variableName.'___') && $isChecked) {
+			if (str_contains($labelKey, $variableName.'___') && $isChecked) {
 				preg_match('/\d+/', $labelKey, $matches);
 				if (isset($matches[0])) {
 					$selectedLabels[] = $allLabels[$matches[0]];
@@ -37,8 +36,7 @@ class TwigExerciseModule extends AbstractExternalModule
 		return $selectedLabels;
 	}
 
-	public function loadTwigExtensions()
-	{
+	public function loadTwigExtensions() {
 		//TODO Add getCheckboxChoiceLabels to Twig using addFunction().  Link to Twig's addFunction(): https://twig.symfony.com/doc/3.x/advanced.html#functions
 	}
 }

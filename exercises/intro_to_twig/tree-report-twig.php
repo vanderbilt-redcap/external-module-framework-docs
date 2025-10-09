@@ -1,4 +1,5 @@
 <?php
+
 $module->initializeTwig();
 $module->loadTwigExtensions();
 echo $module->getTwig()->render('report.html.twig', [

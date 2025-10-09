@@ -5,21 +5,21 @@ use RCView;
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
 if (!SUPER_USER) {
-    echo "You must be an administrator to use this feature.";
-    require_once APP_PATH_DOCROOT . 'ProjectGeneral/footer.php';
-    return;
+	echo "You must be an administrator to use this feature.";
+	require_once APP_PATH_DOCROOT . 'ProjectGeneral/footer.php';
+	return;
 }
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $module->handlePost();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$module->handlePost();
 }
 
 $module->includeJs("js/rw.js");
 
 $fields = [0 => '-- choose a field --'];
 // retrieve a list of field names for this project
-foreach($module->getMetadata(PROJECT_ID) as $field_id => $data) {
-    $fields[$field_id] = $data['field_label'];
+foreach ($module->getMetadata(PROJECT_ID) as $field_id => $data) {
+	$fields[$field_id] = $data['field_label'];
 }
 
 ?> <form method='POST'> <?php
@@ -34,7 +34,7 @@ echo RCView::input(['id' => 'newValue', 'name' => 'new_value', 'type' => 'text',
 
 echo RCView::br();
 
-echo RCView::submit(['id' => 'submission', 'disabled' => True]);
+echo RCView::submit(['id' => 'submission', 'disabled' => true]);
 
 ?> </form> <?php
 
