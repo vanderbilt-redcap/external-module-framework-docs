@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    {% if name is not empty and feeling is not empty %}
+        <h2>Hello {{ name|emoticon }}!</h2>
+        <p>Thank you for using REDCap and external modules. We are {{ feeling }} you are here.</p>
+    {% else %}
+        <p>Fil out the form to demonstrate Twig templating.</p>
+    {% endif %}
+{% endblock %}

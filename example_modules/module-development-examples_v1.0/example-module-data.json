@@ -1,0 +1,62 @@
+[
+  {
+    "record_id": "1",
+    "common_name": "Japanese Maple",
+    "latin_name": "Acer palmatum",
+    "region___0": "0",
+    "region___1": "1",
+    "region___2": "0",
+    "region___3": "1",
+    "foliage_type": "0",
+    "notes": "This tree is known for its distinctive, peeling bark that reveals a smooth, greenish layer underneath. It has small, delicate leaves that form clusters, providing a soft, feathery appearance. The tree thrives in arid environments and is well-suited for xeriscaping projects. During the blooming season, it produces small, fragrant flowers that attract various pollinators. Its unique bark and drought tolerance make it an interesting and sustainable choice for urban landscapes.",
+    "form_1_complete": "2"
+  },
+  {
+    "record_id": "2",
+    "common_name": "Silk Tree (Mimosa)",
+    "latin_name": "Albizia julibrissin",
+    "region___0": "0",
+    "region___1": "1",
+    "region___2": "0",
+    "region___3": "1",
+    "foliage_type": "2",
+    "notes": "This tree has a broad, umbrella-like canopy that provides excellent shade. Its feathery, fern-like leaves add a delicate texture to the landscape. During the summer, it produces fluffy, pink flowers that attract bees and butterflies. The tree thrives in sunny locations and is quite drought-tolerant once established. It's a fast grower, making it a popular choice for quickly creating a lush, tropical atmosphere. Its airy foliage allows dappled sunlight to filter through, creating a pleasant environment underneath.",
+    "form_1_complete": "2"
+  },
+  {
+    "record_id": "3",
+    "common_name": "Douglas fir",
+    "latin_name": "Pseudotsuga menziesii",
+    "region___0": "1",
+    "region___1": "0",
+    "region___2": "1",
+    "region___3": "0",
+    "foliage_type": "1",
+    "notes": "The Douglas fir is North America's most important timber producer and one of the world's most impressive trees. It grows throughout the western U.S., from Central California to British Columbia. In California, it covers the Klamath, North Coast Ranges, Cascade, and the northern Sierra Nevada. This long-lived conifer is surpassed in height only by the coast redwood (Sequoia sempervirens); the tallest known is over 325 feet. The spirally arranged needles twist where they attach, causing them to lay flat along two sides of the branchlets.",
+    "form_1_complete": "2"
+  },
+  {
+    "record_id": "4",
+    "common_name": "WEEPING WILLOW",
+    "latin_name": "Salix babylonica",
+    "region___0": "1",
+    "region___1": "1",
+    "region___2": "1",
+    "region___3": "1",
+    "foliage_type": "0",
+    "notes": "Salix babylonica is a medium- to large-sized deciduous tree, growing up to 20-25 m (66-82 ft) tall. It grows rapidly, but has a short lifespan, between 40 and 75 years. The shoots are Yellowish-brown, with small buds. The leaves are alternate and spirally arranged, narrow, light green, 4-16 cm (1.6-6.3 in) long and 0.5-2 cm (0.2-0.8 in) broad, with finely serrate margins and long acuminate tips; they turn a gold-yellow in autumn. The flowers are arranged in catkins produced early in the spring; it is dioecious, with the male and female catkins on separate trees.",
+    "form_1_complete": "2"
+  },
+  {
+    "record_id": "5",
+    "common_name": "Happy Tree",
+    "latin_name": "Camptotheca acuminata",
+    "region___0": "0",
+    "region___1": "1",
+    "region___2": "0",
+    "region___3": "0",
+    "foliage_type": "0",
+    "notes": "Of considerable interest for its anti-cancer properties, Camptotheca acuminata is also an attractive ornamental tree with much merit for the garden. A beautiful 15 m specimen in the Medicinal Garden at the US National Arboretum shows what it can do. This has four straight stems from the base, with silvery pale brown bark, bearing a canopy of short, horizontal branches and large glossy dark green leaves. The foliage emerges pink, and the fruit clusters are attractive in autumn (Hudson 2004), although its leaves turn only to a 'sickly chartreuse green' (R. Olsen, pers. comm. 2006). Assessments of a tree's attractiveness are quite subjective: my (JMG) view of this tree, recorded above, as seen briefly in Washington DC, is at variance with that of the staff at the National Arboretum, where it is not a favourite species on account of its habit of dropping limbs and producing copious seedlings to be weeded out (R. Olsen, pers. comm. 2006). This slightly weedy tendency needs to be watched for.",
+    "form_1_complete": "2"
+  }
+]

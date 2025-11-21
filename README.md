@@ -37,6 +37,7 @@ Framework Features | Descriptions
 
 Misc. Resources | Descriptions
 -|-
+[Example Module](example_modules/module-development-examples_v1.0/README.md) | An example module that implements most module framework methods and actions.
 [Beginner's Guide](guide.md) | Start here if you're new to External Module development
 [Module Directory Names](directory-names.md) | Information on module directory naming
 [Module Code Requirements](requirements.md) | Information on basic module requirements
