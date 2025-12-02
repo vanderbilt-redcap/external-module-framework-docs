@@ -251,6 +251,11 @@
 					"key": "test-email",
 					"name": "Email Field",
 					"type": "email"
+				},
+				{
+					"key": "file-subsetting",
+					"name": "File Sub Setting",
+					"type": "file"
 				}
 			]
 		},
@@ -300,7 +305,7 @@
 			"name": "File Upload",
 			"required": false,
 			"type": "file",
-			"repeatable": false
+			"repeatable": true
 		},
 		{
 			"key": "checkbox",
