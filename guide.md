@@ -329,7 +329,7 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
     }
 
     function alterUsers($users, $new_value) {
-        $users = implode('", "', $users);
+        $usernames_data = implode('", "', $users);
         // FIXME: write and run the SQL command, log what was done
 
         $questionMarks = [];
@@ -341,7 +341,7 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
             SET allow_create_db = ?
             WHERE username IN (' . implode(',', $questionMarks) . ')';
 
-        $result = $this->query($sql, [$new_value, $users]);
+        $result = $this->query($sql, [$new_value, $usernames_data]);
 
         if ($result) {
             // Log what was done if successful
