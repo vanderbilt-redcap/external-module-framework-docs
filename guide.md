@@ -317,7 +317,7 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
         $sql = 'SELECT username
             FROM redcap_user_information';
 
-        $result = $this->query($sql);
+        $result = $this->query($sql, []);
 
         /* stop writing here */
         // parse the mysqli response object into an array
