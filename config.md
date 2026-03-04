@@ -56,7 +56,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 	* **super-users-only** can be set to **true** to only allow super users to access a given setting.
 	* **repeatable** is a boolean that specifies whether the element can repeat many times. **If it is repeatable (true), the element will return an array of values.**
    * **allow-project-overrides** is a boolean option for system settings available since REDCap 14.1.6.  When set to `true`, that setting will also appear in the project configuration dialog (under the name defined by the `project-name` option).  Calls to `$module->getProjectSetting()` will then return the system value if no project value is set.  This features only works on top-level settings (not `sub_settings`).
-	* **autocomplete** is a boolean that enables autocomplete on dropdown fields.
+	* **autocomplete** is a boolean that toggles autocomplete on dropdown fields. This defaults to true. If set to false, autocomplete will be disabled for the specified dropdown field.
 	* **field-type** is a string that can limit a field-list setting to only fields of the given type. "enum" is a special type that includes radio, select, checkbox, true/false and yes/no fields.
    * **project-name** is a string option available since REDCap 13.1.2.  When used in conjunction with `allow-project-overrides`, this is the setting name that will display in project configuration dialogs.
    * **visibility-filter** is a string that can be applied to a form-list, report-list, or dashboard-list. `public` limits the field to showing only publicly visible forms (i.e., surveys), reports, or dashboards. `nonpublic` similarly limits the field to showing only forms, reports, or dashboard that are *not* publicly visible. Omitting this setting will show the default behavior: all forms, reports, or dashboards.
@@ -147,6 +147,8 @@ Obs.: when `op` is not defined, "=" is assumed. When `type` is not defined, "and
 ## Example config.json file
 
 For reference, below is a nearly comprehensive example of the types of things that can be included in a module's config.json file.
+
+You can also check out the [example modules config file](example_modules/module-development-examples_v1.0/config.json).
 
 ``` json
 {
