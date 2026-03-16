@@ -2,8 +2,7 @@
 
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
-// "views" is the default directory, but you can use any directory, like "twig_views"
-$module->initializeTwig('twig_views');
+$module->initializeTwig();
 $module->loadTwigExtensions();
 echo $module->getTwig()->render('example_template.html.twig', [
 	'name' => $_POST['name'],

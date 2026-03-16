@@ -3,7 +3,7 @@
 
 	"namespace": "Vanderbilt\\ModuleDevelopmentExamples",
 
-	"framework-version": 16,
+	"framework-version": 17,
 
 	"description": "A external module to illustrate many of the configuration options and features of the External Module Framework (e.g. pages, hooks, AJAX requests, and API requests)",
 

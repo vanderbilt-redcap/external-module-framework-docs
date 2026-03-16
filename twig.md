@@ -3,8 +3,8 @@
 ### 1. Including Twig
 Twig comes included in the External Module Framework as of REDCap version 14.6.4.  Each module has its own Twig `Environment` that comes pre-loaded with several EM framework methods.  The "Example Twig Page" from the Module Development Examples module bundled with REDCap for working example.
 ### 2. Initialize Twig
-When you're ready to use Twig, you first need to call `initializeTwig($templateNameDirectory = 'views')`.  This will load the twig classes into the Autoloader. It's best practice to use a a directory named "`views`", and this is the default directory name.
-```
+When you're ready to use Twig, you first need to call `initializeTwig()`.  This will load the twig classes into the Autoloader. The recommended best practice twig template directory named `views` will be used by default:
+```php
 //../modules/ExampleModule.php
 
 // loads creates a Twig Environment for your module
@@ -15,9 +15,28 @@ $this->initializeTwig();
 $this->getTwig()->render(...);
 ```
 
+If your module requires an alternate twig templates directory, an optional `templateDirectoryName` argument may be used specify that directory:
+```php
+$this->initializeTwig(templateDirectoryName: 'alternate/path/to/views');
+```
+
+As of REDCap Version TBD, an `options` array may be optionally specified containing any desired [Twig Environment Options](https://twig.symfony.com/doc/3.x/api.html#environment-options):
+```php
+$this->initializeTwig(options: [
+    'use_yield' => true,
+]);
+```
+
+As of [Framework Version 17](versions/v17.md), the `strict_variables` environment option will default to `true` when `Yes, this a development/test/staging server (non-production)` is selected in Control Center.  While not recommended, the "always false" behavior from previous framework versions can be restored as follows:
+```php
+$this->initializeTwig(options: [
+    'strict_variables' => false,
+]);
+```
+
 ## Usage
 If your module extends `AbstractExternalModule`, simply call `$this->getTwig()` or `$module->getTwig()` depending on your context.  The most common use case is calling Twig's `render()` which may look like this:
-```
+```php
 $this->getTwig()->render('reports/enrollment_summary.html.twig', [
     'title' => $title,
     'data' => $data,
@@ -31,10 +50,10 @@ Module object methods that are generally appropriate to use in a front-end conte
 ```
 Any other methods defined on your module class can also be made accessible by extending Twig as described below.
 ## Extending Twig
-Functions, filters and tags can be [added to Twig by extending it](https://twig.symfony.com/doc/3.x/advanced.html).  Be sure to call `initializeTwig()` before using any Twig Classes like `TwigFilter()` or `TwigFunction()`.  Here is an example of what a module's twig extensions may look like: 
-```
+Functions, filters and tags can be [added to Twig by extending it](https://twig.symfony.com/doc/3.x/advanced.html).  Be sure to call `initializeTwig()` before using any Twig Classes like `TwigFilter()` or `TwigFunction()`.  Here is an example of what a module's twig extensions may look like:
+```php
 private function loadTwigExtensions(): void
-{	
+{
     $this->initializeTwig();
     $this->getTwig()->addFunction(new TwigFunction('reportRoute', function ($reportRoute) {
         return $this->getUrl('report.php') . '&reportRoute=' . $reportRoute;
@@ -53,11 +72,11 @@ All views should be stored in a `/views` directory, with subfolders as needed.
 ## Template Structure and Inheritance
 1. Use a base template called `base.html.twig` as the foundation of your templating.  This file should include HTML, CSS and JS needed for all pages, as well as Twig `blocks` for sections to be filled in by other templates as outlined in [Twig's Template Inheritance documentation](https://twig.symfony.com/doc/3.x/templates.html#template-inheritance). This way, child templates only contain the blocks specific to their rendering.
 1. Use template fragments and Twig's `include()` function so template code is not duplicated between templates.  For example, consider this mark up for a title used across several templates:
- ``` 
-<div class="projhdr">
-   <i class="fas fa-clipboard-check"></i> {{ title }}
-</div>
-```
-Instead of repeating this few lines on several templates, create a template fragment named `_title.html.twig`.  and include on templates using `{{ include('_title.html.twig' with {title: title})`.
-3. When including another template, explicitly define the context.  Twig allows includes to reference variables in the global context, but this can be confusing, as it isn't clear what variables are required without carefully reading the template fragment. Instead, explicitly define each template fragment's context (e.g. `{{ include('_title.html.twig' with {title: title})` instead of `{{ include('_title.html.twig')}}`)
-4. 
+	```
+	<div class="projhdr">
+		<i class="fas fa-clipboard-check"></i> {{ title }}
+	</div>
+	```
+	Instead of repeating these few lines across several templates, create a template fragment named `_title.html.twig`.  and include on templates using `{{ include('_title.html.twig' with {title: title})`.
+
+1. When including another template, explicitly define the context.  Twig allows includes to reference variables in the global context, but this can be confusing, as it isn't clear what variables are required without carefully reading the template fragment. Instead, explicitly define each template fragment's context (e.g. `{{ include('_title.html.twig' with {title: title})` instead of `{{ include('_title.html.twig')}}`)

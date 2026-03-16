@@ -100,7 +100,7 @@ Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 `getUserSetting`($key) | 8.3.0                        | Returns the value stored for the specified key for the current user and project.  Null is always returned on surveys and NOAUTH pages.
 `importDataDictionary`($projectId,$path) | 9.7.6                        | Given a project id and a path, imports a data dictionary CSV file.
 `initializeJavascriptModuleObject`() | 8.7.2                        | Returns a JavaScript block that initializes the JavaScript version of the module object. This JavaScript Module object is [documented below](#javascript-module-object).
-`initializeTwig`() | 14.6.4                       | Loads Twig classes and configures a Twig `Environment` for your module.  See details on the [Twig page](../twig.md).
+`initializeTwig`([$whatever [, $options]]) | 14.6.4                       | Loads Twig classes and configures a Twig `Environment` for your module.  Support for the `options` parameter was added in TBD.  See details on the [Twig page](../twig.md).
 `isAuthenticated`() | 13.4.11                      | Returns `true` in authenticated contexts and `false` in NOAUTH contexts.
 `isModuleEnabled`($prefix [, $pid]) | 9.9.1                        | Returns true if the module with the given prefix is enabled on the system (when no project id is supplied) or the given project; or false otherwise.
 `isModulePage`([$path]) | 14.0.3                       | Determines whether the current page is provided by the current module, and optionally whether the given `$path` parameter matches the `page` URL parameter.  If `$path` is not specified, `true` is returned on any page provided by the current module.
