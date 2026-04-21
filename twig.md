@@ -20,7 +20,7 @@ If your module requires an alternate twig templates directory, an optional `temp
 $this->initializeTwig(templateDirectoryName: 'alternate/path/to/views');
 ```
 
-As of REDCap Version TBD, an `options` array may be optionally specified containing any desired [Twig Environment Options](https://twig.symfony.com/doc/3.x/api.html#environment-options):
+As of REDCap Version 17.0.1, an `options` array may be optionally specified containing any desired [Twig Environment Options](https://twig.symfony.com/doc/3.x/api.html#environment-options):
 ```php
 $this->initializeTwig(options: [
     'use_yield' => true,
