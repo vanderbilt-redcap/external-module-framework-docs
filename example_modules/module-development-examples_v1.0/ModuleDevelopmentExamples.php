@@ -4,6 +4,8 @@ namespace Vanderbilt\ModuleDevelopmentExamples;
 
 class ModuleDevelopmentExamples extends \ExternalModules\AbstractExternalModule
 {
+	public const USER_QUERY_KEY_1 = 'user_query_key_1';
+	public const USER_QUERY_KEY_2 = 'user_query_key_2';
 	/**
 	 * @return void
 	 */

@@ -81,6 +81,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 
   For modules providing API services, the EM Framework implements special actions that provide information about the module, which may include the authors when opted in via the **include-authors-in-api-info** flag (which can be set to `true` or `false`).  
   See [Module API](api.md) for more details, requirements, and examples.
+* To enable user-defined SQL queries (for super users only), set **enable-user-queries** to `true`.  See [User-defined SQL Queries](user-queries.md) for more information.
 * To support **internationalization** of External Modules (translatability of strings displayed by modules), many of the JSON keys in the configuration file have a _companion key_ that is prepended by "**tt_**", such as *tt_name* or *tt_description* (full list of translatable keys: _name_, _description_, _documentation_, _icon_, _url_, _default_, _cron_description_, as well as _required_ and _hidden_). When provided with a value that corresponds to a key in a language file supplied with the module, the value for the setting will be replaced with the value from the language file. For details, please refer to the [internationalization guide](i18n-guide.md).
 * **Attention!** If your JSON is not properly specified, an Exception will be thrown.
 
@@ -204,6 +205,8 @@ You can also check out the [example modules config file](example_modules/module-
    "enable-ajax-logging": true,
 
    "enable-no-auth-logging": false,
+
+   "enable-user-queries": true,
 
    "auth-ajax-actions": [
       "action-1",

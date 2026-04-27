@@ -34,6 +34,7 @@ Framework Features | Descriptions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
 [Security](security.md) | A summary of security related features
 [Framework Versioning](versions/README.md) | The mechanism through which backward compatibility is maintained as the framework changes over time
+[Custom User Queries](user-queries.md) | The recommended way to add stored SQL queries to a module
 
 Misc. Resources | Descriptions
 -|-

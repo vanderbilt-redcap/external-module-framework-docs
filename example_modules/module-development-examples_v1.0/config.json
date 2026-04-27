@@ -35,6 +35,8 @@
 
 	"enable-no-auth-logging": true,
 
+    "enable-user-queries": true,
+
 	"auth-ajax-actions": [
 		"example-action"
 	],
