@@ -2,15 +2,8 @@ Feature: File Settings
 
   Test file setting behavior
 
-  Scenario: Enable the module at the system level
-    Given I login to REDCap with the user "Test_Admin"
-    And I click on the link labeled "Control Center"
-    And I click on the link labeled "Manage"
-    And I click on the button labeled "Enable a module"
-    And I click on the button labeled "Enable" in the row labeled "Module Development Examples"
-    And I click on the button labeled "Enable"
-
   Scenario: Create a project
+    Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "New Project"
     And I enter "Module Development Examples Test Project" into the input field labeled "Project title"
     And I select "Practice / Just for fun" on the dropdown field labeled "Project's purpose"
