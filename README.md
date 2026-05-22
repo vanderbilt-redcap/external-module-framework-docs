@@ -30,6 +30,7 @@ Framework Features | Descriptions
 [Crons](crons.md) | Scheduled tasks that automatically execute periodically in the background
 [Twig](twig.md) | Built-in Twig Engine for reusable, concise and safe templating in HTML, JS and CSS
 [Unit Testing](unit-testing.md) | Writing standard PHPUnit tests for your module
+[Cypress Testing](https://github.com/vanderbilt-redcap/redcap_cypress_docker#writing-tests-for-external-modules) | The REDCap Cypress Developer Toolkit is primarily intended for REDCap itself, but also supports Cypress tests for external modules
 [Compatibility](compatibility.md) | Making sure your module correctly specifies required REDCap & PHP versions
 [Internationalization Guide](i18n-guide.md) | The guide for support multiple languages within your module
 [Security](security.md) | A summary of security related features
