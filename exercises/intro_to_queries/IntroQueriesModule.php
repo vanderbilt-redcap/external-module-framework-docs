@@ -52,7 +52,7 @@ class IntroQueriesModule extends AbstractExternalModule
 	}
 
 	public function alterUsers($users, $new_value) {
-		$users = implode('", "', $users);
+		$usernames_data = implode('", "', $users);
 		// FIXME: write and run the SQL command, log what was done
 
 		return $result;
