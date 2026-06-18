@@ -5,4 +5,4 @@ If your module uses a third party library (i.e. PHPMailer) that is available in 
 If you would like to create a library to share between multiple modules, [composer can also use github as a repo](https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository).
 
 If multiple modules use different versions of the same composer package, you may see a warning in the EM Manager section of the Control Center: "WARNING: Potentially incompatible composer packages may cause REDCap to crash unexpectedly."  
-If this causes disruption of your modules, consider using [php-scoper](https://github.com/humbug/php-scoper). The framework team is currently looking into on integrating this tool.
+If this causes disruption of your modules, consider using [php-scoper](https://github.com/humbug/php-scoper). The framework team is currently looking into integrating this tool.
