@@ -22,3 +22,5 @@ Modules should minimize the number of global JavaScript variables, functions, cl
   MyUniquelyNamedModule.someFunction()
 </script>
 ```
+
+We recommend leveraging the [JavaScript Module Object](methods/README.md#javascript-module-object).
