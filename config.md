@@ -4,7 +4,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
 
 * Module **name**
 * Module  **description**
-* **documentation** can be used to provide a filename or URL for the "View Documentation" link in the module list.  If this setting is omitted, the first filename that starts with "README" will be used if it exists.  If a markdown file is used, it will be automatically rendered as HTML.
+* **documentation** can be used to provide a filename or URL for the "View Documentation" link in the module list.  If this setting is omitted, the first filename that starts with "README" will be used if it exists.  If a markdown file is used, it will be automatically rendered as HTML.  Rendered markdown supports relative links to files inside the module directory.
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * **DEPRECATED:** Prior to framework version 12, a **permissions** section was required to specify each hook you wish you use (e.g., **redcap_save_record**).  From framework version 12 forward, hooks work automatically and the **permissions** section must be removed.
 * The **framework-version** version used by the module ([click here](versions/README.md) for details).
