@@ -75,6 +75,8 @@ Method<br><br>&nbsp; | Minimum<br>REDCap<br>Version | Description<br><br>&nbsp;
 `getJavascriptModuleObjectName`() | 8.10.12                      | Returns the name of the javascript object for this module.
 `getModuleDirectoryName`() | 8.0.0                        | get the directory name of the current external module
 `getModuleName`() | 8.0.0                        | get the name of the current external module
+`getOriginalDashboardBody()` | TBD | Returns the original body of the dashboard when called inside the `redcap_module_dashboard_before_render` or `redcap_module_dashboard_after_render` hooks (`null` otherwise).
+`getOriginalDashboardTitle()` | TBD | Returns the original title of the dashboard when called inside the `redcap_module_dashboard_before_render` or `redcap_module_dashboard_after_render` hooks (`null` otherwise).
 `getProject`([$projectId]) | 8.11.10                      | Returns a `Project` object for the given project ID, or the current project if no ID is specified.  This `Project` object is [documented below](#project-object).
 `getProjectId`() | 8.7.2                        | A convenience method for returning the current project id.
 `getProjectsWithModuleEnabled`() | 8.11.6                       | Returns an array of project ids for which the  current module is enabled (especially useful in cron jobs).  Projects are excluded that are in analysis/cleanup status, or have been completed or deleted.
