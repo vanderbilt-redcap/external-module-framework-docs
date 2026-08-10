@@ -3,8 +3,9 @@
 Below is a list of all items that can be added to **config.json**. **An extensive example of config.json is provided at the very bottom of this page** if you wish to see how all these items will be structured.
 
 * Module **name**
-* Module  **description**
-* **documentation** can be used to provide a filename or URL for the "View Documentation" link in the module list.  If this setting is omitted, the first filename that starts with "README" will be used if it exists.  If a markdown file is used, it will be automatically rendered as HTML.  Rendered markdown supports relative links to files inside the module directory.
+* Module  **description** should give a short description of what the module does. This will be displayed in the External Modules Repository and on the _Module Manager_ pages in both, project and Control Center contexts. _Additional_ descriptions can be shown on the respective page when specified through the (optional) **description-project** and **description-system** entries.
+* The **documentation** entry specifies a file in the module directory or a URL for the "View Documentation" link. If it is omitted, the framework uses the first file in the module root directory whose name begins with `README`, if one exists. Markdown files are rendered as HTML and can contain relative links to other files in the module directory, including other Markdown documentation files.
+	* (TBD) To provide context-specific documentation, specify **documentation-system** for the Control Center and/or **documentation-project** for project pages. A nonempty context-specific entry takes precedence over **documentation** in its respective context. In the Control Center, separate links are displayed for the system and project documentation when they resolve to different files. On project pages, administrators with module-install privileges can also view the system documentation.
 * For module **authors**, enter their **name**,  **email**, and **institution**. At least one author is required to run the module.
 * **DEPRECATED:** Prior to framework version 12, a **permissions** section was required to specify each hook you wish you use (e.g., **redcap_save_record**).  From framework version 12 forward, hooks work automatically and the **permissions** section must be removed.
 * The **framework-version** version used by the module ([click here](versions/README.md) for details).
@@ -82,7 +83,7 @@ Below is a list of all items that can be added to **config.json**. **An extensiv
   For modules providing API services, the EM Framework implements special actions that provide information about the module, which may include the authors when opted in via the **include-authors-in-api-info** flag (which can be set to `true` or `false`).  
   See [Module API](api.md) for more details, requirements, and examples.
 * To enable user-defined SQL queries (for super users only), set **enable-user-queries** to `true`.  See [User-defined SQL Queries](user-queries.md) for more information.
-* To support **internationalization** of External Modules (translatability of strings displayed by modules), many of the JSON keys in the configuration file have a _companion key_ that is prepended by "**tt_**", such as *tt_name* or *tt_description* (full list of translatable keys: _name_, _description_, _documentation_, _icon_, _url_, _default_, _cron_description_, as well as _required_ and _hidden_). When provided with a value that corresponds to a key in a language file supplied with the module, the value for the setting will be replaced with the value from the language file. For details, please refer to the [internationalization guide](i18n-guide.md).
+* To support **internationalization** of External Modules (translatability of strings displayed by modules), many of the JSON keys in the configuration file have a _companion key_ that is prepended by "**tt_**", such as *tt_name* or *tt_description* (full list of translatable keys: _name_, _description_, _description-project_, _description-system_, _documentation_, _documentation-project_, _documentation-system_, _icon_, _url_, _default_, _cron_description_, as well as _required_ and _hidden_). When provided with a value that corresponds to a key in a language file supplied with the module, the value for the setting will be replaced with the value from the language file. For details, please refer to the [internationalization guide](i18n-guide.md).
 * **Attention!** If your JSON is not properly specified, an Exception will be thrown.
 
 ## Examples of branching logic
@@ -161,6 +162,8 @@ You can also check out the [example modules config file](example_modules/module-
    "description": "Example module to show off all the options available",
    
    "documentation": "README.pdf",
+
+   "documentation-system": "CONFIGURATION.md",
 
    "authors": [
       {

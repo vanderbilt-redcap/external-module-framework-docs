@@ -9,6 +9,8 @@
 
 	"documentation": "README.md",
 
+	"documentation-system": "CONFIGURATION.md",
+
 	"authors": [
 		{
 			"name": "Vanderbilt University DataCore Team",
