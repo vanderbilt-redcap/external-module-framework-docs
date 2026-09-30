@@ -11,7 +11,7 @@ Feature: File Settings
     And I click on the button labeled "Create Project"
 
   Scenario: Enable the module at the project level
-    And I click on the link labeled "Manage"
+    And I click on the second link labeled "Manage"
     And I click on the button labeled "Enable a module"
     And I click on the button labeled "Enable" in the row labeled "Module Development Examples"
 
