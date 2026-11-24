@@ -1,5 +1,10 @@
 ### Unit Testing
 
+Psalm scans default to `ExternalModules::PSALM_MEMORY_LIMIT`. Set the
+`REDCAP_PSALM_MEMORY_LIMIT` environment variable to a PHP memory-limit value
+(for example, `4G`) to override that limit in Psalm's bootstrap.
+GitHub CI sets this to `4G` for every PHP version in the test matrix.
+
 Writing unit tests for Exteral Modules is no different than writing unit tests for any PHP project.  The External Module Framework supports PHPUnit by default, since is by far the leading unit testing framework in PHP.  Much of the documentation you'll find on the internet for PHPUnit will recommend installing it on each project.  However, for External Module development it is generally easier to manage by  installing it once globally via the following command:
 
 ```

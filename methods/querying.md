@@ -17,10 +17,18 @@ $result = $module->query(
   ',
   [
     $project_id,
-    $record_id
+    (string)$record_id
   ]
 );
 ```
+Parameter types are inferred from PHP values, not from database column types. Pass
+values for string columns as strings, including numeric-looking REDCap record IDs.
+PHP converts integer-like string array keys to integers, so cast record IDs taken
+from array keys or returned by `array_keys()` back to strings before binding them.
+Comparing a string column to an integer parameter can prevent MySQL from using its
+index and can match distinct identifiers such as `1`, `01`, and `1a` numerically.
+Keep actual numeric parameters (for example, `LIMIT` and `OFFSET`) as integers.
+
 In the uncommon case of queries that really should not have any parameters, an empty array must be specificed to show that the use of parameters was seriously considered:
 ```php
 $result = $module->query('select count(*) from redcap_user_information', []);
