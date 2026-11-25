@@ -317,7 +317,7 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
         $sql = 'SELECT username
             FROM redcap_user_information';
 
-        $result = $this->query($sql);
+        $result = $this->query($sql, []);
 
         /* stop writing here */
         // parse the mysqli response object into an array
@@ -329,7 +329,6 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
     }
 
     function alterUsers($users, $new_value) {
-        $users = implode('", "', $users);
         // FIXME: write and run the SQL command, log what was done
 
         $questionMarks = [];
@@ -341,11 +340,12 @@ Read the [Method Documentation](methods/README.md). Search for the `query` funct
             SET allow_create_db = ?
             WHERE username IN (' . implode(',', $questionMarks) . ')';
 
-        $result = $this->query($sql, [$new_value, $users]);
+        $params = array_merge([$new_value], $users);
+        $result = $this->query($sql, $params);
 
         if ($result) {
             // Log what was done if successful
-            $this->log("Set allow_db to $new_value for users: \"$users\"");
+            $this->log("Set allow_db to $new_value for users: \"".implode(",",$users)."\"");
         }
 
         return $result;
